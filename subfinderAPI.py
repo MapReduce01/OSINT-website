@@ -16,17 +16,13 @@ def run_subfinder(domain):
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while running Subfinder: {e}")
         return []
-
-# Example usage
-if __name__ == "__main__":
-    domain = "sfu.ca"
-    subdomains = run_subfinder(domain)
     
-    # Print subdomains
+def subfinderAPI(domain):   
+    subdomains = run_subfinder(domain)
+    domain_list = []
     if subdomains:
-        with open("subfinderoutput.txt", "w") as file:
-            print(f"Subdomains for {domain}:")
-            for subdomain in subdomains:
-                file.write(str(subdomain)+"\n")
-    else:
-        print(f"No subdomains found for {domain}.")
+        for subdomain in subdomains:
+            domain_list.append(str(subdomain))
+        else:
+            print(f"No subdomains found for {domain}.")
+    return domain_list
