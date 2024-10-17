@@ -1,7 +1,7 @@
 from openai import OpenAI
 
 def openai_query(query):
-    client = OpenAI(api_key='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')
+    client = OpenAI(api_key='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')
 
     completion = client.chat.completions.create(
     model="gpt-4o-mini",

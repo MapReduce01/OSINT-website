@@ -1,4 +1,5 @@
 import requests
+import json
 
 def gleifAPI(name):
     gleif_api_url = "https://api.gleif.org/api/v1/lei-records"
@@ -31,7 +32,8 @@ def gleifAPI(name):
                 print(f"Postal Code: {postalcode}")
                 print(f"Registration Status: {registration_status}")
                 # lei_record is a dict, attributes are shown as ablove
-                return lei_record
+                json_version = json.dumps(lei_record)
+                return json_version
         else:
             print("No matching company found.")
     else:

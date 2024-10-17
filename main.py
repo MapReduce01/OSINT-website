@@ -17,7 +17,7 @@ target_domain = matches_www[0].replace("www.","")
 print("Finding subdomains... It might take a while"+"\n")
 domain_list = subfinderAPI(target_domain)
 
-query = "find top 20 most similar subdomains to "+target_domain+" in this list: " + str(domain_list) + ", don't add any comments, no numbers, just pure domains, seperated with comma."
+query = "find top 20 subdomains which are most similar to "+target_domain+" in this list: " + str(domain_list) + ", don't add any comments, no numbers, just pure domains, seperated with comma."
 domain_list_filtered = openai_query(query).split(", ")
 
 ip_addresses = []
@@ -34,4 +34,3 @@ ip_addresses_filtered = list(set(ip_addresses))
 print(ip_addresses_filtered)
 
 lei_info = gleifAPI(user_input)
-
