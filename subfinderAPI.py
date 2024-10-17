@@ -23,6 +23,6 @@ def subfinderAPI(domain):
     if subdomains:
         for subdomain in subdomains:
             domain_list.append(str(subdomain))
-        else:
-            print(f"No subdomains found for {domain}.")
+    else:
+        print(f"No subdomains found for {domain}.")
     return domain_list
