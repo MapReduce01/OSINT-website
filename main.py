@@ -18,11 +18,11 @@ print("Finding subdomains... It might take a while"+"\n")
 domain_list = subfinderAPI(target_domain)
 
 query = "find top 20 most similar subdomains to "+target_domain+" in this list: " + str(domain_list) + ", don't add any comments, no numbers, just pure domains, seperated with comma."
-filtered_list = openai_query(query).split(", ")
+domain_list_filtered = openai_query(query).split(", ")
 
 ip_addresses = []
 
-for x in filtered_list:
+for x in domain_list_filtered:
     try:
         ip_address = socket.gethostbyname(x)
         ip_addresses.append(ip_address)
