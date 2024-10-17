@@ -3,7 +3,7 @@ from subfinderAPI import subfinderAPI
 from openai_utilities import openai_query
 import re
 import socket
-
+from gleifAPI import gleifAPI
 
 user_input = input("Enter a name to search: ")
 print("Searching... ", user_input)
@@ -32,4 +32,6 @@ for x in domain_list_filtered:
 
 ip_addresses_filtered = list(set(ip_addresses))
 print(ip_addresses_filtered)
+
+lei_info = gleifAPI(user_input)
 
