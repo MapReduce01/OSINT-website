@@ -9,7 +9,7 @@ def fetch_news(apikey, example):
         return data["articles"]
 
 # Example usage
-apikey = "92fb531ccd5040d9677d73c64d78bc69"
-example = "sfu"
-news_data = fetch_news(apikey, example)
-print(news_data)
+# apikey = "92fb531ccd5040d9677d73c64d78bc69"
+# example = "sfu"
+# news_data = fetch_news(apikey, example)
+# print(news_data)

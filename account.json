@@ -1,0 +1,128 @@
+[
+    {
+        "generated": 1729158591,
+        "type": "Human Name",
+        "data": "simon fraser university",
+        "module": "SpiderFoot UI",
+        "source": "simon fraser university"
+    },
+    {
+        "generated": 1729158591,
+        "type": "Username",
+        "data": "simonfraseruniversity",
+        "module": "sfp_accounts",
+        "source": "simon fraser university"
+    },
+    {
+        "generated": 1729158591,
+        "type": "Username",
+        "data": "simon.fraser.university",
+        "module": "sfp_accounts",
+        "source": "simon fraser university"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "Blogspot (Category: blog)\n<SFURL>http://simonfraseruniversity.blogspot.com</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "DockerHub (Category: coding)\n<SFURL>https://hub.docker.com/v2/users/simonfraseruniversity/</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "giters (Category: coding)\n<SFURL>https://giters.com/simonfraseruniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "Gravatar (Category: images)\n<SFURL>https://en.gravatar.com/simonfraseruniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "issuu (Category: shopping)\n<SFURL>https://issuu.com/simonfraseruniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "Telegram (Category: social)\n<SFURL>https://t.me/simonfraseruniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "TikTok (Category: social)\n<SFURL>https://www.tiktok.com/@simonfraseruniversity?lang=en</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "tumblr (Category: images)\n<SFURL>https://simonfraseruniversity.tumblr.com</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "Twitch (Category: gaming)\n<SFURL>https://twitch.tv/simonfraseruniversity/</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "YouTube Channel (Category: video)\n<SFURL>https://www.youtube.com/c/simonfraseruniversity/about</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158724,
+        "type": "Account on External Site",
+        "data": "YouTube User2 (Category: video)\n<SFURL>https://www.youtube.com/@simonfraseruniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simonfraseruniversity"
+    },
+    {
+        "generated": 1729158847,
+        "type": "Account on External Site",
+        "data": "Filmot Unlisted Videos (Category: archived)\n<SFURL>https://filmot.com/unlistedSearch?channelQuery=simon.fraser.university&sortField=uploaddate&sortOrder=desc&</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simon.fraser.university"
+    },
+    {
+        "generated": 1729158847,
+        "type": "Account on External Site",
+        "data": "Mastodon-meow.social (Category: social)\n<SFURL>https://meow.social/@simon.fraser.university</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simon.fraser.university"
+    },
+    {
+        "generated": 1729158847,
+        "type": "Account on External Site",
+        "data": "SmugMug (Category: images)\n<SFURL>https://simon.fraser.university.smugmug.com</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simon.fraser.university"
+    },
+    {
+        "generated": 1729158847,
+        "type": "Account on External Site",
+        "data": "tumblr (Category: images)\n<SFURL>https://simon.fraser.university.tumblr.com</SFURL>",
+        "module": "sfp_accounts",
+        "source": "simon.fraser.university"
+    }
+]
