@@ -4,7 +4,7 @@ import json
 def email_finder(domain_list_filtered):
     email_json_list = []
     for domain in domain_list_filtered:
-        command = ["python", "./OSINT-website/spiderfoot/sf.py", "-m", "sfp_hunter", "-s", domain, "-o","json","-q"]
+        command = ["python", "./spiderfoot/sf.py", "-m", "sfp_hunter", "-s", domain, "-o","json","-q"]
         result = subprocess.run(command, capture_output=True, text=True)
         output = "["+result.stdout[:-3] + "]"
         email_json = json.loads(output)

@@ -3,6 +3,7 @@ from subfinderAPI import subfinderAPI
 from openai_utilities import openai_query
 from gleifAPI import gleifAPI
 from gNews import fetch_news
+import safeIP
 import re
 import subprocess
 import json
