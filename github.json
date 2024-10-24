@@ -1,202 +1,237 @@
 [
     {
-        "generated": 1729158851,
+        "generated": 1729755848,
         "type": "Internet Name",
-        "data": "www.sfu.ca",
+        "data": "students.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "www.sfu.ca"
+        "source": "students.sfu.ca"
     },
     {
-        "generated": 1729158855,
+        "generated": 1729755849,
         "type": "Internet Name",
-        "data": "sfu.ca",
+        "data": "alumni.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "sfu.ca"
+        "source": "alumni.sfu.ca"
     },
     {
-        "generated": 1729158855,
-        "type": "Domain Name",
-        "data": "sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "sfu.ca"
-    },
-    {
-        "generated": 1729158856,
-        "type": "Public Code Repository",
-        "data": "Name: sfu\nURL: https://github.com/medooze/sfu\nDescription: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support",
-        "module": "sfp_github",
-        "source": "sfu.ca"
-    },
-    {
-        "generated": 1729158856,
-        "type": "Public Code Repository",
-        "data": "Name: sfu\nURL: https://github.com/inlivedev/sfu\nDescription: WebRTC Selective Forwarder Unit(SFU) Golang Library",
-        "module": "sfp_github",
-        "source": "sfu.ca"
-    },
-    {
-        "generated": 1729158856,
-        "type": "Public Code Repository",
-        "data": "Name: sfu\nURL: https://github.com/webrtc-rs/sfu\nDescription: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO",
-        "module": "sfp_github",
-        "source": "sfu.ca"
-    },
-    {
-        "generated": 1729158875,
+        "generated": 1729755849,
         "type": "Internet Name",
-        "data": "its.sfu.ca",
+        "data": "github.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "its.sfu.ca"
+        "source": "github.sfu.ca"
     },
     {
-        "generated": 1729158879,
-        "type": "Internet Name",
-        "data": "library.lib.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "library.lib.sfu.ca"
-    },
-    {
-        "generated": 1729158883,
-        "type": "Internet Name",
-        "data": "staff.lib.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "staff.lib.sfu.ca"
-    },
-    {
-        "generated": 1729158887,
-        "type": "Internet Name",
-        "data": "student.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "student.sfu.ca"
-    },
-    {
-        "generated": 1729158892,
-        "type": "Internet Name",
-        "data": "courses.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "courses.sfu.ca"
-    },
-    {
-        "generated": 1729158896,
-        "type": "Internet Name",
-        "data": "news.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "news.sfu.ca"
-    },
-    {
-        "generated": 1729158900,
-        "type": "Internet Name",
-        "data": "events.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "events.sfu.ca"
-    },
-    {
-        "generated": 1729158904,
+        "generated": 1729755850,
         "type": "Internet Name",
         "data": "secure.sfu.ca",
         "module": "SpiderFoot UI",
         "source": "secure.sfu.ca"
     },
     {
-        "generated": 1729158909,
+        "generated": 1729755850,
         "type": "Internet Name",
-        "data": "researchdata.sfu.ca",
+        "data": "api.lib.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "researchdata.sfu.ca"
+        "source": "api.lib.sfu.ca"
     },
     {
-        "generated": 1729158913,
+        "generated": 1729755851,
         "type": "Internet Name",
-        "data": "academics.sfu.ca",
+        "data": "www.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "academics.sfu.ca"
+        "source": "www.sfu.ca"
     },
     {
-        "generated": 1729158917,
+        "generated": 1729755851,
         "type": "Internet Name",
-        "data": "lib.sfu.ca",
+        "data": "research.wiki.iat.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "lib.sfu.ca"
+        "source": "research.wiki.iat.sfu.ca"
     },
     {
-        "generated": 1729158921,
+        "generated": 1729755851,
         "type": "Internet Name",
-        "data": "tutorial.sfu.ca",
+        "data": "its.sfu.ca",
         "module": "SpiderFoot UI",
-        "source": "tutorial.sfu.ca"
+        "source": "its.sfu.ca"
     },
     {
-        "generated": 1729158926,
-        "type": "Internet Name",
-        "data": "advise.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "advise.sfu.ca"
-    },
-    {
-        "generated": 1729158930,
-        "type": "Internet Name",
-        "data": "admissions.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "admissions.sfu.ca"
-    },
-    {
-        "generated": 1729158934,
-        "type": "Internet Name",
-        "data": "community.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "community.sfu.ca"
-    },
-    {
-        "generated": 1729158939,
-        "type": "Internet Name",
-        "data": "directory.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "directory.sfu.ca"
-    },
-    {
-        "generated": 1729158943,
+        "generated": 1729755851,
         "type": "Internet Name",
         "data": "my.sfu.ca",
         "module": "SpiderFoot UI",
         "source": "my.sfu.ca"
     },
     {
-        "generated": 1729158947,
-        "type": "Internet Name",
-        "data": "portal.sfu.ca",
-        "module": "SpiderFoot UI",
-        "source": "portal.sfu.ca"
-    },
-    {
-        "generated": 1729158951,
+        "generated": 1729755846,
         "type": "Internet Name",
         "data": "sfu.ca",
         "module": "SpiderFoot UI",
         "source": "sfu.ca"
     },
     {
-        "generated": 1729158951,
+        "generated": 1729755846,
         "type": "Domain Name",
         "data": "sfu.ca",
         "module": "SpiderFoot UI",
         "source": "sfu.ca"
     },
     {
-        "generated": 1729158952,
+        "generated": 1729755848,
         "type": "Public Code Repository",
         "data": "Name: sfu\nURL: https://github.com/medooze/sfu\nDescription: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support",
         "module": "sfp_github",
         "source": "sfu.ca"
     },
     {
-        "generated": 1729158952,
+        "generated": 1729755848,
         "type": "Public Code Repository",
         "data": "Name: sfu\nURL: https://github.com/inlivedev/sfu\nDescription: WebRTC Selective Forwarder Unit(SFU) Golang Library",
         "module": "sfp_github",
         "source": "sfu.ca"
     },
     {
-        "generated": 1729158952,
+        "generated": 1729755848,
+        "type": "Public Code Repository",
+        "data": "Name: sfu\nURL: https://github.com/webrtc-rs/sfu\nDescription: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO",
+        "module": "sfp_github",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755872,
+        "type": "Internet Name",
+        "data": "science.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "science.sfu.ca"
+    },
+    {
+        "generated": 1729755873,
+        "type": "Internet Name",
+        "data": "public.research.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "public.research.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "archives.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "archives.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "canvas.its.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "canvas.its.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "library.lib.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "library.lib.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "tracs.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "tracs.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "mailgw.alumni.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "mailgw.alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755878,
+        "type": "Internet Name",
+        "data": "sfuprint.mps.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfuprint.mps.sfu.ca"
+    },
+    {
+        "generated": 1729755878,
+        "type": "Internet Name",
+        "data": "documents.lib.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "documents.lib.sfu.ca"
+    },
+    {
+        "generated": 1729755880,
+        "type": "Internet Name",
+        "data": "networking.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "networking.sfu.ca"
+    },
+    {
+        "generated": 1729755883,
+        "type": "Internet Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Domain Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755885,
+        "type": "Public Code Repository",
+        "data": "Name: sfu\nURL: https://github.com/medooze/sfu\nDescription: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support",
+        "module": "sfp_github",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755885,
+        "type": "Public Code Repository",
+        "data": "Name: sfu\nURL: https://github.com/inlivedev/sfu\nDescription: WebRTC Selective Forwarder Unit(SFU) Golang Library",
+        "module": "sfp_github",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755885,
+        "type": "Public Code Repository",
+        "data": "Name: sfu\nURL: https://github.com/webrtc-rs/sfu\nDescription: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO",
+        "module": "sfp_github",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755883,
+        "type": "Internet Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Domain Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755885,
+        "type": "Public Code Repository",
+        "data": "Name: sfu\nURL: https://github.com/medooze/sfu\nDescription: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support",
+        "module": "sfp_github",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755885,
+        "type": "Public Code Repository",
+        "data": "Name: sfu\nURL: https://github.com/inlivedev/sfu\nDescription: WebRTC Selective Forwarder Unit(SFU) Golang Library",
+        "module": "sfp_github",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755885,
         "type": "Public Code Repository",
         "data": "Name: sfu\nURL: https://github.com/webrtc-rs/sfu\nDescription: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO",
         "module": "sfp_github",

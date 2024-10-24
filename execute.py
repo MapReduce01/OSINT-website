@@ -11,6 +11,11 @@ from censys.search import CensysHosts
 import socket
 from ipSafeCheck import *
 from emailFinder import *
+from github_finder import *
+from Account import *
+from gleif_extract import *
+from censys import *
+import os
 
 
 # get target website
@@ -44,21 +49,74 @@ def get_Ip_address(domain_list_filtered):
             print(f"Failed to resolve {x}")
 
     ip_addresses_filtered = list(set(ip_addresses))
-    print(ip_addresses_filtered)
+    return ip_addresses_filtered
 
-# Example usage:
-# user_input = input("Enter a name to search: ")
-# target_website = search_website(user_input)
-# domain_list_filtered = find_domains(target_website)
+# merge and return all results for multi-thread
+def get_safe_Ip_merged(user_input):
+    target_website = search_website(user_input)
+    domain_list_filtered = find_domains(target_website)
+    ip_addresses_filtered = get_Ip_address(domain_list_filtered)
+    ip_safe_list = ip_safe_check(ip_addresses_filtered)
+    return domain_list_filtered, ip_addresses_filtered, ip_safe_list
+
+# merge txts together
+def merge_txt_files():
+    txt_files = ['account.txt', 'email.txt', 'ip_safe.txt', 'github.txt', 'censys.txt', 'gleif.txt']
+    output_file = 'Summary.txt'
+
+    with open(output_file, 'w', encoding='utf-8') as outfile:
+        for txt_file in txt_files:
+            try:
+                outfile.write(f"===== {txt_file} =====\n")
+
+                with open(txt_file, 'r', encoding='utf-8') as infile:
+                    outfile.write(infile.read())
+                    outfile.write("\n\n")  
+            
+            except FileNotFoundError:
+                print(f"File {txt_file} not found, skipping.")
+
+
+# #######################   Start process   #########################
+user_input = input("Enter a name to search: ")
+with ThreadPoolExecutor() as executor:
+    future_account = executor.submit(account_finder, user_input)
+    future_gleif = executor.submit(gleifAPI, user_input)
+    future_censys = executor.submit(censys_finder, user_input)
+    future_Ip = executor.submit(get_safe_Ip_merged, user_input)
+    
+    domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
+
+# #######################   API call   #########################
+# start_time = time.time()
+with ThreadPoolExecutor() as executor:
+    # Schedule the execution of the functions
+    # ip_addresses_filtered = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
+    # ip_safe_list = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
+    # domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']
+
+    future_email = executor.submit(email_finder, domain_list_filtered)
+    future_github = executor.submit(github_finder, domain_list_filtered)
+
+    # Collect results when complete
+    # email_list = future_email.result()
+    # github_list = future_github.result()
+
+merge_txt_files()
+# end_time = time.time()
+# elapsed_time = end_time - start_time
+# print(f"Time taken: {elapsed_time:.2f} seconds")
+
+# # #######################   Specific Test   #########################
+# start_time = time.time()
 # domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']
-# ip_addresses_filtered = get_Ip_address(domain_list_filtered)
-start_time = time.time()
-ip_addresses_filtered = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
-# ip_addresses_filtered = ['142.58.233.76']
-ip_safe_list = ip_safe_check(ip_addresses_filtered)
-end_time = time.time()
-elapsed_time = end_time - start_time
-print(f"Time taken: {elapsed_time:.2f} seconds")
+# lei_info = gleifAPI("Simon Fraser University")
+# gleif_extract("gleif.json")
+# print(lei_info)
+
+# end_time = time.time()
+# elapsed_time = end_time - start_time
+# print(f"Time taken: {elapsed_time:.2f} seconds")
+# ip_addresses_filtered = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
 # ip_safe_list = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
-# email_list = email_finder(domain_list_filtered)
-# print(email_list)
+# domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']

@@ -1,14 +1,25 @@
 import subprocess
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def search_github(domain):
+    command = ["python", "./spiderfoot/sf.py", "-m", "sfp_github", "-s", domain, "-o","json","-q"]
+    result = subprocess.run(command, capture_output=True, text=True)
+    output = "["+result.stdout[:-3] + "]"
+    github_json = json.loads(output)
+    return github_json
 
 def github_finder(domain_list_filtered):
     github_json_list = []
-    for domain in domain_list_filtered:
-        command = ["python", "./OSINT-website/spiderfoot/sf.py", "-m", "sfp_github", "-s", domain, "-o","json","-q"]
-        result = subprocess.run(command, capture_output=True, text=True)
-        output = "["+result.stdout[:-3] + "]"
-        github_json = json.loads(output)
-        github_json_list.extend(github_json)
+    print("Starting GitHub search...")
+    with ThreadPoolExecutor() as executor:
+        future_to_domain = {executor.submit(search_github, domain): domain for domain in domain_list_filtered}
+
+        for future in as_completed(future_to_domain):
+            github_json = future.result()
+            github_json_list.extend(github_json)
+
+    github_json_list.extend(github_json)
 
     print("Github Searching Done")
 
@@ -49,7 +60,7 @@ def github_extract (file, mode = 0):
 
 #test pls comment out when use
 
-domain_list_filtered = ["sfu.ca"]
-print(github_finder(domain_list_filtered))
+# domain_list_filtered = ["sfu.ca"]
+# print(github_finder(domain_list_filtered))
 
 # print(github_extract('github.json'))

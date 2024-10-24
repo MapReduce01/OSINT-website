@@ -1,19 +1,49 @@
 import subprocess
 import json
+from concurrent.futures import ThreadPoolExecutor
 
-def account_finder(company_name):
-    command = ["python", "./OSINT-website/spiderfoot/sf.py", "-m", "sfp_accounts", "-s", company_name, "-o","json","-q"]
+def temp1(company_name):
+    company_name_1 = company_name.replace(" ", "_")
+    command = ["python", "./spiderfoot/sf.py", "-m", "sfp_accounts", "-s", company_name_1, "-o","json","-q"]
     result = subprocess.run(command, capture_output=True, text=True)
     output = "["+result.stdout[:-3] + "]"
     account_json = json.loads(output)
+    return account_json 
 
+def temp2(company_name):
+    company_name_1 = company_name.replace(" ", ".")
+    command = ["python", "./spiderfoot/sf.py", "-m", "sfp_accounts", "-s", company_name_1, "-o","json","-q"]
+    result = subprocess.run(command, capture_output=True, text=True)
+    output = "["+result.stdout[:-3] + "]"
+    account_json = json.loads(output)
+    return account_json
+
+def temp3(company_name):
+    company_name_1 = company_name.replace(" ", "")
+    command = ["python", "./spiderfoot/sf.py", "-m", "sfp_accounts", "-s", company_name_1, "-o","json","-q"]
+    result = subprocess.run(command, capture_output=True, text=True)
+    output = "["+result.stdout[:-3] + "]"
+    account_json = json.loads(output)
+    return account_json
+
+def account_finder(user_input):
+    with open('account.json', 'w') as file:
+        pass
+
+    with ThreadPoolExecutor() as executor:
+        futures = [executor.submit(temp1, user_input),
+                   executor.submit(temp2, user_input),
+                   executor.submit(temp3, user_input)]
+
+        for future in futures:
+            account_json = future.result()
+            with open('account.json', 'a') as json_file_account:
+                json.dump(account_json, json_file_account, indent=4)
+    
     print("Account Searching Done")
 
-    with open('account.json', 'w') as json_file_account:
-        json.dump(account_json, json_file_account, indent=4)
-
     print("The result has been saved to "+ 'account.json')
-    account_list = account_extract('account.json')
+    account_list = account_extract('account.json',1)
     return account_list
 
 def account_extract (file, mode = 0):
@@ -45,8 +75,11 @@ def account_extract (file, mode = 0):
 
 
 #test pls comment out when use
+# start_time = time.time()
 
 # company_name = "Simon Fraser University"
 # print(account_finder(company_name))
-
+# end_time = time.time()
+# elapsed_time = end_time - start_time
+# print(f"Time taken: {elapsed_time:.2f} seconds")
 # print(account_extract('account.json'))

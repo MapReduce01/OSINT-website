@@ -1,1 +1,730 @@
-[]
+[
+    {
+        "generated": 1729755843,
+        "type": "Internet Name",
+        "data": "www.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "barbara_hilden@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Barbara Hilden",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "karissa_ketter@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Karissa Ketter",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "gustavo_balbinot@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Gustavo Balbinot",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "marilyn_e_trautman@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Marilyn Trautman",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "shivani_kundra@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Shivani Kundra",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "damon_van_der_linde@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Damon Linde",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "sarah_mckay@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Sarah McKay",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "kieran_cox@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Kieran Cox",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "amr_marzouk@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Amr Marzouk",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Email Address",
+        "data": "alexis_carr@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755844,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Alexis Carr",
+        "module": "sfp_hunter",
+        "source": "www.sfu.ca"
+    },
+    {
+        "generated": 1729755849,
+        "type": "Internet Name",
+        "data": "api.lib.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "api.lib.sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Internet Name",
+        "data": "its.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "its.sfu.ca"
+    },
+    {
+        "generated": 1729755849,
+        "type": "Internet Name",
+        "data": "research.wiki.iat.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "research.wiki.iat.sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Internet Name",
+        "data": "github.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "github.sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "git@github.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "github.sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Internet Name",
+        "data": "my.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "my.sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Internet Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Domain Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "barbara_hilden@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Barbara Hilden",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "karissa_ketter@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Karissa Ketter",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "gustavo_balbinot@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Gustavo Balbinot",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "marilyn_e_trautman@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Marilyn Trautman",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "shivani_kundra@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Shivani Kundra",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "damon_van_der_linde@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Damon Linde",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "sarah_mckay@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Sarah McKay",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "kieran_cox@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Kieran Cox",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "amr_marzouk@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Amr Marzouk",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Email Address",
+        "data": "alexis_carr@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Alexis Carr",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Internet Name",
+        "data": "secure.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "secure.sfu.ca"
+    },
+    {
+        "generated": 1729755850,
+        "type": "Internet Name",
+        "data": "students.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "students.sfu.ca"
+    },
+    {
+        "generated": 1729755851,
+        "type": "Internet Name",
+        "data": "alumni.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "kgorman@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Kristen Gorman",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "ldickie@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Lisa Dickie",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "jboateng@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: John Boateng",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "shester@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Samuel Hester",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "jbirke@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Julia Birke",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "abingham@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Aaron Bingham",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "bhoskins@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Brent Hoskins",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "mweiler@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Mark Weiler",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "sgoel@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Samir Goel",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Email Address",
+        "data": "nbansal@alumni.sfu.ca",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755852,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Nicole Bansal",
+        "module": "sfp_hunter",
+        "source": "alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755870,
+        "type": "Internet Name",
+        "data": "tracs.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "tracs.sfu.ca"
+    },
+    {
+        "generated": 1729755872,
+        "type": "Internet Name",
+        "data": "science.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "science.sfu.ca"
+    },
+    {
+        "generated": 1729755873,
+        "type": "Internet Name",
+        "data": "library.lib.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "library.lib.sfu.ca"
+    },
+    {
+        "generated": 1729755873,
+        "type": "Internet Name",
+        "data": "mailgw.alumni.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "mailgw.alumni.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "public.research.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "public.research.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "sfuprint.mps.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfuprint.mps.sfu.ca"
+    },
+    {
+        "generated": 1729755874,
+        "type": "Internet Name",
+        "data": "canvas.its.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "canvas.its.sfu.ca"
+    },
+    {
+        "generated": 1729755875,
+        "type": "Internet Name",
+        "data": "networking.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "networking.sfu.ca"
+    },
+    {
+        "generated": 1729755876,
+        "type": "Internet Name",
+        "data": "documents.lib.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "documents.lib.sfu.ca"
+    },
+    {
+        "generated": 1729755878,
+        "type": "Internet Name",
+        "data": "archives.sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "archives.sfu.ca"
+    },
+    {
+        "generated": 1729755883,
+        "type": "Internet Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755883,
+        "type": "Domain Name",
+        "data": "sfu.ca",
+        "module": "SpiderFoot UI",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "barbara_hilden@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Barbara Hilden",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "karissa_ketter@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Karissa Ketter",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "gustavo_balbinot@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Gustavo Balbinot",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "marilyn_e_trautman@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Marilyn Trautman",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "shivani_kundra@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Shivani Kundra",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "damon_van_der_linde@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Damon Linde",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "sarah_mckay@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Sarah McKay",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "kieran_cox@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Kieran Cox",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "amr_marzouk@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Amr Marzouk",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Email Address",
+        "data": "alexis_carr@sfu.ca",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    },
+    {
+        "generated": 1729755884,
+        "type": "Raw Data from RIRs/APIs",
+        "data": "Possible full name: Alexis Carr",
+        "module": "sfp_hunter",
+        "source": "sfu.ca"
+    }
+]

@@ -1,22 +1,32 @@
 import subprocess
 import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+def search_email(domain):
+    command = ["python", "./spiderfoot/sf.py", "-m", "sfp_hunter", "-s", domain, "-o", "json", "-q"]
+    result = subprocess.run(command, capture_output=True, text=True)
+    output = "[" + result.stdout[:-3] + "]"
+    email_json = json.loads(output)
+    return email_json
 
 def email_finder(domain_list_filtered):
     email_json_list = []
-    for domain in domain_list_filtered:
-        command = ["python", "./spiderfoot/sf.py", "-m", "sfp_hunter", "-s", domain, "-o","json","-q"]
-        result = subprocess.run(command, capture_output=True, text=True)
-        output = "["+result.stdout[:-3] + "]"
-        email_json = json.loads(output)
-        email_json_list.extend(email_json) 
+
+    print("Starting email search...")
+
+    with ThreadPoolExecutor() as executor:
+        future_to_domain = {executor.submit(search_email, domain): domain for domain in domain_list_filtered}
+
+        for future in as_completed(future_to_domain):
+            email_json = future.result()
+            email_json_list.extend(email_json)
 
     print("Email Searching Done")
 
     with open('email.json', 'w') as json_file_email:
         json.dump(email_json_list, json_file_email, indent=4)
 
-
-    print("The result has been saved to "+ 'email.json')
+    print("The result has been saved to " + 'email.json')
     email_list = email_extract('email.json')
     return email_list
 
