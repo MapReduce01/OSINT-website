@@ -1,5 +1,7 @@
 amr_marzouk@sfu.ca
 - VerificationsIO: 2019-02-25
+amr_marzouk@sfu.ca
+- VerificationsIO: 2019-02-25
 gripe@fas.sfu.ca
 - PDL: 2019-10-16
 - VerificationsIO: 2019-02-25

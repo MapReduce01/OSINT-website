@@ -1,6 +1,8 @@
 import json
 import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from logPrint import logprint
+
 
 def check_ip(ip):
     malicious_check = False
@@ -15,7 +17,7 @@ def check_ip(ip):
     for item in ip_json:
         if item.get("type") == "Malicious IP Address":
             malicious_check = True
-            print(f"{ip} is a malicious IP Address (abusech)")
+            logprint(f"{ip} is a malicious IP Address (abusech)")
 
     # use botvrij
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_botvrij", "-s", ip, "-o", "json", "-q"]
@@ -26,7 +28,7 @@ def check_ip(ip):
     for item in ip_json:
         if item.get("type") == "Malicious IP Address":
             malicious_check = True
-            print(f"{ip} is a malicious IP Address (botvrij)")
+            logprint(f"{ip} is a malicious IP Address (botvrij)")
 
     ip_json_list.extend(ip_json)
     return ip, malicious_check, ip_json_list
@@ -36,7 +38,7 @@ def ip_safe_check(ip_addresses_filtered):
     ip_json_list = []
     ip_safe_list = []
 
-    print("Starting malicious IP filter...")
+    logprint("Starting malicious IP filter...")
 
     with ThreadPoolExecutor() as executor:
         future_to_ip = {executor.submit(check_ip, ip): ip for ip in ip_addresses_filtered}
@@ -47,12 +49,12 @@ def ip_safe_check(ip_addresses_filtered):
                 ip_safe_list.append(ip)
                 ip_json_list.extend(ip_json)
 
-    print("Malicious IP Filter Done")
+    logprint("Malicious IP Filter Done")
 
     with open('ip_safe_list.json', 'w') as json_file_ip:
         json.dump(ip_json_list, json_file_ip, indent=4)
 
-    print("The result has been saved to " + 'ip_safe_list.json')
+    logprint("The result has been saved to " + 'ip_safe_list.json')
     ip_extract("ip_safe_list.json", 1)
     
     return ip_safe_list
@@ -77,6 +79,6 @@ def ip_extract (file, mode = 0):
         with open(output_file, 'w') as f:
             for ip in ip_list:
                 f.write(f"{ip}\n")
-        print(f"Safety IP addresses saved to: {output_file}")
+        logprint(f"Safety IP addresses saved to: {output_file}")
     
     return None

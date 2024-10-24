@@ -1,5 +1,6 @@
 import requests
 import json
+from logPrint import logprint
 
 def gleifAPI(name):
     gleif_api_url = "https://api.gleif.org/api/v1/lei-records"
@@ -25,19 +26,19 @@ def gleifAPI(name):
                 actual_address = legal_address['addressLines']
                 postalcode = legal_address['postalCode']
                 registration_status = lei_record['attributes']['registration']['status']
-                print(f"Entity Name: {entity_name}")
-                print(f"LEI Code: {lei_code}")
-                print(f"Country: {country}")
-                print(f"Legal Address: {actual_address}")
-                print(f"Postal Code: {postalcode}")
-                print(f"Registration Status: {registration_status}")
+                logprint(f"Entity Name: {entity_name}")
+                logprint(f"LEI Code: {lei_code}")
+                logprint(f"Country: {country}")
+                logprint(f"Legal Address: {actual_address}")
+                logprint(f"Postal Code: {postalcode}")
+                logprint(f"Registration Status: {registration_status}")
                 # lei_record is a dict, attributes are shown as ablove
                 json_version = json.dumps(lei_record)
                 with open('gleif.json', 'w') as json_file_gleif:
                     json.dump(json_version, json_file_gleif, indent=4)
                 return json_version
         else:
-            print("No matching company found.")
+            logprint("No matching company found.")
     else:
-        print(f"Error: {response.status_code}")
-        print(response.text)
+        logprint(f"Error: {response.status_code}")
+        logprint(response.text)

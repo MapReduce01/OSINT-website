@@ -1,6 +1,7 @@
 import requests
 import concurrent.futures
 import time
+from logPrint import logprint
 
 
 # # Sample function that processes an element
@@ -55,13 +56,13 @@ def email_seeker(file_path):
         result = check_hibp(x)
         # Display the results
         if isinstance(result, list):
-            print(f"Breaches for {x}:")
+            logprint(f"Breaches for {x}:")
             hibp_list.append(x)
             for breach in result:
-                print(f"- {breach['Name']}: {breach['BreachDate']}")
+                logprint(f"- {breach['Name']}: {breach['BreachDate']}")
                 hibp_list.append(f"- {breach['Name']}: {breach['BreachDate']}")
         else:
-            print(result)
+            logprint(result)
         time.sleep(6)
     
     save_list_to_txt("email_breaches.txt", hibp_list)

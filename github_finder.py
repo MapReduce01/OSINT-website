@@ -1,6 +1,7 @@
 import subprocess
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from logPrint import logprint
 
 def search_github(domain):
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_github", "-s", domain, "-o","json","-q"]
@@ -11,7 +12,7 @@ def search_github(domain):
 
 def github_finder(domain_list_filtered):
     github_json_list = []
-    print("Starting GitHub search...")
+    logprint("Starting GitHub search...")
     with ThreadPoolExecutor() as executor:
         future_to_domain = {executor.submit(search_github, domain): domain for domain in domain_list_filtered}
 
@@ -21,12 +22,12 @@ def github_finder(domain_list_filtered):
 
     github_json_list.extend(github_json)
 
-    print("Github Searching Done")
+    logprint("Github Searching Done")
 
     with open('github.json', 'w') as json_file_github:
         json.dump(github_json_list, json_file_github, indent=4)
 
-    print("The result has been saved to "+ 'github.json')
+    logprint("The result has been saved to "+ 'github.json')
     github_list = github_extract('github.json', 1)
     return github_list
 
@@ -53,7 +54,7 @@ def github_extract (file, mode = 0):
         with open(output_file, 'w') as f:
             for github in github_list:
                 f.write(f"{github}\n")
-        print(f"Related github saved to: {output_file}")
+        logprint(f"Related github saved to: {output_file}")
     
     return None
 

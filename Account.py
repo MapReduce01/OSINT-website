@@ -1,6 +1,7 @@
 import subprocess
 import json
 from concurrent.futures import ThreadPoolExecutor
+from logPrint import logprint
 
 def temp1(company_name):
     company_name_1 = company_name.replace(" ", "_")
@@ -44,10 +45,10 @@ def fix_json_format(file_path, output_file_path):
         with open(output_file_path, "w") as output_file:
             json.dump(fixed_json, output_file, indent=4)
         
-        print(f"Properly formatted JSON has been saved to {output_file_path}")
+        logprint(f"Properly formatted JSON has been saved to {output_file_path}")
     
     except Exception as e:
-        print(f"An error occurred: {e}")
+        logprint(f"An error occurred: {e}")
 
 
 def account_finder(user_input):
@@ -65,9 +66,9 @@ def account_finder(user_input):
                 json.dump(account_json, json_file_account, indent=4)
     
     fix_json_format("account.json","account.json")
-    print("Account Searching Done")
+    logprint("Account Searching Done")
 
-    print("The result has been saved to "+ 'account.json')
+    logprint("The result has been saved to "+ 'account.json')
     account_list = account_extract('account.json',1)
     return account_list
 
@@ -94,7 +95,7 @@ def account_extract (file, mode = 0):
         with open(output_file, 'w') as f:
             for account in account_list:
                 f.write(f"{account}\n")
-        print(f"Related account saved to: {output_file}")
+        logprint(f"Related account saved to: {output_file}")
     
     return None
 

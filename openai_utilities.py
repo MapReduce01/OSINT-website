@@ -1,10 +1,9 @@
 from openai import OpenAI
 import json
 
-api_key='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'
 
 def openai_query(query):
-    client = OpenAI(api_key='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')
+    client = OpenAI(api_key=)
 
     completion = client.chat.completions.create(
     model="gpt-4o-mini",
@@ -17,7 +16,7 @@ def openai_query(query):
 
 def query_about_file(file_path, question):
     # Set up your OpenAI API key
-    client = OpenAI(api_key='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')
+    client = OpenAI(api_key=)
     
     # Load and format the JSON file
     with open(file_path, 'r') as file:

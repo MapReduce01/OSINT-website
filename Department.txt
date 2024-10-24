@@ -1,60 +1,83 @@
-Simon Fraser University (SFU) is a comprehensive university located in British Columbia, Canada. It offers a wide range of academic programs through various departments across its faculties. Here are the main faculties and some of their departments, along with a brief description of each:
+Simon Fraser University (SFU), located in British Columbia, Canada, offers a wide range of academic programs and departments across its three campuses. Here¡¯s a broad overview of the main faculties and their associated departments:
 
-### 1. Faculty of Arts and Social Sciences (FASS)
-- **Anthropology**: Study of human societies, cultures, and their development.
-- **Archaeology**: Exploration and analysis of past human behavior through material remains.
-- **Economics**: Focuses on the production, distribution, and consumption of goods and services.
-- **History**: Examination of past events, societies, and cultures.
-- **Philosophy**: Investigates fundamental questions about existence, knowledge, values, reason, and mind.
-- **Political Science**: Study of politics, government systems, and political behavior.
-- **Psychology**: Research and study of the mind and behavior.
-- **Sociology and Anthropology**: Study of social behavior, institutions, and cultural practices.
+### Faculty of Arts and Social Sciences (FASS)
+1. **Anthropology**
+2. **Arts and Social Sciences**
+3. **Economics**
+4. **Gender, Sexuality, and Women¡¯s Studies**
+5. **History**
+6. **Political Science**
+7. **Psychology**
+8. **Sociology and Anthropology**
+9. **Sustainable Community Development**
 
-### 2. Faculty of Business Administration (SBBA)
-- **Management**: Covers areas such as organizational behavior, human resources, and strategy.
-- **Finance**: Focuses on financial management, investment, and capital markets.
-- **Marketing**: Studies consumer behavior, advertising, and market research.
-- **International Business**: Examines business operations across national borders.
-- **Entrepreneurship**: Focuses on innovation, startups, and new venture creation.
+### Faculty of Business Administration
+1. **Management**
+2. **Marketing**
+3. **Finance**
+4. **International Business**
+5. **Human Resource Management**
+6. **Entrepreneurship**
+7. **Supply Chain Management**
 
-### 3. Faculty of Communication, Art and Technology (FCAT)
-- **Communication**: Explores media, culture, and communication technologies.
-- **Interactive Arts and Technology**: Combines art and technology for multimedia production.
-- **Film Studies**: Focuses on the history, theory, and criticism of film.
+### Faculty of Education
+1. **Curriculum and Instruction**
+2. **Educational Psychology**
+3. **K-12 Teacher Education**
+4. **Adult Learning and Post-Secondary Education**
+5. **Educational Leadership**
 
-### 4. Faculty of Education
-- **Curriculum and Instruction**: Develops teaching strategies and educational resources.
-- **Educational Psychology**: Studies psychological principles in education processes.
-- **Adult Learning and Educator Development**: Focuses on education for adult learners.
+### Faculty of Environment
+1. **Resource and Environmental Management**
+2. **Sustainable Energy Management**
+3. **Environmental Science**
+4. **Ecology and Evolutionary Biology**
+5. **Environmental Planning**
 
-### 5. Faculty of Science
-- **Biological Sciences**: Covers ecology, genetics, microbiology, and organismal biology.
-- **Chemistry**: Studies the composition, structure, properties, and reactions of matter.
-- **Mathematics**: Focuses on pure mathematics, applied mathematics, and statistics.
-- **Physics**: Explores the fundamental principles governing the universe.
-- **Earth Sciences**: Studies the planet's structure, properties, processes, and history.
+### Faculty of Health Sciences
+1. **Health Sciences (bachelor's program)**
+2. **Public Health**
+3. **Global Health**
 
-### 6. Faculty of Applied Sciences
-- **Computer Science**: Covers computing theory, software engineering, and data science.
-- **Engineering Science**: Focuses on engineering principles in various fields including biomedical, mechatronic, and environmental engineering.
-- **Information Systems**: Studies the design and implementation of information systems.
+### Faculty of Science
+1. **Biological Sciences**
+2. **Chemistry**
+3. **Mathematics**
+4. **Physics**
+5. **Statistics and Actuarial Science**
+6. **Computing Science**
+7. **Molecular Biology and Biochemistry**
 
-### 7. School of Public Policy
-- **Policy Analysis**: Focuses on formulating and evaluating public policies.
-- **Public Administration**: Studies the management and implementation of public policies and services.
+### Faculty of Applied Sciences
+1. **Engineering Science**
+2. **Systems Science**
+3. **Mechatronic Systems Engineering**
+4. **Software Engineering**
+5. **Communication Systems**
 
-### 8. School for the Contemporary Arts
-- **Dance**: Focuses on dance performance, choreography, and theory.
-- **Visual Arts**: Explore practices in visual arts, including painting, sculpture, and new media.
-- **Theatre**: Involves performance, playwriting, and theatre production.
+### School of Communications
+1. **Communication Studies**
+2. **Digital Media**
+3. **Media and Culture**
 
-### 9. School of Interdisciplinary Studies
-- **Sustainable Community Development**: Focus on sustainable practices and community engagement.
-  
-### 10. Graduate Programs
-SFU also offers a variety of graduate programs across its faculties, allowing for advanced study and research opportunities in disciplines like Business, Education, Environmental Science, and more.
+### School of Interactive Arts and Technology
+1. **Interactive Arts and Technology (IAT)**
+2. **Computational Arts Program**
 
-### Further Information
-Each department typically offers undergraduate and graduate programs, research opportunities, and faculty-led projects. If you¡¯re interested in specific programs, faculty members, research outputs, or other details, you can visit the official SFU website or directly contact the departments for tailored information.
+### School of Public Policy
+1. **Public Policy**
+2. **International Studies**
+3. **Urban Studies**
 
-For the most accurate and updated details regarding departments and academic offerings, you can visit Simon Fraser University's official website: [SFU Academic Departments](https://www.sfu.ca/).
+### Other Interdisciplinary Programs
+1. **Cognitive Science**
+2. **First Nations Studies**
+3. **Urban Studies**
+
+### Research Institutes and Centers
+SFU hosts various research institutes and centers aligned with its academic departments, focusing on areas such as sustainability, public policy, and health sciences.
+
+### Additional Information
+Each of these departments typically offers undergraduate and graduate degree programs, including majors, minors, and joint programs. They also engage in research activities, community outreach, and provide various resources for students. Faculty members often specialize in diverse areas and contribute significantly to their fields.
+
+For more detailed information about each department, such as faculty listings, research opportunities, and specific program details, it's best to visit the [SFU website](https://www.sfu.ca) or check their individual departmental pages.

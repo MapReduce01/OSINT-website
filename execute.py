@@ -11,6 +11,7 @@ from hibpAPI import email_seeker
 import re
 import subprocess
 import json
+from logPrint import logprint
 from censys.search import CensysHosts
 import socket
 from ipSafeCheck import *
@@ -21,24 +22,24 @@ from gleif_extract import *
 from censysFinder import *
 import os
 
-
+    
 # get target website
 def search_website(user_input):
-    print("Searching... ", user_input)
+    logprint("Searching... ", user_input)
     target_website = wikiCrawler(user_input)
-    print("website found: " + target_website)
+    logprint("website found: " + target_website)
     return target_website
 
 def find_domains(target_website):
     pattern_www = r'www\.[a-zA-Z0-9\-\.]+'
     matches_www = re.findall(pattern_www, target_website)
     target_domain = matches_www[0].replace("www.","")
-    print("Finding subdomains... It might take a while"+"\n")
+    logprint("Finding subdomains... It might take a while"+"\n")
     domain_list = subfinderAPI(target_domain)
 
     domain_list_filtered = topDomains(domain_list, target_domain, 20)
     domain_list_filtered.append(target_domain)
-    print(domain_list_filtered)
+    logprint(domain_list_filtered)
     return domain_list_filtered
 
 def get_Ip_address(domain_list_filtered):
@@ -47,9 +48,9 @@ def get_Ip_address(domain_list_filtered):
         try:
             ip_address = socket.gethostbyname(x)
             ip_addresses.append(ip_address)
-            print(f"{x} -> {ip_address}")
+            logprint(f"{x} -> {ip_address}")
         except socket.gaierror:
-            print(f"Failed to resolve {x}")
+            logprint(f"Failed to resolve {x}")
 
     ip_addresses_filtered = list(set(ip_addresses))
     return ip_addresses_filtered
@@ -77,7 +78,7 @@ def merge_txt_files():
                     outfile.write("\n\n")  
             
             except FileNotFoundError:
-                print(f"File {txt_file} not found, skipping.")
+                logprint(f"File {txt_file} not found, skipping.")
 
 
 # #######################   Start process   #########################
@@ -85,14 +86,14 @@ user_input = input("Enter a name to search: ")
 
 des_query = "give me an overview of " + user_input
 des_answer = gptAPI(des_query,"Description")
-print(des_answer)
+logprint(des_answer)
 
 dep_query = "tell me all the departments in " + user_input + " and show me more details about these departments"
 dep_answer = gptAPI(dep_query,"Department")
 
 insight_query = query_about_file('Department.json', "tell me more details of each element mentioned in this file")
 insight_answer = gptAPI(insight_query, "Insight")
-print(insight_answer)
+logprint(insight_answer)
 
 with ThreadPoolExecutor() as executor:
     future_account = executor.submit(account_finder, user_input)
