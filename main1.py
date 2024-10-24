@@ -2,8 +2,10 @@ from wikiCrawler import wikiCrawler
 from subfinderAPI import subfinderAPI
 from openai_utilities import openai_query
 from gleifAPI import gleifAPI
+from topDomains import topDomains
+from openai_utilities import query_about_file
+from gptAPI import gptAPI
 from gNews import fetch_news
-import safeIP
 import re
 import subprocess
 import json
@@ -13,7 +15,19 @@ import socket
 user_input = input("Enter a name to search: ")
 print("Searching... ", user_input)
 target_website = wikiCrawler(user_input)
-print("website found: " + target_website) # comment this out later
+print("website found: " + target_website) 
+
+des_query = "give me an overview of " + user_input
+des_answer = gptAPI(des_query,"Description")
+print(des_answer)
+
+dep_query = "tell me all the departments in " + user_input + " and show me more details about these departments"
+dep_answer = gptAPI(dep_query,"Department")
+
+insight_query = query_about_file('Department.json', "tell me more details of each element mentioned in this file")
+insight_answer = gptAPI(insight_query, "Insight")
+print(insight_answer)
+
 
 # run subfinder API to find all subdomains
 pattern_www = r'www\.[a-zA-Z0-9\-\.]+'
@@ -22,10 +36,11 @@ target_domain = matches_www[0].replace("www.","")
 print("Finding subdomains... It might take a while"+"\n")
 domain_list = subfinderAPI(target_domain)
 
-query = "find top 20 subdomains which are most similar to "+target_domain+" in this list: " + str(domain_list) + ", don't add any comments, no numbers, just pure domains, seperated with comma."
-domain_list_filtered = openai_query(query).split(", ")
+### 1 ###
+domain_list_filtered = topDomains(domain_list, target_domain, 20)
 domain_list_filtered.append(target_domain)
 print(domain_list_filtered)
+### 1 ###
 
 ip_addresses = []
 

@@ -33,8 +33,6 @@ def gleifAPI(name):
                 print(f"Registration Status: {registration_status}")
                 # lei_record is a dict, attributes are shown as ablove
                 json_version = json.dumps(lei_record)
-                with open('gleif.json', 'w') as json_file_gleif:
-                    json.dump(json_version, json_file_gleif, indent=4)
                 return json_version
         else:
             print("No matching company found.")

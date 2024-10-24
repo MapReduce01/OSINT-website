@@ -1,0 +1,30 @@
+Blogspot (Category: blog)
+<SFURL>http://simonfraseruniversity.blogspot.com</SFURL>
+DockerHub (Category: coding)
+<SFURL>https://hub.docker.com/v2/users/simonfraseruniversity/</SFURL>
+giters (Category: coding)
+<SFURL>https://giters.com/simonfraseruniversity</SFURL>
+Gravatar (Category: images)
+<SFURL>https://en.gravatar.com/simonfraseruniversity</SFURL>
+issuu (Category: shopping)
+<SFURL>https://issuu.com/simonfraseruniversity</SFURL>
+Telegram (Category: social)
+<SFURL>https://t.me/simonfraseruniversity</SFURL>
+TikTok (Category: social)
+<SFURL>https://www.tiktok.com/@simonfraseruniversity?lang=en</SFURL>
+tumblr (Category: images)
+<SFURL>https://simonfraseruniversity.tumblr.com</SFURL>
+Twitch (Category: gaming)
+<SFURL>https://twitch.tv/simonfraseruniversity/</SFURL>
+YouTube Channel (Category: video)
+<SFURL>https://www.youtube.com/c/simonfraseruniversity/about</SFURL>
+YouTube User2 (Category: video)
+<SFURL>https://www.youtube.com/@simonfraseruniversity</SFURL>
+Filmot Unlisted Videos (Category: archived)
+<SFURL>https://filmot.com/unlistedSearch?channelQuery=simon.fraser.university&sortField=uploaddate&sortOrder=desc&</SFURL>
+Mastodon-meow.social (Category: social)
+<SFURL>https://meow.social/@simon.fraser.university</SFURL>
+SmugMug (Category: images)
+<SFURL>https://simon.fraser.university.smugmug.com</SFURL>
+tumblr (Category: images)
+<SFURL>https://simon.fraser.university.tumblr.com</SFURL>
