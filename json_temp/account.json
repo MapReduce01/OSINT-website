@@ -1,0 +1,135 @@
+[
+    {
+        "generated": 1730569758,
+        "type": "Username",
+        "data": "Simon_Fraser_University",
+        "module": "SpiderFoot UI",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Filmot Channel Search (Category: archived)\n<SFURL>https://filmot.com/channelsearch/Simon_Fraser_University</SFURL>",
+        "module": "sfp_accounts",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Filmot Unlisted Videos (Category: archived)\n<SFURL>https://filmot.com/unlistedSearch?channelQuery=Simon_Fraser_University&sortField=uploaddate&sortOrder=desc&</SFURL>",
+        "module": "sfp_accounts",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Internet Archive User Search (Category: misc)\n<SFURL>https://archive.org/search.php?query=Simon_Fraser_University</SFURL>",
+        "module": "sfp_accounts",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Telegram (Category: social)\n<SFURL>https://t.me/Simon_Fraser_University</SFURL>",
+        "module": "sfp_accounts",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "TikTok (Category: social)\n<SFURL>https://www.tiktok.com/@Simon_Fraser_University?lang=en</SFURL>",
+        "module": "sfp_accounts",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "YouTube Channel (Category: video)\n<SFURL>https://www.youtube.com/c/Simon_Fraser_University/about</SFURL>",
+        "module": "sfp_accounts",
+        "source": "Simon_Fraser_University"
+    },
+    {
+        "generated": 1730569758,
+        "type": "Internet Name",
+        "data": "Simon.Fraser.University",
+        "module": "SpiderFoot UI",
+        "source": "Simon.Fraser.University"
+    },
+    {
+        "generated": 1730569758,
+        "type": "Username",
+        "data": "SimonFraserUniversity",
+        "module": "SpiderFoot UI",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Blogspot (Category: blog)\n<SFURL>http://SimonFraserUniversity.blogspot.com</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Gravatar (Category: images)\n<SFURL>https://en.gravatar.com/SimonFraserUniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Internet Archive User Search (Category: misc)\n<SFURL>https://archive.org/search.php?query=SimonFraserUniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "issuu (Category: shopping)\n<SFURL>https://issuu.com/SimonFraserUniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Telegram (Category: social)\n<SFURL>https://t.me/SimonFraserUniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "TikTok (Category: social)\n<SFURL>https://www.tiktok.com/@SimonFraserUniversity?lang=en</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "tumblr (Category: images)\n<SFURL>https://SimonFraserUniversity.tumblr.com</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "Twitch (Category: gaming)\n<SFURL>https://twitch.tv/SimonFraserUniversity/</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "YouTube Channel (Category: video)\n<SFURL>https://www.youtube.com/c/SimonFraserUniversity/about</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    },
+    {
+        "generated": 1730569895,
+        "type": "Account on External Site",
+        "data": "YouTube User2 (Category: video)\n<SFURL>https://www.youtube.com/@SimonFraserUniversity</SFURL>",
+        "module": "sfp_accounts",
+        "source": "SimonFraserUniversity"
+    }
+]

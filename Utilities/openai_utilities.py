@@ -1,9 +1,11 @@
 from openai import OpenAI
 import json
 
+with open("openai_key.txt", 'r') as file:
+    gptkey = file.read()
 
 def openai_query(query):
-    client = OpenAI(api_key=)
+    client = OpenAI(api_key=gptkey)
 
     completion = client.chat.completions.create(
     model="gpt-4o-mini",
@@ -16,7 +18,7 @@ def openai_query(query):
 
 def query_about_file(file_path, question):
     # Set up your OpenAI API key
-    client = OpenAI(api_key=)
+    client = OpenAI(api_key=gptkey)
     
     # Load and format the JSON file
     with open(file_path, 'r') as file:
@@ -40,3 +42,5 @@ def query_about_file(file_path, question):
     )
     
     return (completion.choices[0].message.content)
+
+

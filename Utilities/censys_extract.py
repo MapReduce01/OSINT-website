@@ -1,4 +1,4 @@
-
+from pathlib import Path
 import json
 
 # def dict_to_string(d, indent=0):
@@ -59,7 +59,13 @@ def clean_dict(d):
         del d[key]
 
 def censys_extract (file_name):
-    with open('censys_clear.txt', 'w') as file:
+    script_directory = Path(__file__).parent  
+    target_folder = script_directory.parent / "txt_temp"  
+    file_path = target_folder / "censys_clear.txt"
+
+    target_folder.mkdir(parents=True, exist_ok=True)
+    
+    with open(str(file_path), 'w') as file:
         pass
 
     with open(file_name, 'r') as file:
@@ -70,7 +76,7 @@ def censys_extract (file_name):
     for item in data:
         clean_dict(item)
 
-        with open('censys_clear.txt', 'a') as file:
+        with open(str(file_path), 'a') as file:
             file.write(dict_to_string(item))
 
 #test pls comment out when use

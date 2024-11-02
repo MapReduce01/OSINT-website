@@ -1,4 +1,4 @@
-
+from pathlib import Path
 import json
 
 def dict_to_string(d, indent=0):
@@ -39,14 +39,19 @@ def gleif_extract (file, mode = 0):
     with open(file, 'r') as file:
         data = file.read()
 
-    print(type(data))
+    # print(type(data))
     data = eval(data)
     data_dict = json.loads(data)
 
     clean_dict(data_dict)
 
-    with open('gleif.txt', 'w') as file:
+    script_directory = Path(__file__).parent  
+    target_folder = script_directory.parent / "txt_temp"  
+    file_path = target_folder / "gleif.txt"
+
+    target_folder.mkdir(parents=True, exist_ok=True)
+
+    with open(str(file_path), 'w') as file:
         file.write(dict_to_string(data_dict))
 
 
-gleif_extract("gleif.json")

@@ -2,6 +2,7 @@ import json
 import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from logPrint import logprint
+from pathlib import Path
 
 
 def check_ip(ip):
@@ -51,11 +52,17 @@ def ip_safe_check(ip_addresses_filtered):
 
     logprint("Malicious IP Filter Done")
 
-    with open('ip_safe_list.json', 'w') as json_file_ip:
+    script_directory = Path(__file__).parent  
+    target_folder = script_directory.parent / "json_temp"  
+    file_path = target_folder / "ip_safe_list.json"
+
+    target_folder.mkdir(parents=True, exist_ok=True)
+
+    with open(str(file_path), 'w') as json_file_ip:
         json.dump(ip_json_list, json_file_ip, indent=4)
 
     logprint("The result has been saved to " + 'ip_safe_list.json')
-    ip_extract("ip_safe_list.json", 1)
+    ip_extract(str(file_path), 1)
     
     return ip_safe_list
 
@@ -75,7 +82,14 @@ def ip_extract (file, mode = 0):
     # Save the list to a txt file
     if mode == 1:
         ip_list = [entry['data'] for entry in json_data]
-        output_file = 'ip_safe.txt'
+
+        script_directory = Path(__file__).parent  
+        target_folder = script_directory.parent / "txt_temp"  
+        file_path = target_folder / "ip_safe_list.txt"
+
+        target_folder.mkdir(parents=True, exist_ok=True)
+
+        output_file = str(file_path)
         with open(output_file, 'w') as f:
             for ip in ip_list:
                 f.write(f"{ip}\n")
