@@ -1,5 +1,6 @@
 import subprocess
 import json
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from logPrint import logprint
 
@@ -28,31 +29,35 @@ def temp3(company_name):
     return account_json
 
 
-
-def fix_json_format(file_path, output_file_path):
-    try:
-        # Read the file content
-        with open(file_path, "r") as file:
-            json_data = file.read()
-        
-        # Remove the erroneous parts
-        clean_data = json_data.replace("[]", "")
-        
-        # Parse the cleaned data into JSON
-        fixed_json = json.loads(clean_data)
-        
-        # Save the properly formatted JSON into a new file
-        with open(output_file_path, "w") as output_file:
-            json.dump(fixed_json, output_file, indent=4)
-        
-        logprint(f"Properly formatted JSON has been saved to {output_file_path}")
+def fix_json_format(file_path):
+    data = []
     
-    except Exception as e:
-        logprint(f"An error occurred: {e}")
+    with open(file_path, 'r') as f:
+        raw_content = f.read()
+        json_arrays = raw_content.split('][')
+        
+        for i, json_array in enumerate(json_arrays):
+            if i == 0:
+                json_array = json_array + ']'
+            elif i == len(json_arrays) - 1:
+                json_array = '[' + json_array
+            else:
+                json_array = '[' + json_array + ']'
+                
+            data.extend(json.loads(json_array))
+    
+    with open(file_path, 'w') as f:
+        json.dump(data, f, indent=4)
+    print(f"Flattened JSON saved at: {file_path}")
 
 
 def account_finder(user_input):
-    with open('account.json', 'w') as file:
+    script_directory = Path(__file__).parent  
+    target_folder = script_directory.parent / "json_temp"  
+    file_path = target_folder / "account.json"
+    target_folder.mkdir(parents=True, exist_ok=True)
+
+    with open(str(file_path), 'w') as file:
         pass
 
     with ThreadPoolExecutor() as executor:
@@ -62,14 +67,14 @@ def account_finder(user_input):
 
         for future in futures:
             account_json = future.result()
-            with open('account.json', 'a') as json_file_account:
+            with open(str(file_path), 'a') as json_file_account:
                 json.dump(account_json, json_file_account, indent=4)
-    
-    fix_json_format("account.json","account.json")
+
+    fix_json_format(str(file_path))
     logprint("Account Searching Done")
 
     logprint("The result has been saved to "+ 'account.json')
-    account_list = account_extract('account.json',1)
+    account_list = account_extract(str(file_path),1)
     return account_list
 
 def account_extract (file, mode = 0):
@@ -91,7 +96,13 @@ def account_extract (file, mode = 0):
         account_list = [entry['data'] for entry in json_data]
         filter_string = 'http'
         account_list = [items for items in account_list if filter_string in items]
-        output_file = 'account.txt'
+
+        script_directory = Path(__file__).parent  
+        target_folder = script_directory.parent / "txt_temp"  
+        file_path = target_folder / "account.txt"
+        target_folder.mkdir(parents=True, exist_ok=True)
+
+        output_file = str(file_path)
         with open(output_file, 'w') as f:
             for account in account_list:
                 f.write(f"{account}\n")
@@ -100,7 +111,7 @@ def account_extract (file, mode = 0):
     return None
 
 
-#test pls comment out when use
+# test pls comment out when use
 # start_time = time.time()
 
 # company_name = "Simon Fraser University"

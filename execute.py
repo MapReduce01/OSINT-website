@@ -1,3 +1,5 @@
+import sys
+sys.path.append('Utilities')
 import time
 from wikiCrawler import wikiCrawler
 from subfinderAPI import subfinderAPI
@@ -11,6 +13,7 @@ from hibpAPI import email_seeker
 import re
 import subprocess
 import json
+from pathlib import Path
 from logPrint import logprint
 from censys.search import CensysHosts
 import socket
@@ -18,11 +21,10 @@ from ipSafeCheck import *
 from emailFinder import *
 from github_finder import *
 from Account import *
-from gleif_extract import *
 from censysFinder import *
 import os
 
-    
+
 # get target website
 def search_website(user_input):
     logprint("Searching... ", user_input)
@@ -65,7 +67,17 @@ def get_safe_Ip_merged(user_input):
 
 # merge txts together
 def merge_txt_files():
-    txt_files = ['Description.txt','Insight.txt','account.txt', 'email.txt','email_breaches.txt','ip_safe.txt', 'github.txt', 'censys_clear.txt', 'gleif.txt']
+    description = Path(__file__).parent / "txt_temp" / "Description.txt"
+    insight = Path(__file__).parent / "txt_temp" / "Insight.txt"
+    account = Path(__file__).parent / "txt_temp" / "account.txt"
+    email = Path(__file__).parent / "txt_temp" / "email.txt"
+    email_breaches = Path(__file__).parent / "txt_temp" / "email_breaches.txt"
+    ip_safe_list = Path(__file__).parent / "txt_temp" / "ip_safe_list.txt"
+    github = Path(__file__).parent / "txt_temp" / "github.txt"
+    censys_clear = Path(__file__).parent / "txt_temp" / "censys_clear.txt"
+    gleif = Path(__file__).parent / "txt_temp" / "gleif.txt"
+
+    txt_files = [str(description),str(insight),str(account),str(email),str(email_breaches),str(ip_safe_list),str(github),str(censys_clear),str(gleif)]
     output_file = 'Summary.txt'
 
     with open(output_file, 'w') as outfile:
@@ -80,20 +92,28 @@ def merge_txt_files():
             except FileNotFoundError:
                 logprint(f"File {txt_file} not found, skipping.")
 
+def get_user_input():
+    user_input = input("Enter a name to search: ")
+
+    des_query = "give me an overview of " + user_input
+    des_answer = gptAPI(des_query,"Description")
+    logprint(des_answer)
+
+    dep_query = "tell me all the departments in " + user_input + " and show me more details about these departments"
+    dep_answer = gptAPI(dep_query,"Department")
+    logprint(dep_answer)
+
+    target_location = Path(__file__).parent / "json_temp" / "Department.json"
+    insight_query = query_about_file(target_location, "tell me more details of each element mentioned in this file")
+    insight_answer = gptAPI(insight_query, "Insight")
+    logprint(insight_answer)
+
+    return user_input
+
 
 # #######################   Start process   #########################
-user_input = input("Enter a name to search: ")
 
-des_query = "give me an overview of " + user_input
-des_answer = gptAPI(des_query,"Description")
-logprint(des_answer)
-
-dep_query = "tell me all the departments in " + user_input + " and show me more details about these departments"
-dep_answer = gptAPI(dep_query,"Department")
-
-insight_query = query_about_file('Department.json', "tell me more details of each element mentioned in this file")
-insight_answer = gptAPI(insight_query, "Insight")
-logprint(insight_answer)
+user_input = get_user_input()
 
 with ThreadPoolExecutor() as executor:
     future_account = executor.submit(account_finder, user_input)
@@ -117,8 +137,11 @@ with ThreadPoolExecutor() as executor:
     # Collect results when complete
     # email_list = future_email.result()
     # github_list = future_github.result()
-email_seeker("email.txt")
+
+target_location = Path(__file__).parent / "txt_temp" / "email.txt"
+email_seeker(str(target_location))
 merge_txt_files()
+
 # end_time = time.time()
 # elapsed_time = end_time - start_time
 # print(f"Time taken: {elapsed_time:.2f} seconds")

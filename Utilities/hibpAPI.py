@@ -2,6 +2,7 @@ import requests
 import concurrent.futures
 import time
 from logPrint import logprint
+from pathlib import Path
 
 
 # # Sample function that processes an element
@@ -45,7 +46,6 @@ API_KEY = 'a5d0f59d23dd47b4a173947d68a1ccff'
 def email_seeker(file_path):
     hibp_list = []
     lines_with_at = []  
-    # Open the file and read it line by line
     with open(file_path, 'r') as file:
         for line in file:
             # Check if '@' is in the current line
@@ -54,7 +54,6 @@ def email_seeker(file_path):
     
     for x in lines_with_at:
         result = check_hibp(x)
-        # Display the results
         if isinstance(result, list):
             logprint(f"Breaches for {x}:")
             hibp_list.append(x)
@@ -64,8 +63,14 @@ def email_seeker(file_path):
         else:
             logprint(result)
         time.sleep(6)
+
+    script_directory = Path(__file__).parent  
+    target_folder = script_directory.parent / "txt_temp"  
+    file_path = target_folder / "email_breaches.txt"
+
+    target_folder.mkdir(parents=True, exist_ok=True)
     
-    save_list_to_txt("email_breaches.txt", hibp_list)
+    save_list_to_txt(str(file_path), hibp_list)
     
 
 # Function to check breaches for an email address using HIBP API
@@ -95,3 +100,6 @@ def check_hibp(email):
     except Exception as e:
         return f"Exception occurred: {str(e)}"
 
+
+# target_folder = Path(__file__).parent.parent / "txt_temp" / "email.txt"
+# email_seeker(str(target_folder))

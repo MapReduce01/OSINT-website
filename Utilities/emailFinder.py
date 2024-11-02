@@ -1,6 +1,7 @@
 import subprocess
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from pathlib import Path
 from logPrint import logprint
 
 def search_email(domain):
@@ -24,11 +25,17 @@ def email_finder(domain_list_filtered):
 
     logprint("Email Searching Done")
 
-    with open('email.json', 'w') as json_file_email:
+    script_directory = Path(__file__).parent  
+    target_folder = script_directory.parent / "json_temp"  
+    file_path = target_folder / "email.json"
+
+    target_folder.mkdir(parents=True, exist_ok=True)
+
+    with open(str(file_path), 'w') as json_file_email:
         json.dump(email_json_list, json_file_email, indent=4)
 
     logprint("The result has been saved to " + 'email.json')
-    email_list = email_extract('email.json',1)
+    email_list = email_extract(str(file_path),1)
     return email_list
 
 def email_extract (file, mode = 0):
@@ -52,7 +59,14 @@ def email_extract (file, mode = 0):
         filter_string = '@'
         name_string = 'name'
         email_list = [items for items in email_list if filter_string in items or name_string in items]
-        output_file = 'email.txt'
+
+        script_directory = Path(__file__).parent  
+        target_folder = script_directory.parent / "txt_temp"  
+        file_path = target_folder / "email.txt"
+
+        target_folder.mkdir(parents=True, exist_ok=True)
+
+        output_file = str(file_path)
         with open(output_file, 'w') as f:
             for email in email_list:
                 f.write(f"{email}\n")

@@ -1,0 +1,67 @@
+amr_marzouk@sfu.ca
+- VerificationsIO: 2019-02-25
+jpei@cs.sfu.ca
+- LinkedIn: 2012-05-05
+- Dropbox: 2012-07-01
+- MDPI: 2016-08-30
+- TrikSpamBotnet: 2018-06-12
+- Collection1: 2019-01-07
+- VerificationsIO: 2019-02-25
+- PDL: 2019-10-16
+- LinkedInScrape: 2021-04-08
+- MGM2022Update: 2019-07-25
+- Locally: 2022-10-01
+- TelegramCombolists: 2024-05-28
+- FairVoteCanada: 2024-03-02
+stella@cs.sfu.ca
+- VerificationsIO: 2019-02-25
+funda@cs.sfu.ca
+- LinkedIn: 2012-05-05
+- VerificationsIO: 2019-02-25
+- Evite: 2013-08-11
+- PDL: 2019-10-16
+- LinkedInScrape: 2021-04-08
+kamal@cs.sfu.ca
+- Stratfor: 2011-12-24
+- LinkedIn: 2012-05-05
+- Dropbox: 2012-07-01
+- Adapt: 2018-11-05
+- VerificationsIO: 2019-02-25
+- PDL: 2019-10-16
+- LinkedInScrape: 2021-04-08
+jcliu@cs.sfu.ca
+- LinkedIn: 2012-05-05
+- Dropbox: 2012-07-01
+- AntiPublic: 2016-12-16
+- ExploitIn: 2016-10-13
+- MDPI: 2016-08-30
+- Collection1: 2019-01-07
+- VerificationsIO: 2019-02-25
+- PDL: 2019-10-16
+- Cit0day: 2020-11-04
+- LinkedInScrape: 2021-04-08
+- TelegramCombolists: 2024-05-28
+ljilja@cs.sfu.ca
+- LinkedIn: 2012-05-05
+- AntiPublic: 2016-12-16
+- OnlinerSpambot: 2017-08-28
+- Rankwatch: 2016-11-19
+- TrikSpamBotnet: 2018-06-12
+- Apollo: 2018-07-23
+- VerificationsIO: 2019-02-25
+- Netlog: 2012-11-01
+- PDL: 2019-10-16
+- Gravatar: 2020-10-03
+- Twitter200M: 2021-01-01
+- NazApi: 2023-09-20
+- TelegramCombolists: 2024-05-28
+angiez@cs.sfu.ca
+- PDL: 2019-10-16
+tayebi@cs.sfu.ca
+- VerificationsIO: 2019-02-25
+mehta@cs.sfu.ca
+- OnlinerSpambot: 2017-08-28
+amr_marzouk@sfu.ca
+- VerificationsIO: 2019-02-25
+amr_marzouk@sfu.ca
+- VerificationsIO: 2019-02-25

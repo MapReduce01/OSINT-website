@@ -1,6 +1,8 @@
 import requests
 import json
 from logPrint import logprint
+from pathlib import Path
+from gleif_extract import *
 
 def gleifAPI(name):
     gleif_api_url = "https://api.gleif.org/api/v1/lei-records"
@@ -34,11 +36,24 @@ def gleifAPI(name):
                 logprint(f"Registration Status: {registration_status}")
                 # lei_record is a dict, attributes are shown as ablove
                 json_version = json.dumps(lei_record)
-                with open('gleif.json', 'w') as json_file_gleif:
+
+                script_directory = Path(__file__).parent  
+                target_folder = script_directory.parent / "json_temp"  
+                file_path = target_folder / "gleif.json"
+
+                target_folder.mkdir(parents=True, exist_ok=True)
+
+                with open(str(file_path), 'w') as json_file_gleif:
                     json.dump(json_version, json_file_gleif, indent=4)
+
+                gleif_extract(str(file_path),1)
                 return json_version
+            
+                
         else:
             logprint("No matching company found.")
     else:
         logprint(f"Error: {response.status_code}")
         logprint(response.text)
+
+# gleifAPI("Simon Fraser University")
