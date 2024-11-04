@@ -1,0 +1,79 @@
+2024-11-03 09:38:17,610 - INFO - Collection 'osintdata' created.
+2024-11-03 09:38:17,610 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 09:40:56,558 - INFO - Collection 'osintdata' created.
+2024-11-03 09:40:56,558 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 09:40:56,559 - INFO - Attempting to insert data.
+2024-11-03 09:40:56,579 - INFO - Data inserted successfully with ID: 6727b5a8705e11fd3077d4ee
+2024-11-03 09:40:56,579 - INFO - Attempting to insert multiple documents.
+2024-11-03 09:40:56,598 - INFO - Inserted multiple documents successfully with IDs: [ObjectId('6727b5a8705e11fd3077d4ef'), ObjectId('6727b5a8705e11fd3077d4f0')]
+2024-11-03 09:40:56,599 - INFO - Attempting to find documents with query: {'occupation': 'Researcher'}
+2024-11-03 09:40:56,618 - INFO - Found 0 documents matching the query.
+2024-11-03 09:40:56,619 - INFO - Closing MongoDB connection.
+2024-11-03 09:40:56,632 - INFO - MongoDB connection closed.
+2024-11-03 09:42:54,744 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 09:42:54,745 - INFO - Attempting to find documents with query: {'org_name': 'SFU'}
+2024-11-03 09:42:54,759 - INFO - Found 1 documents matching the query.
+2024-11-03 09:42:54,760 - INFO - Closing MongoDB connection.
+2024-11-03 09:42:54,775 - INFO - MongoDB connection closed.
+2024-11-03 09:53:23,750 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 09:53:23,750 - INFO - Attempting to find documents with query: {'org_name': 'SFU'}
+2024-11-03 09:53:23,765 - INFO - Found 1 documents matching the query.
+2024-11-03 09:53:23,767 - INFO - Closing MongoDB connection.
+2024-11-03 09:53:23,780 - INFO - MongoDB connection closed.
+2024-11-03 10:02:46,557 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 10:02:46,557 - INFO - Attempting to update documents with query: {'org_name': 'SFU'} and update: {'description': 'des0'}
+2024-11-03 10:02:46,585 - INFO - Updated 1 documents.
+2024-11-03 10:02:46,586 - INFO - Attempting to find a single document with query: {'org_name': 'SFU'}
+2024-11-03 10:02:46,600 - INFO - Document found.
+2024-11-03 10:02:46,602 - INFO - Closing MongoDB connection.
+2024-11-03 10:02:46,616 - INFO - MongoDB connection closed.
+2024-11-03 10:05:41,371 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 10:05:41,371 - INFO - Attempting to delete documents with query: {'org_name': 'Google'}
+2024-11-03 10:05:41,392 - INFO - Deleted 1 documents.
+2024-11-03 10:05:41,393 - INFO - Attempting to find documents with query: {}
+2024-11-03 10:05:41,408 - INFO - Found 2 documents matching the query.
+2024-11-03 10:05:41,410 - INFO - Closing MongoDB connection.
+2024-11-03 10:05:41,425 - INFO - MongoDB connection closed.
+2024-11-03 14:14:00,354 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:14:00,354 - INFO - Attempting to insert data.
+2024-11-03 14:14:00,435 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-03 14:14:00,435 - INFO - Closing MongoDB connection.
+2024-11-03 14:14:00,451 - INFO - MongoDB connection closed.
+2024-11-03 14:15:26,189 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:15:26,189 - INFO - Attempting to find documents with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-03 14:15:26,248 - INFO - Found 1 documents matching the query.
+2024-11-03 14:15:26,309 - INFO - Closing MongoDB connection.
+2024-11-03 14:15:26,327 - INFO - MongoDB connection closed.
+2024-11-03 14:17:07,529 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:17:07,530 - INFO - Attempting to find documents with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-03 14:17:07,583 - INFO - Found 1 documents matching the query.
+2024-11-03 14:17:28,814 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:17:28,814 - INFO - Attempting to find documents with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-03 14:17:28,880 - INFO - Found 1 documents matching the query.
+2024-11-03 14:17:28,883 - INFO - Closing MongoDB connection.
+2024-11-03 14:17:28,900 - INFO - MongoDB connection closed.
+2024-11-03 14:30:39,399 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:30:39,400 - INFO - Attempting to find documents with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-03 14:30:39,451 - INFO - Found 1 documents matching the query.
+2024-11-03 14:30:39,514 - INFO - Closing MongoDB connection.
+2024-11-03 14:30:39,528 - INFO - MongoDB connection closed.
+2024-11-03 14:30:51,050 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:30:51,051 - INFO - Attempting to find documents with query: {'org_name': 'SIMONFSERUNIVERSITY'}
+2024-11-03 14:30:51,065 - INFO - Found 0 documents matching the query.
+2024-11-03 14:30:51,065 - INFO - Closing MongoDB connection.
+2024-11-03 14:30:51,077 - INFO - MongoDB connection closed.
+2024-11-03 14:30:59,104 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:30:59,105 - INFO - Attempting to find documents with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-03 14:30:59,159 - INFO - Found 1 documents matching the query.
+2024-11-03 14:30:59,221 - INFO - Closing MongoDB connection.
+2024-11-03 14:30:59,236 - INFO - MongoDB connection closed.
+2024-11-03 14:42:47,167 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 14:42:54,251 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 15:57:37,803 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 15:57:37,804 - INFO - Closing MongoDB connection.
+2024-11-03 15:57:37,820 - INFO - MongoDB connection closed.
+2024-11-03 15:58:34,884 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 15:58:34,885 - INFO - Attempting to insert data.
+2024-11-03 15:58:35,003 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-03 15:58:35,003 - INFO - Closing MongoDB connection.
+2024-11-03 15:58:35,017 - INFO - MongoDB connection closed.

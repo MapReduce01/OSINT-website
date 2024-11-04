@@ -1,10 +1,11 @@
 from openai import OpenAI
 import json
-
-with open("openai_key.txt", 'r') as file:
-    gptkey = file.read()
+import os
+from dotenv import load_dotenv
 
 def openai_query(query):
+    load_dotenv()
+    gptkey = os.getenv("OPENAIKEY")
     client = OpenAI(api_key=gptkey)
 
     completion = client.chat.completions.create(
@@ -17,7 +18,8 @@ def openai_query(query):
     return (completion.choices[0].message.content)
 
 def query_about_file(file_path, question):
-    # Set up your OpenAI API key
+    load_dotenv()
+    gptkey = os.getenv("OPENAIKEY")
     client = OpenAI(api_key=gptkey)
     
     # Load and format the JSON file
