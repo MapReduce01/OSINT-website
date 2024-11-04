@@ -5,7 +5,7 @@ from MongoDB_Util import MongoDBHandler
 from models.OrgItem import OrgItem
 import traceback
 from fastapi.middleware.cors import CORSMiddleware
-from db_test import MongoDBHandler
+from MongoDB_Util import *
 
 MongoDBHandler = MongoDBHandler(db_name="test")
 
