@@ -1,63 +1,206 @@
+/* Basic styling */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f9;
-  }
-  
-  .container {
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-  }
-  
-  .input-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"] {
-    width: 70%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-right: 0; /* Remove margin to eliminate space */
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-left: -1px; /* Optional: Adjust to align the button better with the input */
-  }
-  
-  button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-  }
-  
-  .results {
-    margin-top: 20px;
-    text-align: left;
-  }
-  
-  .result-item {
-    background: #fff;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Container for the search interface */
+.container {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Styling for the input and button */
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#searchButton {
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+#searchButton:hover {
+  background-color: #0056b3;
+}
+
+/* Results styling */
+.results {
+  margin-top: 20px;
+}
+
+.result-container {
+  width: 100%;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-container h2 {
+  color: #333;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
+
+.field-container {
+  margin-bottom: 8px;
+  font-size: 0.95em;
+}
+
+.field-container strong {
+  color: #555;
+}
+
+/* Container for the entire result */
+.result-container {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* Organization title */
+.org-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Each individual field box */
+.field-box {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+/* Title styling for each field */
+.field-title {
+  font-weight: bold;
+  font-size: 1em;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+/* Content styling for each field */
+.field-content {
+  font-size: 0.9em;
+  color: #555;
+}
+
+.field-box {
+  margin: 10px 0; /* 每个字段之间的间距 */
+  border: 1px solid #ccc; /* 边框 */
+  border-radius: 8px; /* 圆角 */
+  background-color: #f9f9f9; /* 背景颜色 */
+  padding: 10px; /* 内边距 */
+}
+
+.field-title {
+  cursor: pointer; /* 鼠标悬停时显示手形光标 */
+  display: flex; /* 使用 flexbox 布局 */
+  align-items: center; /* 垂直居中 */
+}
+
+.arrow {
+  margin-right: 5px; /* 箭头和标题之间的间距 */
+}
+
+.field-content {
+  display: none; /* 初始状态隐藏 */
+  text-align: center; /* 内容居中 */
+  padding-top: 10px; /* 顶部内边距 */
+}
+
+.field-content table {
+  width: 100%; /* 表格宽度 */
+  border-collapse: collapse; /* 合并边框 */
+  margin-top: 10px; /* 表格与标题的间距 */
+}
+
+.field-content th, .field-content td {
+  border: 1px solid #ccc; /* 单元格边框 */
+  padding: 8px; /* 单元格内边距 */
+  text-align: left; /* 左对齐 */
+}
+
+.field-content th {
+  background-color: #f2f2f2; /* 表头背景颜色 */
+}
+
+/* Basic styling for the data tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+table tr:hover {
+  background-color: #f1f1f1; /* Highlight on hover */
+}
+
+/* Optional: Style for the toggle buttons */
+.toggle-button {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.toggle-button:hover {
+  color: darkblue;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.data-table th, .data-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.field-title {
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
