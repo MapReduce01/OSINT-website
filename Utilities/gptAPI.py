@@ -8,6 +8,7 @@ def save_string_to_json(category,gpt_result, filename):
     with open(filename, 'w') as json_file:
         json.dump(data, json_file, indent=4)
     logprint(f'Saved to {filename}')
+    return data
 
 def save_string_to_txt(file_path, string_to_save):
     try:
@@ -26,7 +27,7 @@ def gptAPI(query,category):
     file_path = target_folder / json_name
     target_folder.mkdir(parents=True, exist_ok=True)
 
-    save_string_to_json(category, gpt_result, str(file_path))
+    result_json = save_string_to_json(category, gpt_result, str(file_path))
 
     target_folder2 = script_directory.parent / "txt_temp"
     txt_name = category+".txt"
@@ -34,7 +35,7 @@ def gptAPI(query,category):
     target_folder2.mkdir(parents=True, exist_ok=True)
 
     save_string_to_txt(file_path2,gpt_result)
-    return gpt_result
+    return result_json
 
 # des_query = "give me an overview of " + "Simon Fraser University"
 # print(gptAPI(des_query,"Description"))

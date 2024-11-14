@@ -1,0 +1,27 @@
+Name: sfu
+URL: https://github.com/medooze/sfu
+Description: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support
+Name: sfu
+URL: https://github.com/inlivedev/sfu
+Description: WebRTC Selective Forwarder Unit(SFU) Golang Library
+Name: sfu
+URL: https://github.com/webrtc-rs/sfu
+Description: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO
+Name: sfu
+URL: https://github.com/medooze/sfu
+Description: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support
+Name: sfu
+URL: https://github.com/inlivedev/sfu
+Description: WebRTC Selective Forwarder Unit(SFU) Golang Library
+Name: sfu
+URL: https://github.com/webrtc-rs/sfu
+Description: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO
+Name: sfu
+URL: https://github.com/medooze/sfu
+Description: A future proof, experimental WebRTC VP9 SVC SFU wit end to end encryption support
+Name: sfu
+URL: https://github.com/inlivedev/sfu
+Description: WebRTC Selective Forwarder Unit(SFU) Golang Library
+Name: sfu
+URL: https://github.com/webrtc-rs/sfu
+Description: WebRTC Selective Forwarding Unit (SFU) in Rust with Sans-IO

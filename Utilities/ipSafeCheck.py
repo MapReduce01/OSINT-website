@@ -58,41 +58,47 @@ def ip_safe_check(ip_addresses_filtered):
 
     target_folder.mkdir(parents=True, exist_ok=True)
 
-    with open(str(file_path), 'w') as json_file_ip:
-        json.dump(ip_json_list, json_file_ip, indent=4)
-
     logprint("The result has been saved to " + 'ip_safe_list.json')
-    ip_extract(str(file_path), 1)
+    # ip_extract(str(file_path), 1)
+    ip_addresses = [{"ip": item['data']} for item in ip_json_list]
+
+    with open(str(file_path), 'w') as json_file_ip:
+        json.dump(ip_addresses, json_file_ip, indent=4)
     
-    return ip_safe_list
+    return ip_addresses
 
 
-def ip_extract (file, mode = 0):
-    #if want to get the list of data from json, mode = 0
-    #if want to get txt data from json, mode = 1
-    input_file = file 
-    with open(input_file, 'r') as f:
-        json_data = json.load(f)
+# def ip_extract (file, mode = 0):
+#     #if want to get the list of data from json, mode = 0
+#     #if want to get txt data from json, mode = 1
+#     input_file = file 
+#     with open(input_file, 'r') as f:
+#         json_data = json.load(f)
 
-    if mode == 0:
-    # Extract 'data' field values into a list
-        ip_list = [entry['data'] for entry in json_data]
-        return ip_list
+#     if mode == 0:
+#     # Extract 'data' field values into a list
+#         ip_list = [entry['data'] for entry in json_data]
+#         return ip_list
 
-    # Save the list to a txt file
-    if mode == 1:
-        ip_list = [entry['data'] for entry in json_data]
+#     # Save the list to a txt file
+#     if mode == 1:
+#         ip_list = [entry['data'] for entry in json_data]
 
-        script_directory = Path(__file__).parent  
-        target_folder = script_directory.parent / "txt_temp"  
-        file_path = target_folder / "ip_safe_list.txt"
+#         script_directory = Path(__file__).parent  
+#         target_folder = script_directory.parent / "txt_temp"  
+#         file_path = target_folder / "ip_safe_list.txt"
 
-        target_folder.mkdir(parents=True, exist_ok=True)
+#         target_folder.mkdir(parents=True, exist_ok=True)
 
-        output_file = str(file_path)
-        with open(output_file, 'w') as f:
-            for ip in ip_list:
-                f.write(f"{ip}\n")
-        logprint(f"Safety IP addresses saved to: {output_file}")
+#         output_file = str(file_path)
+#         with open(output_file, 'w') as f:
+#             for ip in ip_list:
+#                 f.write(f"{ip}\n")
+#         logprint(f"Safety IP addresses saved to: {output_file}")
     
-    return None
+#     return None
+
+
+# test_ip = ['34.211.108.47', '142.58.142.134', '3.97.108.247', '142.58.142.231', '142.58.143.9', '142.58.103.55', '142.58.143.66']
+
+# test_output_list = ip_safe_check(test_ip)

@@ -1,7 +1,25 @@
 from censys.search import CensysHosts
-from censys_extract import *
+# from censys_extract import *
 from logPrint import logprint
 from pathlib import Path
+import json
+
+def clean_dict(d):
+    keys_to_delete = []
+    
+    for key, value in d.items():
+        if isinstance(value, dict):
+            clean_dict(value)
+            if not value:
+                keys_to_delete.append(key)
+        elif isinstance(value, list):
+            if not value:
+                keys_to_delete.append(key)
+        elif value is None:
+            keys_to_delete.append(key)
+
+    for key in keys_to_delete:
+        del d[key]
 
 def censys_finder(user_input):
     API_ID = "f8013bed-c783-4320-97be-e0d390cbea7d"
@@ -20,14 +38,21 @@ def censys_finder(user_input):
         censys_str= censys_str+str(result)
 
     script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "txt_temp"  
-    file_path = target_folder / "censys.txt"
+    target_folder = script_directory.parent / "json_temp"  
+    file_path = target_folder / "censys.json"
+
+    data = eval(censys_str)
+    for item in data:
+        clean_dict(item)
 
     target_folder.mkdir(parents=True, exist_ok=True)
+    cnesys_json = json.dumps(data)
 
-    with open(str(file_path), "w") as text_file:
-        text_file.write(censys_str)
+    with open(str(file_path), "w") as json_file:
+        json_file.write(cnesys_json)
 
-    censys_extract(str(file_path))
+    return data
+
+
 
 # censys_finder("Simon Fraser University")

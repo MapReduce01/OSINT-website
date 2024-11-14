@@ -23,6 +23,7 @@ from github_finder import *
 from Account import *
 from censysFinder import *
 import os
+import requests
 
 
 # get target website
@@ -57,6 +58,17 @@ def get_Ip_address(domain_list_filtered):
     ip_addresses_filtered = list(set(ip_addresses))
     return ip_addresses_filtered
 
+def combine_json_data(json_values, output_file_name=None):
+    combined_data = []
+    for json_value in json_values:
+        combined_data.append(json_value)
+
+    if output_file_name:
+        with open(output_file_name, 'w') as output_file:
+            json.dump(combined_data, output_file, indent=4)
+    
+    return combined_data
+
 # merge and return all results for multi-thread
 def get_safe_Ip_merged(user_input):
     target_website = search_website(user_input)
@@ -75,22 +87,22 @@ def merge_txt_files():
     ip_safe_list = Path(__file__).parent / "txt_temp" / "ip_safe_list.txt"
     github = Path(__file__).parent / "txt_temp" / "github.txt"
     censys_clear = Path(__file__).parent / "txt_temp" / "censys_clear.txt"
-    gleif = Path(__file__).parent / "txt_temp" / "gleif.txt"
+    # gleif = Path(__file__).parent / "txt_temp" / "gleif.txt"
 
-    txt_files = [str(description),str(insight),str(account),str(email),str(email_breaches),str(ip_safe_list),str(github),str(censys_clear),str(gleif)]
-    output_file = 'Summary.txt'
+    # txt_files = [str(description),str(insight),str(account),str(email),str(email_breaches),str(ip_safe_list),str(github),str(censys_clear),str(gleif)]
+    # output_file = 'Summary.txt'
 
-    with open(output_file, 'w') as outfile:
-        for txt_file in txt_files:
-            try:
-                outfile.write(f"===== {txt_file} =====\n")
+    # with open(output_file, 'w') as outfile:
+    #     for txt_file in txt_files:
+    #         try:
+    #             outfile.write(f"===== {txt_file} =====\n")
 
-                with open(txt_file, 'r') as infile:
-                    outfile.write(infile.read())
-                    outfile.write("\n\n")  
+    #             with open(txt_file, 'r') as infile:
+    #                 outfile.write(infile.read())
+    #                 outfile.write("\n\n")  
             
-            except FileNotFoundError:
-                logprint(f"File {txt_file} not found, skipping.")
+    #         except FileNotFoundError:
+    #             logprint(f"File {txt_file} not found, skipping.")
 
 def get_user_input():
     user_input = input("Enter a name to search: ")
@@ -108,19 +120,19 @@ def get_user_input():
     insight_answer = gptAPI(insight_query, "Insight")
     logprint(insight_answer)
 
-    return user_input
+    return user_input, des_answer, insight_answer
 
 
 # #######################   Start process   #########################
 
-user_input = get_user_input()
+user_input, des_answer, insight_answer = get_user_input()
 
 with ThreadPoolExecutor() as executor:
+    # future_gleif = executor.submit(gleifAPI, user_input)
+
     future_account = executor.submit(account_finder, user_input)
-    future_gleif = executor.submit(gleifAPI, user_input)
     future_censys = executor.submit(censys_finder, user_input)
     future_Ip = executor.submit(get_safe_Ip_merged, user_input)
-    
     domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
 
 # #######################   API call   #########################
@@ -138,9 +150,20 @@ with ThreadPoolExecutor() as executor:
     # email_list = future_email.result()
     # github_list = future_github.result()
 
-target_location = Path(__file__).parent / "txt_temp" / "email.txt"
-email_seeker(str(target_location))
-merge_txt_files()
+# target_location = Path(__file__).parent / "txt_temp" / "email.txt"   
+
+hibp_result = email_seeker(future_email.result())
+data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": future_Ip.result(),"github": future_github.result(),"censys": future_censys.result()}
+logprint("==============================")
+logprint(data_to_save)
+response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)
+logprint(response)
+
+
+# all_json_data = [des_answer,insight_answer,future_account.result(),future_email.result(),hibp_result,future_Ip.result(),future_github.result(),future_censys.result()]
+# combined_json = combine_json_data(all_json_data, output_file_name="Summary.json")
+
+# merge_txt_files()
 
 # end_time = time.time()
 # elapsed_time = end_time - start_time

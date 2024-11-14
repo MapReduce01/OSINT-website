@@ -5,7 +5,8 @@ from MongoDB_Util import MongoDBHandler
 from models.OrgItem import OrgItem
 import traceback
 from fastapi.middleware.cors import CORSMiddleware
-from db_test import MongoDBHandler
+from MongoDB_Util import *
+from typing import Optional
 
 MongoDBHandler = MongoDBHandler(db_name="test")
 
@@ -45,7 +46,6 @@ async def addNewOrg(Org: OrgItem):
 async def updateOrg(Org: OrgItem):
     try:
         Org = Org.dict()
-        Org["orgname"] = str(Org["org_name"]).upper().replace(" ","")
         MongoDBHandler.update_data(Org)
         result = Org(data=Org, status_code=0)
     except:
@@ -57,8 +57,8 @@ async def updateOrg(Org: OrgItem):
 
 @app.get("/listOrgInfo", tags=["get"])
 async def listOrgInfo(org_name: str = Query(example="Simon Fraser University"))->OrgItem:
-    org_name = org_name.upper().replace(" ","")
-    found_doc = MongoDBHandler.find_one(query={"org_name": org_name})
+    uni_id = org_name.upper().replace(" ","")
+    found_doc = MongoDBHandler.find_one(query={"uni_id": uni_id})
     return found_doc
 
 @app.get("/listAllOrgs", tags=["get"])
@@ -82,3 +82,6 @@ async def removeOrgFromDB(
 
 # command to run -> cd DB_Util -> python -m uvicorn FastAPI_DB:app --reload
 
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=5000, log_level="info")

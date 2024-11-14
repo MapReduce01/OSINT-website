@@ -3,6 +3,7 @@ import concurrent.futures
 import time
 from logPrint import logprint
 from pathlib import Path
+from emailFinder import *
 
 
 # # Sample function that processes an element
@@ -39,38 +40,86 @@ def save_list_to_txt(file_path, data_list):
         for item in data_list:
             file.write(f"{item}\n")  
 
+def transform_data(data):
+    # Parse the string data to JSON if it’s a string
+    if isinstance(data, str):
+        data = json.loads(data)
+        
+    transformed_data = []
+    for email, breaches in data.items():
+        transformed_data.append({
+            "Email": email,
+            "Breaches": breaches
+        })
+    return transformed_data
+
+
+
 
 # Have I Been Pwned API credentials
 API_KEY = 'a5d0f59d23dd47b4a173947d68a1ccff'
 
-def email_seeker(file_path):
+def email_seeker(elist):
     hibp_list = []
     lines_with_at = []  
-    with open(file_path, 'r') as file:
-        for line in file:
-            # Check if '@' is in the current line
-            if '@' in line:
-                lines_with_at.append(line.strip())  # Strip to remove any extra spaces or newline characters
-    
+    # with open(file_path, 'r') as file:
+    #     for line in file:
+    #         # Check if '@' is in the current line
+    #         if '@' in line:
+    #             lines_with_at.append(line.strip())  # Strip to remove any extra spaces or newline characters
+    for entry in elist:
+        if 'email' in entry:
+            lines_with_at.append(entry['email'])
+    print(lines_with_at)
+
+    # for x in lines_with_at:
+    #     result = check_hibp(x)
+    #     if isinstance(result, list):
+    #         logprint(f"Breaches for {x}:")
+    #         hibp_list.append(x)
+    #         for breach in result:
+    #             logprint(f"- {breach['Name']}: {breach['BreachDate']}")
+    #             hibp_list.append(f"- {breach['Name']}: {breach['BreachDate']}")
+    #     else:
+    #         logprint(result)
+    #     time.sleep(6)
+
+    hibp_data = {}
+
     for x in lines_with_at:
         result = check_hibp(x)
         if isinstance(result, list):
             logprint(f"Breaches for {x}:")
-            hibp_list.append(x)
+            
+            # Initialize a list of breaches for each email
+            hibp_data[x] = []
+            
+            # Add each breach as a dictionary entry
             for breach in result:
-                logprint(f"- {breach['Name']}: {breach['BreachDate']}")
-                hibp_list.append(f"- {breach['Name']}: {breach['BreachDate']}")
+                breach_info = {"Name": breach["Name"], "BreachDate": breach["BreachDate"]}
+                logprint(f"- {breach_info['Name']}: {breach_info['BreachDate']}")
+                hibp_data[x].append(breach_info)
         else:
             logprint(result)
+            
+        # Add a delay to avoid rate limits
         time.sleep(6)
 
-    script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "txt_temp"  
-    file_path = target_folder / "email_breaches.txt"
+   
+    hibp_json = json.dumps(hibp_data, indent=4)
+    transformed_data = transform_data(hibp_json)
+    logprint("Hibp Data JSON:")
+    logprint(transformed_data)
+    return transformed_data
 
-    target_folder.mkdir(parents=True, exist_ok=True)
+
+    # script_directory = Path(__file__).parent  
+    # target_folder = script_directory.parent / "txt_temp"  
+    # file_path = target_folder / "email_breaches.txt"
+
+    # target_folder.mkdir(parents=True, exist_ok=True)
     
-    save_list_to_txt(str(file_path), hibp_list)
+    # save_list_to_txt(str(file_path), hibp_list)
     
 
 # Function to check breaches for an email address using HIBP API
@@ -103,3 +152,9 @@ def check_hibp(email):
 
 # target_folder = Path(__file__).parent.parent / "txt_temp" / "email.txt"
 # email_seeker(str(target_folder))
+
+# lll = ['sfu.ca', 'ad.sfu.ca', 'cs.sfu.ca', 'fs.sfu.ca', 'my.sfu.ca', 'go.sfu.ca', 'cgi.sfu.ca', 'ns3.sfu.ca', 'pkp.sfu.ca', 'cas.sfu.ca', 'idp.sfu.ca', 'avs.sfu.ca', 'its.sfu.ca', 'fhs.sfu.ca', 'bus.sfu.ca', 'rcg.sfu.ca', 'ucs.sfu.ca', 'net.sfu.ca', 'lib.sfu.ca', 'www.sfu.ca', 'sfu.ca']
+# llllll = email_finder(lll)
+# print(llllll)
+
+# email_seeker(llllll)

@@ -77,3 +77,41 @@
 2024-11-03 15:58:35,003 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
 2024-11-03 15:58:35,003 - INFO - Closing MongoDB connection.
 2024-11-03 15:58:35,017 - INFO - MongoDB connection closed.
+2024-11-03 17:22:00,422 - INFO - Connected to MongoDB and initialized collection.
+2024-11-03 17:22:00,423 - INFO - Attempting to insert data.
+2024-11-03 17:22:00,520 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-03 17:22:00,520 - INFO - Closing MongoDB connection.
+2024-11-03 17:22:00,536 - INFO - MongoDB connection closed.
+2024-11-05 09:59:59,701 - INFO - Connected to MongoDB and initialized collection.
+2024-11-05 09:59:59,702 - INFO - Attempting to insert data.
+2024-11-05 09:59:59,772 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-05 09:59:59,773 - INFO - Closing MongoDB connection.
+2024-11-05 09:59:59,785 - INFO - MongoDB connection closed.
+2024-11-05 10:28:33,853 - INFO - Connected to MongoDB and initialized collection.
+2024-11-05 10:28:33,853 - INFO - Attempting to insert data.
+2024-11-05 10:28:33,932 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-05 10:28:33,932 - INFO - Closing MongoDB connection.
+2024-11-05 10:28:33,947 - INFO - MongoDB connection closed.
+2024-11-05 10:33:14,463 - INFO - Connected to MongoDB and initialized collection.
+2024-11-05 10:33:14,464 - INFO - Attempting to insert data.
+2024-11-05 10:33:14,544 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-05 10:33:14,544 - INFO - Closing MongoDB connection.
+2024-11-05 10:33:14,559 - INFO - MongoDB connection closed.
+2024-11-05 11:03:23,978 - INFO - Connected to MongoDB and initialized collection.
+2024-11-05 11:03:23,978 - INFO - Attempting to insert data.
+2024-11-05 11:03:24,063 - INFO - Data inserted successfully with ID: SIMONFRASERUNIVERSITY
+2024-11-05 11:03:24,064 - INFO - Closing MongoDB connection.
+2024-11-05 11:03:24,085 - INFO - MongoDB connection closed.
+2024-11-13 16:14:40,696 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:18:38,993 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:19:09,988 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:19:22,039 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:20:07,825 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:22:22,704 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:22:39,670 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:23:15,355 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 16:23:39,313 - INFO - Attempting to find a single document with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-13 16:23:39,373 - INFO - Document found.
+2024-11-13 22:12:49,901 - INFO - Connected to MongoDB and initialized collection.
+2024-11-13 22:12:56,859 - INFO - Attempting to find a single document with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
+2024-11-13 22:12:56,913 - INFO - Document found.
