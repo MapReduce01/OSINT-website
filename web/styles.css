@@ -204,3 +204,40 @@ table tr:hover {
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
+/* Ensure everything inside the field-box is left-aligned */
+.field-content {
+  display: block; /* Make sure it's displayed as a block */
+  text-align: left; /* Align text to the left */
+  padding: 10px; /* Optional: add padding to the content */
+}
+
+/* Align any lists to the left */
+ul, ol {
+  margin: 0;
+  padding-left: 0px; /* Adjust the left padding if needed */
+  list-style-position: outside; /* Ensure bullets or numbers are outside the content */
+}
+
+/* Align the list items to the left */
+ul li, ol li {
+  padding-left: 10;
+  text-align: left;
+}
+
+/* Ensure the headings are left-aligned */
+h3 {
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Optional: Additional styling for paragraphs */
+p {
+  text-align: left;
+  margin: 10px 0; /* Space between paragraphs */
+}
+
+/* For custom unordered list style 1 */
+.custom-list-style-1 {
+  list-style-type: square; /* Example: square bullets */
+  padding-left: 15px;
+}
