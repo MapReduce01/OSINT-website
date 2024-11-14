@@ -34,9 +34,12 @@ def search_website(user_input):
     return target_website
 
 def find_domains(target_website):
-    pattern_www = r'www\.[a-zA-Z0-9\-\.]+'
-    matches_www = re.findall(pattern_www, target_website)
-    target_domain = matches_www[0].replace("www.","")
+    try:
+        pattern_www = r'www\.[a-zA-Z0-9\-\.]+'
+        matches_www = re.findall(pattern_www, target_website)
+        target_domain = matches_www[0].replace("www.","")
+    except:
+        target_domain = target_website
     logprint("Finding subdomains... It might take a while"+"\n")
     domain_list = subfinderAPI(target_domain)
 
@@ -153,7 +156,7 @@ with ThreadPoolExecutor() as executor:
 # target_location = Path(__file__).parent / "txt_temp" / "email.txt"   
 
 hibp_result = email_seeker(future_email.result())
-data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": future_Ip.result(),"github": future_github.result(),"censys": future_censys.result()}
+data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github.result(),"censys": future_censys.result()}
 logprint("==============================")
 logprint(data_to_save)
 response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)

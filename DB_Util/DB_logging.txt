@@ -236,3 +236,58 @@ ConnectionResetError: [WinError 10054] An existing connection was forcibly close
 2024-11-14 06:49:40,927 - INFO - No document found with the given query.
 2024-11-14 07:00:53,321 - INFO - Attempting to insert data.
 2024-11-14 07:00:53,408 - INFO - Data inserted successfully with ID: 673610a56f8c2f295c748e09
+2024-11-14 07:36:24,165 - INFO - Connected to MongoDB and initialized collection.
+2024-11-14 07:42:00,573 - INFO - Attempting to find a single document with query: {'uni_id': 'SS'}
+2024-11-14 07:42:00,588 - INFO - No document found with the given query.
+2024-11-14 07:42:17,700 - INFO - Attempting to find a single document with query: {'uni_id': 'SS'}
+2024-11-14 07:42:17,715 - INFO - No document found with the given query.
+2024-11-14 07:42:27,778 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 07:42:27,837 - INFO - Document found.
+2024-11-14 07:42:47,843 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 07:42:47,905 - INFO - Document found.
+2024-11-14 11:09:34,421 - INFO - Attempting to find a single document with query: {'uni_id': 'S'}
+2024-11-14 11:09:34,438 - INFO - No document found with the given query.
+2024-11-14 11:09:48,741 - INFO - Attempting to find a single document with query: {'uni_id': 'S'}
+2024-11-14 11:09:48,755 - INFO - No document found with the given query.
+2024-11-14 11:09:54,874 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 11:09:54,945 - INFO - Document found.
+2024-11-14 11:10:31,227 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 11:10:31,284 - INFO - Document found.
+2024-11-14 11:18:44,733 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 11:18:44,795 - INFO - Document found.
+2024-11-14 11:57:37,136 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 11:57:37,195 - INFO - Document found.
+2024-11-14 12:07:41,133 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:07:41,191 - INFO - Document found.
+2024-11-14 12:09:33,881 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:09:33,939 - INFO - Document found.
+2024-11-14 12:12:59,365 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:12:59,427 - INFO - Document found.
+2024-11-14 12:13:21,512 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:13:21,571 - INFO - Document found.
+2024-11-14 12:13:57,935 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:13:57,993 - INFO - Document found.
+2024-11-14 12:14:58,300 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:14:58,359 - INFO - Document found.
+2024-11-14 12:17:42,944 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:17:43,005 - INFO - Document found.
+2024-11-14 12:19:22,397 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:19:22,455 - INFO - Document found.
+2024-11-14 12:20:05,372 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:20:05,430 - INFO - Document found.
+2024-11-14 12:23:49,753 - INFO - Attempting to insert data.
+2024-11-14 12:23:49,828 - INFO - Data inserted successfully with ID: 67365c555e41187ad0413e8c
+2024-11-14 12:32:44,687 - INFO - Attempting to insert data.
+2024-11-14 12:32:44,735 - INFO - Data inserted successfully with ID: 67365e6c5e41187ad0413e8d
+2024-11-14 12:33:17,781 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:33:17,840 - INFO - Document found.
+2024-11-14 12:44:53,301 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:44:53,359 - INFO - Document found.
+2024-11-14 12:55:17,960 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:55:18,020 - INFO - Document found.
+2024-11-14 12:55:38,678 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-14 12:55:38,737 - INFO - Document found.
+2024-11-14 12:59:33,899 - INFO - Attempting to insert data.
+2024-11-14 12:59:33,946 - INFO - Data inserted successfully with ID: 673664b55e41187ad0413e8e
+2024-11-14 13:00:24,415 - INFO - Attempting to find a single document with query: {'uni_id': 'AMAZON'}
+2024-11-14 13:00:24,468 - INFO - Document found.

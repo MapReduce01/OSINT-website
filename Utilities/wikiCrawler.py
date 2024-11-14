@@ -22,7 +22,7 @@ def wikiCrawler(user_input):
             if header and data:
                 # print(f"{header.text.strip()}: {data.text.strip()}")
                 if header.text.strip() == "Website":
-                    target_website = data.text.strip()
+                    target = data.text.strip()
 
     else:
         url_query = url+input+"_(company)"
@@ -40,8 +40,9 @@ def wikiCrawler(user_input):
                 if header and data:
                     # print(f"{header.text.strip()}: {data.text.strip()}")
                     if header.text.strip() == "Website":
-                        target_website = data.text.strip()
+                        target = data.text.strip()
         else:
             print("Table not found.")
     
-    return target_website
+    return target
+
