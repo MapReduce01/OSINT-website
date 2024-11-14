@@ -9357,3 +9357,11 @@ function formatCensysDataAsTable(data) {
   tableHTML += "</tbody></table>";
   return tableHTML;
 }
+
+function triggerSearch(event) {
+  // Check if the Enter key (key code 13) is pressed
+  if (event.key === 'Enter') {
+      event.preventDefault(); // Prevent the default Enter behavior
+      handleSearch2(); // Call the search function
+  }
+}

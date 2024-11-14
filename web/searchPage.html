@@ -11,7 +11,7 @@
   <div class="container">
     <h1>Search Data</h1>
     <div class="input-container">
-      <input type="text" id="searchInput" placeholder="Type to search...">
+      <input type="text" id="searchInput" placeholder="Type to search..." onkeypress="triggerSearch(event)">
       <button id="searchButton" onclick="handleSearch2()">Search</button>
     </div>
     <div class="results" id="results">
