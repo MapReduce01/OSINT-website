@@ -8,7 +8,7 @@ body {
 
 /* Container for the search interface */
 .container {
-  width: 80%;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -191,6 +191,8 @@ table tr:hover {
 .data-table {
   width: 100%;
   border-collapse: collapse;
+  max-width: 100%;
+  overflow-x: auto;
   margin-top: 10px;
 }
 
@@ -240,4 +242,20 @@ p {
 .custom-list-style-1 {
   list-style-type: square; /* Example: square bullets */
   padding-left: 15px;
+}
+
+.data-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.data-table th, .data-table td {
+   border: 1px solid #ccc;
+   padding: 8px;
+   text-align: left;
+   white-space: normal; 
+   overflow: hidden; 
+   text-overflow: ellipsis; 
+   max-width: 150px; 
+   word-wrap: break-word;
 }
