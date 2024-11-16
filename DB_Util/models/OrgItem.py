@@ -14,3 +14,5 @@ class OrgItem(BaseModel):
     github: Any
     censys: Any
 
+class jsvalue(BaseModel):
+    value: str

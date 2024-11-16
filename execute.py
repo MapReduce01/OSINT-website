@@ -1,3 +1,13 @@
+from fastapi import FastAPI, Query, HTTPException
+from fastapi.responses import RedirectResponse
+import uvicorn
+from DB_Util.MongoDB_Util import MongoDBHandler
+from DB_Util.models.OrgItem import OrgItem, jsvalue
+import traceback
+from fastapi.middleware.cors import CORSMiddleware
+from DB_Util.MongoDB_Util import *
+from typing import Optional
+
 import sys
 sys.path.append('Utilities')
 import time
@@ -25,8 +35,22 @@ from censysFinder import *
 import os
 import requests
 
+MongoDBHandler = MongoDBHandler(db_name="test")
 
-# get target website
+
+app = FastAPI(
+    title="osintdata",
+    description="test",
+    version="1.0.0",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 def search_website(user_input):
     logprint("Searching... ", user_input)
     target_website = wikiCrawler(user_input)
@@ -61,16 +85,7 @@ def get_Ip_address(domain_list_filtered):
     ip_addresses_filtered = list(set(ip_addresses))
     return ip_addresses_filtered
 
-def combine_json_data(json_values, output_file_name=None):
-    combined_data = []
-    for json_value in json_values:
-        combined_data.append(json_value)
 
-    if output_file_name:
-        with open(output_file_name, 'w') as output_file:
-            json.dump(combined_data, output_file, indent=4)
-    
-    return combined_data
 
 # merge and return all results for multi-thread
 def get_safe_Ip_merged(user_input):
@@ -80,35 +95,10 @@ def get_safe_Ip_merged(user_input):
     ip_safe_list = ip_safe_check(ip_addresses_filtered)
     return domain_list_filtered, ip_addresses_filtered, ip_safe_list
 
-# merge txts together
-def merge_txt_files():
-    description = Path(__file__).parent / "txt_temp" / "Description.txt"
-    insight = Path(__file__).parent / "txt_temp" / "Insight.txt"
-    account = Path(__file__).parent / "txt_temp" / "account.txt"
-    email = Path(__file__).parent / "txt_temp" / "email.txt"
-    email_breaches = Path(__file__).parent / "txt_temp" / "email_breaches.txt"
-    ip_safe_list = Path(__file__).parent / "txt_temp" / "ip_safe_list.txt"
-    github = Path(__file__).parent / "txt_temp" / "github.txt"
-    censys_clear = Path(__file__).parent / "txt_temp" / "censys_clear.txt"
-    # gleif = Path(__file__).parent / "txt_temp" / "gleif.txt"
 
-    # txt_files = [str(description),str(insight),str(account),str(email),str(email_breaches),str(ip_safe_list),str(github),str(censys_clear),str(gleif)]
-    # output_file = 'Summary.txt'
 
-    # with open(output_file, 'w') as outfile:
-    #     for txt_file in txt_files:
-    #         try:
-    #             outfile.write(f"===== {txt_file} =====\n")
-
-    #             with open(txt_file, 'r') as infile:
-    #                 outfile.write(infile.read())
-    #                 outfile.write("\n\n")  
-            
-    #         except FileNotFoundError:
-    #             logprint(f"File {txt_file} not found, skipping.")
-
-def get_user_input():
-    user_input = input("Enter a name to search: ")
+def get_user_input(message):
+    user_input = message
 
     des_query = "give me an overview of " + user_input
     des_answer = gptAPI(des_query,"Description")
@@ -125,65 +115,94 @@ def get_user_input():
 
     return user_input, des_answer, insight_answer
 
+    
+@app.get("/", tags=["documentation"])
+async def root():
+    return RedirectResponse(url="/docs")
 
-# #######################   Start process   #########################
 
-user_input, des_answer, insight_answer = get_user_input()
+@app.post("/addNewOrg", tags=["add | update"])
+async def addNewOrg(Org: OrgItem):
+    try:
+        Org = Org.dict()
+        result = MongoDBHandler.insert_data(Org)
+        return result 
+    except:
+        traceback.print_exc()
+        result = Org(data=Org, status_code=1)
+    return result 
 
-with ThreadPoolExecutor() as executor:
-    # future_gleif = executor.submit(gleifAPI, user_input)
 
-    future_account = executor.submit(account_finder, user_input)
-    future_censys = executor.submit(censys_finder, user_input)
-    future_Ip = executor.submit(get_safe_Ip_merged, user_input)
+
+@app.post("/updateOrg", tags=["add | update"])
+async def updateOrg(Org: OrgItem):
+    try:
+        Org = Org.dict()
+        MongoDBHandler.update_data(Org)
+        result = Org(data=Org, status_code=0)
+    except:
+        traceback.print_exc()
+        result = Org(data=Org, status_code=1)
+
+    return result
+
+
+@app.get("/listOrgInfo", tags=["get"])
+async def listOrgInfo(org_name: str = Query(example="Simon Fraser University"))->OrgItem:
+    uni_id = org_name.upper().replace(" ","")
+    found_doc = MongoDBHandler.find_one(query={"uni_id": uni_id})
+    return found_doc
+
+@app.get("/listAllOrgs", tags=["get"])
+async def listAllOrgs():
+    OrgList = MongoDBHandler.get_all_data()
+    return OrgList
+
+
+@app.delete("/removeOrgFromDB", tags=["delete"])
+async def removeOrgFromDB(
+    org_name: str = Query(example="Simon Fraser University")) -> OrgItem:
+    try:
+        org_name = org_name.upper().replace(" ","")
+        delete_query = {"org_name": org_name}
+        MongoDBHandler.delete_data(delete_query)
+    
+    except:
+        traceback.print_exc()
+
+    return 0
+    
+@app.post("/receive-value", tags=["post"])
+async def receive_value(data: jsvalue):
+    js_value = data.value
+    user_input, des_answer, insight_answer = get_user_input(js_value)
+    
+    domain_list_filtered = []
+    ip_addresses_filtered = []
+    ip_safe_list = []
+    
+    with ThreadPoolExecutor() as executor:
+	    	# future_gleif = executor.submit(gleifAPI, user_input)
+	    	future_account = executor.submit(account_finder, user_input)
+	    	future_censys = executor.submit(censys_finder, user_input)
+	    	future_Ip = executor.submit(get_safe_Ip_merged, user_input)
+	    	
     domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
+    
+    with ThreadPoolExecutor() as executor:
+    		future_email = executor.submit(email_finder, domain_list_filtered)
+    		future_github = executor.submit(github_finder, domain_list_filtered)
+    		
+    hibp_result = email_seeker(future_email.result())
+    
+    data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github.result(),"censys": future_censys.result()}
+    logprint("==============================")
+    org = OrgItem(**data_to_save)
+    result = await addNewOrg(org)
+    return result
 
-# #######################   API call   #########################
-# start_time = time.time()
-#with ThreadPoolExecutor() as executor:
-    # Schedule the execution of the functions
-    # ip_addresses_filtered = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
-    # ip_safe_list = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
-    # domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']
-
-    #future_email = executor.submit(email_finder, domain_list_filtered)
-    #future_github = executor.submit(github_finder, domain_list_filtered)
-
-    # Collect results when complete
-    # email_list = future_email.result()
-    # github_list = future_github.result()
-
-# target_location = Path(__file__).parent / "txt_temp" / "email.txt"   
-future_email = email_finder(domain_list_filtered)
-future_github = github_finder(domain_list_filtered)
-
-hibp_result = email_seeker(future_email)
-data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email,"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github,"censys": future_censys.result()}
-logprint("==============================")
-logprint(data_to_save)
-response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)
-logprint(response)
+# command to run -> cd DB_Util -> python -m uvicorn FastAPI_DB:app --reload
 
 
-# all_json_data = [des_answer,insight_answer,future_account.result(),future_email.result(),hibp_result,future_Ip.result(),future_github.result(),future_censys.result()]
-# combined_json = combine_json_data(all_json_data, output_file_name="Summary.json")
-
-# merge_txt_files()
-
-# end_time = time.time()
-# elapsed_time = end_time - start_time
-# print(f"Time taken: {elapsed_time:.2f} seconds")
-
-# # #######################   Specific Test   #########################
-# start_time = time.time()
-# domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']
-# lei_info = gleifAPI("Simon Fraser University")
-# gleif_extract("gleif.json")
-# print(lei_info)
-
-# end_time = time.time()
-# elapsed_time = end_time - start_time
-# print(f"Time taken: {elapsed_time:.2f} seconds")
-# ip_addresses_filtered = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
-# ip_safe_list = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
-# domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1", port=5000, log_level="info")

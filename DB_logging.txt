@@ -115,3 +115,122 @@
 2024-11-13 22:12:49,901 - INFO - Connected to MongoDB and initialized collection.
 2024-11-13 22:12:56,859 - INFO - Attempting to find a single document with query: {'org_name': 'SIMONFRASERUNIVERSITY'}
 2024-11-13 22:12:56,913 - INFO - Document found.
+2024-11-16 07:07:33,832 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 07:08:05,023 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 07:14:45,539 - INFO - Attempting to find a single document with query: {'uni_id': 'AMAZON'}
+2024-11-16 07:14:45,555 - INFO - No document found with the given query.
+2024-11-16 07:14:54,365 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:15:05,232 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:15:16,737 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:15:25,548 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:22:16,508 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 07:22:16,523 - INFO - No document found with the given query.
+2024-11-16 07:22:21,842 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:22:27,188 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:22:37,568 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:22:44,589 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:37:37,874 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 07:37:52,894 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 07:37:52,910 - INFO - No document found with the given query.
+2024-11-16 07:38:01,660 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:38:09,796 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:38:16,967 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:38:17,809 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:39:23,940 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 07:39:27,092 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 07:39:27,108 - INFO - No document found with the given query.
+2024-11-16 07:39:32,500 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:39:40,154 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:39:55,880 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:40:09,391 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:52:35,091 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 07:54:12,712 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 07:54:12,727 - INFO - No document found with the given query.
+2024-11-16 07:54:18,443 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:54:29,439 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:55:15,280 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 07:55:33,492 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 07:55:33,511 - INFO - No document found with the given query.
+2024-11-16 07:55:40,221 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:55:47,704 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:55:56,853 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 07:56:14,482 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:04:14,201 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:04:14,407 - INFO - No document found with the given query.
+2024-11-16 08:04:19,919 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:04:27,215 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:04:40,807 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:04:41,779 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:22:44,959 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 08:23:18,869 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:23:18,885 - INFO - No document found with the given query.
+2024-11-16 08:23:26,115 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:23:34,983 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:23:45,769 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:23:52,845 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:25:34,195 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 08:25:36,169 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:25:36,186 - INFO - No document found with the given query.
+2024-11-16 08:25:42,391 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:25:53,727 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:26:08,492 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:26:26,939 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:31:38,293 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 08:31:40,192 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:31:40,208 - INFO - No document found with the given query.
+2024-11-16 08:31:47,057 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:31:56,987 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:32:19,339 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:32:28,950 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:48:10,070 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 08:48:12,477 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:48:12,494 - INFO - No document found with the given query.
+2024-11-16 08:48:21,246 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:48:31,961 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:48:46,539 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:49:02,211 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:52:36,401 - INFO - Attempting to insert data.
+2024-11-16 08:53:32,279 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 08:53:37,575 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:53:37,592 - INFO - No document found with the given query.
+2024-11-16 08:53:44,986 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:53:54,531 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:54:04,827 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:54:14,729 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:56:38,701 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 08:56:39,988 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 08:56:40,006 - INFO - No document found with the given query.
+2024-11-16 08:56:46,558 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:56:53,634 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:57:02,886 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 08:57:04,839 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:03:12,085 - INFO - Attempting to insert data.
+2024-11-16 09:03:12,168 - INFO - Data inserted successfully with ID: 6738a620d6c3f8e89bf4ed52
+2024-11-16 09:03:37,868 - INFO - Attempting to find a single document with query: {'uni_id': 'SIMONFRASERUNIVERSITY'}
+2024-11-16 09:03:37,931 - INFO - Document found.
+2024-11-16 09:08:02,406 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 09:08:04,557 - INFO - Attempting to find a single document with query: {'uni_id': 'AMAZON'}
+2024-11-16 09:08:04,571 - INFO - No document found with the given query.
+2024-11-16 09:08:26,820 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:08:35,661 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:08:54,065 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:09:00,155 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:13:57,742 - INFO - Connected to MongoDB and initialized collection.
+2024-11-16 09:13:59,341 - INFO - Attempting to find a single document with query: {'uni_id': 'AMAZON'}
+2024-11-16 09:13:59,358 - INFO - No document found with the given query.
+2024-11-16 09:14:10,086 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:14:20,052 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:14:38,560 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:14:45,152 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:19:02,831 - INFO - Attempting to insert data.
+2024-11-16 09:19:02,914 - INFO - Data inserted successfully with ID: 6738a9d690664375f3ba5152
+2024-11-16 09:19:26,163 - INFO - Attempting to find a single document with query: {'uni_id': 'AMAZON'}
+2024-11-16 09:19:26,231 - INFO - Document found.
+2024-11-16 09:19:56,925 - INFO - Attempting to find a single document with query: {'uni_id': 'GOOGLE'}
+2024-11-16 09:19:56,942 - INFO - No document found with the given query.
+2024-11-16 09:20:07,027 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:20:15,732 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:20:31,723 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:20:38,966 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2024-11-16 09:23:31,358 - INFO - Attempting to insert data.
+2024-11-16 09:23:31,412 - INFO - Data inserted successfully with ID: 6738aae390664375f3ba5153

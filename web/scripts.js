@@ -27,12 +27,25 @@ function handleSearch() {
       return response.json();
     })
     .then(data => {
-      console.log([data]);
       displayResults([data]);
     })
     .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
+        console.error('There was a problem with the fetch operation:', error);
+	fetch("http://127.0.0.1:5000/receive-value", {
+	    method: "POST",
+	    headers: {
+		"Content-Type": "application/json"
+	    },
+	    body: JSON.stringify({ value: searchInput })
+	})
+	.then(response => response.json())
+	.then(data => {
+	    console.log("Response from FastAPI:", data);
+	})
+	.catch(error => {
+	    console.error("Error:", error);
+	});
+	    });
   }
 
 function handleSearch2() {
