@@ -3,11 +3,15 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from logPrint import logprint
 from pathlib import Path
+import re
 
 def search_github(domain):
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_github", "-s", domain, "-o","json","-q"]
     result = subprocess.run(command, capture_output=True, text=True)
-    output = "["+result.stdout[:-3] + "]"
+    output = re.sub(r',\s*$', '', result.stdout.strip())
+    #output = "[" + result.stdout[:-3] + "]"
+    #print(type(output))
+    #print(output)
     github_json = json.loads(output)
     return github_json
 
@@ -81,8 +85,7 @@ def github_finder(domain_list_filtered):
 
 
 #test pls comment out when use
-
-# domain_list_filtered = ["sfu.ca"]
-# github_finder(domain_list_filtered)
+#domain_list_filtered = ['sfu.ca', 'go.sfu.ca', 'my.sfu.ca', 'ad.sfu.ca', 'cs.sfu.ca', 'fs.sfu.ca', 'fhs.sfu.ca', 'cec.sfu.ca', 'ucs.sfu.ca', 'rcg.sfu.ca', 'cas.sfu.ca', 'www.sfu.ca', 'bms.sfu.ca', 'avs.sfu.ca', 'net.sfu.ca', 'mbb.sfu.ca', 'its.sfu.ca', 'cep.sfu.ca', 'pkp.sfu.ca', 'sis.sfu.ca', 'sfu.ca']
+#github_finder(domain_list_filtered)
 
 # print(github_extract('github.json'))

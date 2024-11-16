@@ -3,11 +3,15 @@ import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from logPrint import logprint
+import re
 
 def search_email(domain):
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_hunter", "-s", domain, "-o", "json", "-q"]
     result = subprocess.run(command, capture_output=True, text=True)
-    output = "[" + result.stdout[:-3] + "]"
+    output = re.sub(r',\s*$', '', result.stdout.strip())
+    #output = result.stdout
+    #print(type(output))
+    #print(output)
     email_json = json.loads(output)
 
     result = []
@@ -92,7 +96,7 @@ def email_finder(domain_list_filtered):
 
 #test pls comment out when use
 
-# domain_list_filtered = ["sfu.ca"]
-# email_finder(domain_list_filtered)
+#domain_list_filtered = ["sfu.ca","amazon.com"]
+#email_finder(domain_list_filtered)
 
 # print(email_extract('email.json',1))

@@ -3,12 +3,14 @@ import json
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from logPrint import logprint
+import re
 
 def search_account(company_name, divided_char):
     company_name_1 = company_name.replace(" ", divided_char)
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_accounts", "-s", company_name_1, "-o","json","-q"]
     result = subprocess.run(command, capture_output=True, text=True)
-    output = "["+result.stdout[:-3] + "]"
+    output = re.sub(r',\s*$', '', result.stdout.strip())
+    #output = "[" + result.stdout[:-3] + "]"
     account_json = json.loads(output)
     return account_json 
 

@@ -140,23 +140,25 @@ with ThreadPoolExecutor() as executor:
 
 # #######################   API call   #########################
 # start_time = time.time()
-with ThreadPoolExecutor() as executor:
+#with ThreadPoolExecutor() as executor:
     # Schedule the execution of the functions
     # ip_addresses_filtered = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
     # ip_safe_list = ['142.58.233.76', '142.58.142.154', '142.58.143.9', '142.58.103.137', '206.12.7.86', '142.58.233.147', '142.58.232.180', '142.58.143.42', '142.58.142.134']
     # domain_list_filtered = ['sfu.ca', 'www.sfu.ca', 'my.sfu.ca', 'secure.sfu.ca', 'students.sfu.ca', 'alumni.sfu.ca', 'its.sfu.ca', 'api.lib.sfu.ca', 'github.sfu.ca', 'research.wiki.iat.sfu.ca', 'tracs.sfu.ca', 'mailgw.alumni.sfu.ca', 'documents.lib.sfu.ca', 'sfuprint.mps.sfu.ca', 'canvas.its.sfu.ca', 'library.lib.sfu.ca', 'science.sfu.ca', 'archives.sfu.ca', 'public.research.sfu.ca', 'networking.sfu.ca', 'sfu.ca']
 
-    future_email = executor.submit(email_finder, domain_list_filtered)
-    future_github = executor.submit(github_finder, domain_list_filtered)
+    #future_email = executor.submit(email_finder, domain_list_filtered)
+    #future_github = executor.submit(github_finder, domain_list_filtered)
 
     # Collect results when complete
     # email_list = future_email.result()
     # github_list = future_github.result()
 
 # target_location = Path(__file__).parent / "txt_temp" / "email.txt"   
+future_email = email_finder(domain_list_filtered)
+future_github = github_finder(domain_list_filtered)
 
-hibp_result = email_seeker(future_email.result())
-data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github.result(),"censys": future_censys.result()}
+hibp_result = email_seeker(future_email)
+data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email,"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github,"censys": future_censys.result()}
 logprint("==============================")
 logprint(data_to_save)
 response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)

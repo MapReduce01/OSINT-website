@@ -3,6 +3,7 @@ import subprocess
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from logPrint import logprint
 from pathlib import Path
+import re
 
 
 def check_ip(ip):
@@ -12,7 +13,8 @@ def check_ip(ip):
     # use abusech
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_abusech", "-s", ip, "-o", "json", "-q"]
     result = subprocess.run(command, capture_output=True, text=True)
-    output = "[" + result.stdout[:-3] + "]"
+    output = re.sub(r',\s*$', '', result.stdout.strip())
+    #output = "[" + result.stdout[:-3] + "]"
     ip_json = json.loads(output)
     
     for item in ip_json:
@@ -23,7 +25,8 @@ def check_ip(ip):
     # use botvrij
     command = ["python", "./spiderfoot/sf.py", "-m", "sfp_botvrij", "-s", ip, "-o", "json", "-q"]
     result = subprocess.run(command, capture_output=True, text=True)
-    output = "[" + result.stdout[:-3] + "]"
+    output = re.sub(r',\s*$', '', result.stdout.strip())
+    #output = "[" + result.stdout[:-3] + "]"
     ip_json = json.loads(output)
 
     for item in ip_json:
