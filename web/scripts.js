@@ -1,5 +1,4 @@
 // script.js
-
 function handleSearch() {
     const searchInput = document.getElementById('searchInput').value;
   
@@ -30,7 +29,11 @@ function handleSearch() {
       displayResults([data]);
     })
     .catch(error => {
+        setTimeout(() => {
+    		alert("This Org is currently missing in our database, backend processing is now triggered, please check back sometime later.");
+	}, 100);
         console.error('There was a problem with the fetch operation:', error);
+        
 	fetch("http://127.0.0.1:5000/receive-value", {
 	    method: "POST",
 	    headers: {
