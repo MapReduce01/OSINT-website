@@ -94,6 +94,10 @@ else:
 
 user_input, des_answer, insight_answer = get_user_input(js_value)
 
+domain_list_filtered = []
+ip_addresses_filtered = []
+ip_safe_list = []
+
 with ThreadPoolExecutor() as executor:
     # future_gleif = executor.submit(gleifAPI, user_input)
     future_account = executor.submit(account_finder, user_input)
@@ -102,12 +106,12 @@ with ThreadPoolExecutor() as executor:
         
 domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
 
-with ThreadPoolExecutor() as executor:
-    future_email = executor.submit(email_finder, domain_list_filtered)
-    future_github = executor.submit(github_finder, domain_list_filtered)
-        
-hibp_result = email_seeker(future_email.result())
 
-data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github.result(),"censys": future_censys.result()}
+future_email = email_finder(domain_list_filtered)
+future_github = github_finder(domain_list_filtered)
+        
+hibp_result = email_seeker(future_email)
+
+data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email,"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github,"censys": future_censys.result()}
 
 response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)
