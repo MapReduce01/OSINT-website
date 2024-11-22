@@ -30,10 +30,10 @@ def github_finder(domain_list_filtered):
     logprint("Github Searching Done")
 
     script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "json_temp"  
-    file_path = target_folder / "github.json"
+    #target_folder = script_directory.parent / "json_temp"  
+    #file_path = target_folder / "github.json"
 
-    target_folder.mkdir(parents=True, exist_ok=True)
+    #target_folder.mkdir(parents=True, exist_ok=True)
 
     result = []
     for entry in github_json_list:
@@ -44,9 +44,9 @@ def github_finder(domain_list_filtered):
         if url and description:
             result.append({"URL": url, "Description": description})
 
-    with open(str(file_path), 'w') as json_file_github:
-        json.dump(result, json_file_github)
-    logprint("The result has been saved to "+ 'github.json')
+    #with open(str(file_path), 'w') as json_file_github:
+        #json.dump(result, json_file_github)
+    #logprint("The result has been saved to "+ 'github.json')
     return result
 
 # def github_extract (file, mode = 0):

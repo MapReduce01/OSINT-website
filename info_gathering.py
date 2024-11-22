@@ -34,9 +34,11 @@ def search_website(user_input):
 
 def find_domains(target_website):
     try:
-        pattern_www = r'www\.[a-zA-Z0-9\-\.]+'
-        matches_www = re.findall(pattern_www, target_website)
-        target_domain = matches_www[0].replace("www.","")
+        # pattern_www = r'http\.[a-zA-Z0-9\-\.]+'
+        # matches_www = re.findall(pattern_www, target_website)
+        target_domain = target_website[:-1].replace("https://","")
+        target_domain = target_domain.replace("http://","")
+        target_domain = target_domain.replace("www.","")
     except:
         target_domain = target_website
     logprint("Finding subdomains... It might take a while"+"\n")
@@ -79,39 +81,55 @@ def get_user_input(js_value):
     dep_answer = gptAPI(dep_query,"Department")
     logprint(dep_answer)
 
-    target_location = Path(__file__).parent / "json_temp" / "Department.json"
-    insight_query = query_about_file(target_location, "tell me more details of each element mentioned in this file")
+    #target_location = Path(__file__).parent / "json_temp" / "Department.json"
+    #insight_query = query_about_file(target_location, "tell me more details of each element mentioned in this file")
+    insight_query = "tell me more details of each element mentioned in the following: " + str(dep_answer)
     insight_answer = gptAPI(insight_query, "Insight")
     logprint(insight_answer)
 
     return user_input, des_answer, insight_answer
 
-if len(sys.argv) > 1:
-    js_value = sys.argv[1] 
-    print(f"Received value: {js_value}")
-else:
-    print("No value received!")
+try:
 
-user_input, des_answer, insight_answer = get_user_input(js_value)
+    if len(sys.argv) > 1:
+        js_value = sys.argv[1] 
+        print(f"Received value: {js_value}")
+    else:
+        print("No value received!")
 
-domain_list_filtered = []
-ip_addresses_filtered = []
-ip_safe_list = []
+    res = requests.get("http://127.0.0.1:5000/listOrgInfo", js_value.upper().replace(" ",""))
+    print(res)
+    if "422" not in str(res):
+        logprint(f"Data already existed in DB. Aborted Inserting.")  
+    else:
+        user_input, des_answer, insight_answer = get_user_input(js_value)
 
-with ThreadPoolExecutor() as executor:
-    # future_gleif = executor.submit(gleifAPI, user_input)
-    future_account = executor.submit(account_finder, user_input)
-    future_censys = executor.submit(censys_finder, user_input)
-    future_Ip = executor.submit(get_safe_Ip_merged, user_input)
+        domain_list_filtered = []
+        ip_addresses_filtered = []
+        ip_safe_list = []
+        hibp_result = []
+
+        with ThreadPoolExecutor() as executor:
+            # future_gleif = executor.submit(gleifAPI, user_input)
+            future_account = executor.submit(account_finder, user_input)
+            future_censys = executor.submit(censys_finder, user_input)
+            future_Ip = executor.submit(get_safe_Ip_merged, user_input)
+
+        domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
+
+        with ThreadPoolExecutor() as executor:
+            future_email = executor.submit(email_finder, domain_list_filtered)
+            future_github = executor.submit(github_finder, domain_list_filtered)
+                
+        hibp_result = email_seeker(future_email.result())
+
+        data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input.title(),"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email.result(),"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github.result(),"censys": future_censys.result()}
         
-domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
+        res2 = requests.get("http://127.0.0.1:5000/listOrgInfo", js_value.upper().replace(" ",""))
+        if "422" not in str(res2):
+            logprint(f"Data already existed in DB. Aborted Inserting.") 
+        else:
+            response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)      
 
-
-future_email = email_finder(domain_list_filtered)
-future_github = github_finder(domain_list_filtered)
-        
-hibp_result = email_seeker(future_email)
-
-data_to_save = {"uni_id":user_input.upper().replace(" ",""),"org_name": user_input,"description": des_answer,"insight": insight_answer,"account": future_account.result(),"email": future_email,"email_breaches": hibp_result,"ip": ip_safe_list,"github": future_github,"censys": future_censys.result()}
-
-response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)
+except:
+    pass

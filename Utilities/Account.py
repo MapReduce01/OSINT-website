@@ -40,14 +40,15 @@ def fix_json_format(file_path):
 
 def account_finder(user_input):
     script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "json_temp"  
-    file_path = target_folder / "account.json"
-    target_folder.mkdir(parents=True, exist_ok=True)
+    #target_folder = script_directory.parent / "json_temp"  
+    #file_path = target_folder / "account.json"
+    #target_folder.mkdir(parents=True, exist_ok=True)
 
     # with open(str(file_path), 'w') as file:
     #     pass
 
     temp = []
+    logprint("Account Searching Started")
 
     with ThreadPoolExecutor() as executor:
         futures = [executor.submit(search_account, user_input,"_"),
@@ -76,8 +77,8 @@ def account_finder(user_input):
 
     # print(websites_json)
 
-    with open(str(file_path), 'w') as outfile:
-        outfile.write(websites_json)
+    #with open(str(file_path), 'w') as outfile:
+        #outfile.write(websites_json)
 
     # account_list = account_extract(str(file_path),str(file_path2))
     return websites

@@ -55,18 +55,18 @@ def ip_safe_check(ip_addresses_filtered):
 
     logprint("Malicious IP Filter Done")
 
-    script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "json_temp"  
-    file_path = target_folder / "ip_safe_list.json"
+    #script_directory = Path(__file__).parent  
+    #target_folder = script_directory.parent / "json_temp"  
+    #file_path = target_folder / "ip_safe_list.json"
 
-    target_folder.mkdir(parents=True, exist_ok=True)
+    #target_folder.mkdir(parents=True, exist_ok=True)
 
-    logprint("The result has been saved to " + 'ip_safe_list.json')
+    #logprint("The result has been saved to " + 'ip_safe_list.json')
     # ip_extract(str(file_path), 1)
     ip_addresses = [{"ip": item['data']} for item in ip_json_list]
 
-    with open(str(file_path), 'w') as json_file_ip:
-        json.dump(ip_addresses, json_file_ip, indent=4)
+    #with open(str(file_path), 'w') as json_file_ip:
+        #json.dump(ip_addresses, json_file_ip, indent=4)
     
     return ip_addresses
 

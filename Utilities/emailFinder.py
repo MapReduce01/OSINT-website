@@ -45,15 +45,15 @@ def email_finder(domain_list_filtered):
     logprint("Email Searching Done")
 
     script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "json_temp"  
-    file_path = target_folder / "email.json"
+    #target_folder = script_directory.parent / "json_temp"  
+    #file_path = target_folder / "email.json"
 
-    target_folder.mkdir(parents=True, exist_ok=True)
+    #target_folder.mkdir(parents=True, exist_ok=True)
 
-    with open(str(file_path), 'w') as json_file_email:
-        json.dump(email_json_list, json_file_email)
+    #with open(str(file_path), 'w') as json_file_email:
+        #json.dump(email_json_list, json_file_email)
 
-    logprint("The result has been saved to " + 'email.json')
+    #logprint("The result has been saved to " + 'email.json')
     # email_list = email_extract(str(file_path),1)
     return email_json_list
 

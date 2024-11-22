@@ -97,9 +97,10 @@ class MongoDBHandler:
             document = self.collection.find_one(query, projection)
             if document:
                 logging.info("Document found.")
+                return document
             else:
                 logging.info("No document found with the given query.")
-            return document
+                return None
         except errors.PyMongoError as e:
             logging.error(f"Find One Error: {e}")
             return None

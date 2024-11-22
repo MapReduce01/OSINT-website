@@ -38,18 +38,18 @@ def censys_finder(user_input):
         censys_str= censys_str+str(result)
 
     script_directory = Path(__file__).parent  
-    target_folder = script_directory.parent / "json_temp"  
-    file_path = target_folder / "censys.json"
+    #target_folder = script_directory.parent / "json_temp"  
+    #file_path = target_folder / "censys.json"
 
     data = eval(censys_str)
     for item in data:
         clean_dict(item)
 
-    target_folder.mkdir(parents=True, exist_ok=True)
-    cnesys_json = json.dumps(data)
+    #target_folder.mkdir(parents=True, exist_ok=True)
+    #cnesys_json = json.dumps(data)
 
-    with open(str(file_path), "w") as json_file:
-        json_file.write(cnesys_json)
+    #with open(str(file_path), "w") as json_file:
+        #json_file.write(cnesys_json)
 
     return data
 
