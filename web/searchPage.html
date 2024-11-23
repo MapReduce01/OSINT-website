@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="background-overlay"></div>
+  <script>
+    const overlay = document.querySelector('.background-overlay');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = scrollTop / docHeight;
+      overlay.style.opacity = Math.min(scrollPercent, 1);
+    });
+  </script>
   <div class="container">
     <h1 style="color: #5F686E;">OSINT Data Finder</h1>
     <div class="input-container">

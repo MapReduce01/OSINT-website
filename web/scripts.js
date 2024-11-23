@@ -1,4 +1,11 @@
 // script.js
+const catBoxes = document.querySelectorAll('.box');
+
+catBoxes.forEach((box, index) => {
+    const randomDelay = (Math.random() * 0.8).toFixed(2); 
+    box.style.animationDelay = `${randomDelay}s`;
+});
+
 document.addEventListener("scroll", () => {
   const h1 = document.querySelector("h1");
   const inputContainer = document.querySelector(".input-container");
@@ -7,15 +14,15 @@ document.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     h1.classList.add("sticky");
     inputContainer.classList.add("sticky");
-    boxContainer.classList.add("sticky"); // Show the boxes
+    boxContainer.classList.add("sticky"); 
   } else {
     h1.classList.remove("sticky");
     inputContainer.classList.remove("sticky");
-    boxContainer.classList.remove("sticky"); // Hide the boxes
+    // boxContainer.classList.add('fly-left'); 
+    boxContainer.classList.remove("sticky"); 
   }
 });
 
-// Example placeholder for box click events
 document.querySelectorAll('.box').forEach(box => {
   box.onclick = () => {
     toggleField(box.textContent)
@@ -9080,6 +9087,12 @@ function displayResults(results) {
       </div>
     `;
     resultsContainer.appendChild(resultContainer);
+  });
+
+  const fieldBoxes = document.querySelectorAll('.field-box');
+  fieldBoxes.forEach((box, index) => {
+      const randomDelay = (Math.random() * 0.8).toFixed(2); 
+      box.style.animationDelay = `${randomDelay}s`;
   });
 }
 
