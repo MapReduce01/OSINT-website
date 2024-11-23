@@ -1,4 +1,27 @@
 // script.js
+document.addEventListener("scroll", () => {
+  const h1 = document.querySelector("h1");
+  const inputContainer = document.querySelector(".input-container");
+  const boxContainer = document.getElementById("boxContainer");
+
+  if (window.scrollY > 50) {
+    h1.classList.add("sticky");
+    inputContainer.classList.add("sticky");
+    boxContainer.classList.add("sticky"); // Show the boxes
+  } else {
+    h1.classList.remove("sticky");
+    inputContainer.classList.remove("sticky");
+    boxContainer.classList.remove("sticky"); // Hide the boxes
+  }
+});
+
+// Example placeholder for box click events
+document.querySelectorAll('.box').forEach(box => {
+  box.onclick = () => {
+    toggleField(box.textContent)
+  };
+});
+
 function handleSearch() {
     const searchInput = document.getElementById('searchInput').value;
   
@@ -9008,7 +9031,18 @@ function displayResults(results) {
     resultContainer.innerHTML = `
       <h2 class="org-title">Organization: ${result.org_name || 'Organization'}</h2>
       <div class="field-box">
-
+        <div class="field-title" onclick="toggleField(this)">
+          <span class="arrow">&#9660;</span> Description
+        </div>
+        <div class="field-content" style="display: none;">${displayFormattedOverview(result.description.Description)}</div>
+      </div>
+      <div class="field-box">
+        <div class="field-title" onclick="toggleField(this)">
+          <span class="arrow">&#9660;</span> Insight
+        </div>
+        <div class="field-content" style="display: none;">${displayFormattedOverview(result.insight.Insight)}</div>
+      </div>
+      <div class="field-box">
         <div class="field-title" onclick="toggleField(this)">
           <span class="arrow">&#9660;</span> Account
         </div>
@@ -9019,12 +9053,6 @@ function displayResults(results) {
           <span class="arrow">&#9660;</span> Censys
         </div>
         <div class="field-content" style="display: none;">${displayDataList(result.censys)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Description
-        </div>
-        <div class="field-content" style="display: none;">${displayFormattedOverview(result.description.Description)}</div>
       </div>
       <div class="field-box">
         <div class="field-title" onclick="toggleField(this)">
@@ -9046,12 +9074,6 @@ function displayResults(results) {
       </div>
       <div class="field-box">
         <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Insight
-        </div>
-        <div class="field-content" style="display: none;">${displayFormattedOverview(result.insight.Insight)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
           <span class="arrow">&#9660;</span> IP Safe List
         </div>
         <div class="field-content" style="display: none;">${formatIpDataAsTable(result.ip)}</div>
@@ -9062,18 +9084,52 @@ function displayResults(results) {
 }
 
 // 只控制显示或隐藏字段内容
-function toggleField(element) {
+// function toggleField(element) {
+//   const content = element.nextElementSibling;
+//   const arrow = element.querySelector(".arrow");
+  
+//   // 切换显示状态
+//   if (content.style.display === "none") {
+//     content.style.display = "block";
+//     arrow.innerHTML = "&#9650;"; // 上箭头
+//   } else {
+//     content.style.display = "none";
+//     arrow.innerHTML = "&#9660;"; // 下箭头
+//   }
+// }
+
+function toggleField(elementOrTitle) {
+  let element;
+
+  if (typeof elementOrTitle === "string") {
+    element = Array.from(document.querySelectorAll(".field-title")).find(el =>
+      el.textContent.trim().includes(elementOrTitle)
+    );
+
+    if (!element) {
+      console.error(`Element with title "${elementOrTitle}" not found.`);
+      return;
+    }
+  } else {
+    element = elementOrTitle;
+  }
+
   const content = element.nextElementSibling;
   const arrow = element.querySelector(".arrow");
-  
-  // 切换显示状态
+
   if (content.style.display === "none") {
     content.style.display = "block";
-    arrow.innerHTML = "&#9650;"; // 上箭头
+    arrow.innerHTML = "&#9650;"; 
   } else {
     content.style.display = "none";
-    arrow.innerHTML = "&#9660;"; // 下箭头
+    arrow.innerHTML = "&#9660;"; 
   }
+
+
+  element.scrollIntoView({
+    behavior: "smooth", 
+    block: "start" 
+  });
 }
 
 function displayDataList(dataList) {

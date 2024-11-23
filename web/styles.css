@@ -8,19 +8,114 @@ body {
 }
 
 
-/* Container for the search interface */
 .container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto;
   text-align: center;
 }
 
-/* Styling for the input and button */
+h1, .input-container {
+  position: absolute;
+  left: 50%; 
+  transform: translateX(-50%);
+  transition: left 0.5s ease, transform 0.5s ease, top 0.5s ease;
+}
+
+h1 {
+  top: 50px; 
+}
+
 .input-container {
+  top: 125px; 
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.sticky {
+  position: fixed;
+  left: 10%; 
+  transform: translateX(0);
+}
+
+h1.sticky {
+  top: 30%; 
+}
+
+.input-container.sticky {
+  top: 35%; /* Space below the sticky h1 */
+}
+
+
+/* Box container styles */
+.box-container {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 40%; /* Below the input-container */
+  left: 16%;
+  transform: translateX(-50%);
+  width: 20%;
+  max-width: 300px;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.box-container.sticky {
+  display: flex; /* Show when sticky class is added */
+  animation: containerFadeIn 0.8s ease forwards;
+}
+
+@keyframes containerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Individual box styles */
+.box {
+  flex: 1 1 calc(25% - 10px); /* Responsive grid: 4 boxes per row */
+  margin: 5px;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #7B8990;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.5) translate(-50%, -50%); /* Start small and at the center */
+  animation: flyIn 0.8s ease forwards;
+  animation-delay: calc(var(--order) * 0.1s);
+}
+
+.box:hover {
+  background-color: rgba(123, 137, 144, 0.5);
+  transform: scale(1.25) !important;
+}
+
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translate(-50%, -50%); /* Centered and small */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate(0, 0); /* Final position */
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .box {
+    flex: 1 1 100%; /* Full width for smaller screens */
+  }
 }
 
 #searchInput {
@@ -56,7 +151,7 @@ body {
 
 /* Results styling */
 .results {
-  margin-top: 20px;
+  margin-top: 200px;
 }
 
 .result-container {
@@ -111,7 +206,7 @@ body {
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
-  padding: 12px;
+  padding: 10px;
   margin-bottom: 10px;
   border-radius: 6px;
   background-color: rgba(255, 255, 255, 0.1);
@@ -141,7 +236,7 @@ body {
   border: 1px solid #ccc; /* 边框 */
   border-radius: 8px; /* 圆角 */
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 10px; /* 内边距 */
+  padding: 8px; /* 内边距 */
 }
 
 
