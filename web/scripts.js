@@ -1,6 +1,5 @@
-// script.js
-const catBoxes = document.querySelectorAll('.box');
 
+const catBoxes = document.querySelectorAll('.box');
 catBoxes.forEach((box, index) => {
     const randomDelay = (Math.random() * 0.8).toFixed(2); 
     box.style.animationDelay = `${randomDelay}s`;
@@ -29,20 +28,126 @@ document.querySelectorAll('.box').forEach(box => {
   };
 });
 
+
+
 function handleSearch() {
     const searchInput = document.getElementById('searchInput').value;
-  
+    const infoboxElementId = "infobox";
+    
     // Check if the input is not empty
     if (!searchInput.trim()) {
       alert("Please enter a search term.");
       return;
     }
+
+    function fetchPageTitle(query) {
+      return fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          if (data.query.search.length > 0) {
+            return data.query.search[0].title; 
+          } else {
+            throw new Error("No results found");
+          }
+        });
+    }
+  
+
+    function fetchInfobox(title, infoboxElement) {
+      fetch(`https://en.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(title)}&format=json&origin=*`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok " + response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const html = data.parse.text["*"];
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, "text/html");
+  
+          const infoboxHtml = doc.querySelector(".infobox");
+  
+          if (infoboxHtml) {
+            const imageLinks = infoboxHtml.querySelectorAll("a[href*='/wiki/File:']");
+            const imagePromises = [];
+  
+            imageLinks.forEach((link) => {
+              const fileName = link.href.split("/wiki/File:")[1];
+              if (fileName) {
+                const imagePromise = fetchImageUrl(fileName).then((imageUrl) => {
+                  const img = document.createElement("img");
+                  img.src = imageUrl;
+                  img.style.maxWidth = "100%";
+                  link.replaceWith(img);
+                });
+                imagePromises.push(imagePromise);
+              }
+            });
+  
+            Promise.all(imagePromises).then(() => {
+              infoboxElement.innerHTML = infoboxHtml.outerHTML;
+            });
+          } else {
+            infoboxElement.innerHTML = "<p>Infobox not found.</p>";
+          }
+        })
+        .catch((error) => {
+          console.error("Error fetching Wikipedia infobox:", error);
+          infoboxElement.innerHTML = "<p>Failed to load infobox. Please try again later.</p>";
+        });
+    }
+  
+    function fetchImageUrl(fileName) {
+      return fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&titles=File:${encodeURIComponent(fileName)}&prop=imageinfo&iiprop=url&format=json&origin=*`
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch image URL: " + response.statusText);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const pages = data.query.pages;
+          const page = Object.values(pages)[0];
+          if (page && page.imageinfo && page.imageinfo[0].url) {
+            return page.imageinfo[0].url;
+          } else {
+            throw new Error("Image URL not found");
+          }
+        });
+    }
+  
+
+    function loadInfobox(query, infoboxElementId) {
+      const infoboxElement = document.getElementById(infoboxElementId);
+      if (!infoboxElement) {
+        console.error(`Element with ID '${infoboxElementId}' not found.`);
+        return;
+      }
+  
+      infoboxElement.innerHTML = "<p>Loading...</p>";
+  
+      fetchPageTitle(query)
+        .then((title) => fetchInfobox(title, infoboxElement))
+        .catch((error) => {
+          console.error("Error:", error);
+          infoboxElement.innerHTML = `<p>${error.message}</p>`;
+        });
+    }
+    
   
     // Create the request payload
     // const sInput = { query: searchInput };
   
-    // Send a GET request
     let getURL = 'http://127.0.0.1:5000/listOrgInfo?org_name='+searchInput
+    
     fetch(getURL, { 
       method: 'GET',
       headers: {
@@ -79,7 +184,12 @@ function handleSearch() {
 	    console.error("Error:", error);
 	});
 	    });
-  }
+  setTimeout(() => {
+    console.log("2 seconds later...");
+    loadInfobox(searchInput, infoboxElementId);
+    infobox.style.display = "block";
+  }, 2000);
+}
 
 function handleSearch2() {
   // Simulated data as provided

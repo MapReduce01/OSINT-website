@@ -7,6 +7,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="icon-container">
+    <div class="icon"></div>
+  </div>
+  <div class="hover-bar">
+    <a href="empty"></a>
+    <a href="empty"></a>
+    <a href="empty"></a>
+    <a href="#about">About the website</a>
+    <a href="#credits">Credits</a>
+  </div>
   <div class="background-overlay"></div>
   <script>
     const overlay = document.querySelector('.background-overlay');
@@ -27,14 +37,17 @@
     </div>
   </div>
   <div class="box-container" id="boxContainer">
+    <div class="box" id="box-description">Description</div>
+    <div class="box" id="box-insight">Insight</div>
     <div class="box" id="box-account">Account</div>
     <div class="box" id="box-censys">Censys</div>
-    <div class="box" id="box-description">Description</div>
     <div class="box" id="box-email">Email</div>
     <div class="box" id="box-email-breaches">Email Breaches</div>
     <div class="box" id="box-github">GitHub</div>
-    <div class="box" id="box-insight">Insight</div>
     <div class="box" id="box-ip-safe-list">IP Safe List</div>
+  </div>
+  <div id="infobox" class="info-card">
+    <h2>Wiki Info Box</h2>
   </div>
   <script src="scripts.js"></script>
 </body>

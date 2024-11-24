@@ -1,10 +1,127 @@
-/* Basic styling */
+
+.icon-container {
+  position: fixed;
+  top: 20px;
+  left: 23px;
+  z-index: 1000;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  background: url('bar.png') no-repeat center center;
+  background-size: contain;
+}
+
+/* Hover Bar */
+.hover-bar {
+  display: none;
+  position: fixed;
+  top: 10px; /* Adjust to prevent the bar from sticking to the top edge */
+  left: 10px; /* Align with the icon or desired placement */
+  right: 10px;
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.hover-bar a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.hover-bar a:hover {
+  text-decoration: underline;
+}
+
+
+/* Show the bar when either icon or bar is hovered */
+.icon-container:hover + .hover-bar,
+.hover-bar:hover {
+  display: block;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f5f5f5;
   margin: 0;
   background: url('nodes.gif') center center fixed;
   background-size: cover;
+}
+
+@keyframes flyInFromRight {
+  from {
+    transform: translateX(100%); /* Start outside the screen on the right */
+    opacity: 0; /* Optional: start with transparency */
+  }
+  to {
+    transform: translateX(0); /* End at its normal position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+.info-card {
+  width: 350px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  border-left: 1px solid #ccc;
+  padding: 20px;
+  position: fixed;
+  right: 20px;
+  top: 10%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  height: 80%;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+  display: none;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  animation: flyInFromRight 2s ease-in-out, flipHorizontal 1s ease-in-out 2.5s; 
+  animation-fill-mode: forwards;
+}
+
+@keyframes flipHorizontal {
+  from {
+    transform: rotateY(0); 
+  }
+  to {
+    transform: rotateY(360deg); 
+  }
+}
+
+
+
+
+.info-card::-webkit-scrollbar {
+  display: none; /* Completely hide scrollbar in WebKit browsers */
+}
+
+.info-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.info-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-card table td {
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
 }
 
 .background-overlay {
@@ -89,10 +206,10 @@ h1.sticky {
   margin: 5px;
   padding: 15px;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   border: 1px solid #7B8990;
-  border-radius: 5px;
+  border-radius: 30px;
   cursor: pointer;
   opacity: 0; 
   animation: drop-z-axis 1s ease-out forwards;
@@ -117,9 +234,9 @@ h1.sticky {
   font-size: 16px;
   color: white;
   border: 1px solid #7B8990;
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #searchInput:focus {
@@ -134,10 +251,10 @@ h1.sticky {
   background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   margin-left: 10px;
   cursor: pointer;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #searchButton:hover {
@@ -152,12 +269,12 @@ h1.sticky {
 .result-container {
   width: 100%;
   margin: 20px auto;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.3);
   padding: 15px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 30px;
   margin-bottom: 15px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   animation: drop-z-axis 1.5s ease-out forwards;
   animation-delay: 0s; 
   transform-origin: center center; 
@@ -205,7 +322,7 @@ h1.sticky {
   border: 1px solid #ccc;
   padding: 16px;
   margin-bottom: 20px;
-  border-radius: 8px;
+  border-radius: 30px;
 }
 
 
@@ -223,9 +340,9 @@ h1.sticky {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
-  border-radius: 6px;
+  border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   animation: drop-z-axis 2s ease-out forwards;
   animation-delay: 1s; 
   transform-origin: center center; 
@@ -236,6 +353,7 @@ h1.sticky {
 
 .field-box:hover {
   background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid #7B8990;
 }
 
 /* Title styling for each field */
@@ -256,7 +374,7 @@ h1.sticky {
 .field-box {
   margin: 10px 0; /* 每个字段之间的间距 */
   border: 1px solid #ccc; /* 边框 */
-  border-radius: 8px; /* 圆角 */
+  border-radius: 30px; /* 圆角 */
   background-color: rgba(255, 255, 255, 0.1);
   padding: 8px; /* 内边距 */
 }
