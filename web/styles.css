@@ -1,3 +1,57 @@
+#bubble {
+  pointer-events: auto; /* Allow interaction with the bubble */
+  position: absolute;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0.5px solid #7B8990;
+  border-radius: 15px;
+  max-width: 300px;
+  opacity: 0;
+  transform: scale(0) translateY(-20px); /* Start small and above the original position */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  animation: magicEffect 1s ease forwards;
+}
+
+#bubble.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.hidden {
+  display: none;
+}
+
+#bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 20px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.2) transparent;
+}
+
+@keyframes magicEffect {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(-20px); /* Start small and slightly above */
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1) translateY(10px); /* Grow slightly bigger and overshoot */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0); /* Final position and size */
+  }
+}
+
 
 .icon-container {
   position: fixed;
@@ -14,40 +68,46 @@
   background-size: contain;
 }
 
-/* Hover Bar */
+.icon-container:hover + .hover-bar,
+.hover-bar:hover {
+  visibility: visible; /* Show the bar when hovered */
+  opacity: 1;
+}
+
 .hover-bar {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   position: fixed;
-  top: 10px; /* Adjust to prevent the bar from sticking to the top edge */
-  left: 10px; /* Align with the icon or desired placement */
+  top: 10px;
+  left: 10px;
   right: 10px;
+  border: 0.5px solid #7B8990;
   border-radius: 15px;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
   color: white;
   padding: 15px;
   text-align: left;
   font-family: Arial, sans-serif;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 999;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hover-bar.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .hover-bar a {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
+  color: white; 
+  text-decoration: none; 
+  padding-left: 80px;
 }
 
 .hover-bar a:hover {
-  text-decoration: underline;
-}
-
-
-/* Show the bar when either icon or bar is hovered */
-.icon-container:hover + .hover-bar,
-.hover-bar:hover {
-  display: block;
+  text-decoration: underline; 
 }
 
 body {
@@ -71,13 +131,13 @@ body {
 
 .info-card {
   width: 350px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); 
   border-left: 1px solid #ccc;
   padding: 20px;
   position: fixed;
-  right: 20px;
+  right: 80px;
   top: 10%;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
@@ -103,7 +163,6 @@ body {
 
 
 
-
 .info-card::-webkit-scrollbar {
   display: none; /* Completely hide scrollbar in WebKit browsers */
 }
@@ -119,9 +178,16 @@ body {
   border-collapse: collapse;
 }
 
+
 .info-card table td {
   border-bottom: 1px solid #ddd;
   padding: 5px;
+}
+
+.info-card table td:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
 }
 
 .background-overlay {
@@ -131,7 +197,7 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
   opacity: 0;
   transition: opacity 0.2s ease;
   backdrop-filter: blur(10px);
@@ -221,6 +287,11 @@ h1.sticky {
   transform: scale(1.25) !important;
 }
 
+.box:active {
+  transform: translateY(3px);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
 
 @media (max-width: 600px) {
   .box {
@@ -232,11 +303,15 @@ h1.sticky {
   width: 60%;
   padding: 10px;
   font-size: 16px;
-  color: white;
+  color: black;
   border: 1px solid #7B8990;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#searchInput::placeholder {
+  color: #7B8990; 
 }
 
 #searchInput:focus {
@@ -259,6 +334,11 @@ h1.sticky {
 
 #searchButton:hover {
   background-color: rgba(123, 137, 144, 1);
+}
+
+#searchButton:active {
+  transform: translateY(3px);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /* Results styling */

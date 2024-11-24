@@ -1,3 +1,45 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const hoverBar = document.querySelector('.hover-bar');
+  const iconContainer = document.querySelector('.icon-container');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const bubble = document.getElementById('bubble');
+  const aboutLink = document.getElementById('about-link');
+  const creditsLink = document.getElementById('credits-link');
+
+  const showBubble = (event, content) => {
+      bubble.innerHTML = content; 
+      const rect = event.target.getBoundingClientRect();
+      bubble.style.top = `${rect.bottom + window.scrollY + 30}px`;
+      bubble.style.left = `${rect.left + window.scrollX + 80}px`;
+      bubble.classList.add('visible');
+      bubble.classList.remove('hidden');
+  };
+
+  const hideBubble = () => {
+      bubble.classList.remove('visible');
+      setTimeout(() => {
+          bubble.classList.add('hidden');
+      }, 300); 
+  };
+
+  aboutLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      showBubble(event, 'This website is designed for<br>gathering and analyzing<br>OSINT data of<br>organizations worldwide');
+  });
+
+  creditsLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      showBubble(event, 'Credits: <br>Mazin Ahmed<br>Mohammad Tayebi<br>Yuwen Jia<br>Zhuocheng Xiong<br>Ziyi Zhou<br>Names are listed in alphabetical order.');
+  });
+
+  document.addEventListener('click', (event) => {
+      if (!bubble.contains(event.target) && event.target !== aboutLink && event.target !== creditsLink) {
+          hideBubble();
+      }
+  });
+});
 
 const catBoxes = document.querySelectorAll('.box');
 catBoxes.forEach((box, index) => {
@@ -141,8 +183,13 @@ function handleSearch() {
           infoboxElement.innerHTML = `<p>${error.message}</p>`;
         });
     }
+
+    setTimeout(() => {
+      console.log("2 seconds later...");
+      loadInfobox(searchInput, infoboxElementId);
+      infobox.style.display = "block";
+    }, 2000);
     
-  
     // Create the request payload
     // const sInput = { query: searchInput };
   
@@ -184,11 +231,6 @@ function handleSearch() {
 	    console.error("Error:", error);
 	});
 	    });
-  setTimeout(() => {
-    console.log("2 seconds later...");
-    loadInfobox(searchInput, infoboxElementId);
-    infobox.style.display = "block";
-  }, 2000);
 }
 
 function handleSearch2() {

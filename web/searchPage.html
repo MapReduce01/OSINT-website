@@ -11,12 +11,10 @@
     <div class="icon"></div>
   </div>
   <div class="hover-bar">
-    <a href="empty"></a>
-    <a href="empty"></a>
-    <a href="empty"></a>
-    <a href="#about">About the website</a>
-    <a href="#credits">Credits</a>
+    <a href="#about" id="about-link">About this website</a>
+    <a href="#credits" id="credits-link">Credits</a>
   </div>
+  <div id="bubble" class="hidden"></div>
   <div class="background-overlay"></div>
   <script>
     const overlay = document.querySelector('.background-overlay');
@@ -30,7 +28,7 @@
   <div class="container">
     <h1 style="color: #5F686E;">OSINT Data Finder</h1>
     <div class="input-container">
-      <input type="text" id="searchInput" placeholder="Type to search..." onkeypress="triggerSearch(event)">
+      <input type="text" id="searchInput" placeholder="Enter an organization..." onkeypress="triggerSearch(event)">
       <button id="searchButton" onclick="handleSearch()">Search</button>
     </div>
     <div class="results" id="results">
