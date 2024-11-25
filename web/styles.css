@@ -128,10 +128,18 @@ body {
     opacity: 1; /* Fully visible */
   }
 }
+.info-card-container {
+  width: 350px;
+  position: fixed;
+  right: 80px;
+  top: 8%;
+  height: 80%;
+  perspective: 1000px;
+}
 
 .info-card {
   width: 350px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); 
   border-left: 1px solid #ccc;
@@ -149,7 +157,38 @@ body {
   scrollbar-width: none; /* Hide scrollbar in Firefox */
   -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
   animation: flyInFromRight 2s ease-in-out, flipHorizontal 1s ease-in-out 2.5s; 
-  animation-fill-mode: forwards;
+  /* animation-fill-mode: forwards; */
+  transform-origin: center; /* Pivot from the center */
+  transition: transform 0.1s linear;
+  transform-style: preserve-3d;
+}
+
+/* Front side of the glass */
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1); /* Slightly lighter */
+  border-radius: 10px;
+  transform: translateZ(5px); /* Front face thickness */
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2); /* Glow effect */
+}
+
+/* Back side of the glass */
+.info-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05); /* Slightly darker */
+  border-radius: 10px;
+  transform: translateZ(-5px); /* Back face thickness */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
 }
 
 @keyframes flipHorizontal {
@@ -157,7 +196,7 @@ body {
     transform: rotateY(0); 
   }
   to {
-    transform: rotateY(360deg); 
+    transform: rotateY(-360deg); 
   }
 }
 
@@ -280,16 +319,12 @@ h1.sticky {
   opacity: 0; 
   animation: drop-z-axis 1s ease-out forwards;
   transform-origin: center center;
+  transition: transform 0.2s ease;
 }
 
 .box:hover {
   background-color: rgba(255, 255, 255, 0.5);
   transform: scale(1.25) !important;
-}
-
-.box:active {
-  transform: translateY(3px);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 

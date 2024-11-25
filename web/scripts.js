@@ -1,3 +1,47 @@
+
+// const infoCard = document.querySelector('.info-card');
+
+// infoCard.addEventListener('mousemove', (e) => {
+//     const rect = infoCard.getBoundingClientRect();
+//     const x = e.clientX - rect.left - rect.width / 2; // Mouse X relative to the element
+//     const y = e.clientY - rect.top - rect.height / 2;  // Mouse Y relative to the element
+
+
+//     const maxTilt = 15; // Maximum tilt angle in degrees
+//     const tiltX = (y / (rect.height / 2)) * maxTilt; // Vertical tilt
+//     const tiltY = -(x / (rect.width / 2)) * maxTilt; // Horizontal tilt
+
+//     infobox.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+// });
+
+// infobox.addEventListener('mouseleave', () => {
+//   infobox.style.transform = 'rotateX(0) rotateY(0)'; // Reset tilt
+// });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const infobox = document.querySelector('.info-card');
+
+  infobox.addEventListener('mousemove', (e) => {
+      const rect = infobox.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      const maxTilt = 8; // Maximum tilt angle in degrees
+
+      // Directions
+      const tiltX = -(y / (rect.height / 2)) * maxTilt; // Vertical tilt
+      const tiltY = (x / (rect.width / 2)) * maxTilt; // Horizontal tilt
+
+      // Apply the tilt effect
+      infobox.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+      console.log(`tiltX: ${tiltX}, tiltY: ${tiltY}`);
+  });
+
+  infobox.addEventListener('mouseleave', () => {
+      infobox.style.transform = 'rotateX(0) rotateY(0)'; // Reset tilt
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const hoverBar = document.querySelector('.hover-bar');
   const iconContainer = document.querySelector('.icon-container');
@@ -66,6 +110,12 @@ document.addEventListener("scroll", () => {
 
 document.querySelectorAll('.box').forEach(box => {
   box.onclick = () => {
+    box.style.pointerEvents = 'none'; 
+    box.style.transform = 'scale(0.8)'; 
+    setTimeout(() => {
+      box.style.transform = 'scale(1)'; 
+      box.style.pointerEvents = ''; 
+    }, 50);
     toggleField(box.textContent)
   };
 });
