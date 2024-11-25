@@ -1,23 +1,4 @@
 
-// const infoCard = document.querySelector('.info-card');
-
-// infoCard.addEventListener('mousemove', (e) => {
-//     const rect = infoCard.getBoundingClientRect();
-//     const x = e.clientX - rect.left - rect.width / 2; // Mouse X relative to the element
-//     const y = e.clientY - rect.top - rect.height / 2;  // Mouse Y relative to the element
-
-
-//     const maxTilt = 15; // Maximum tilt angle in degrees
-//     const tiltX = (y / (rect.height / 2)) * maxTilt; // Vertical tilt
-//     const tiltY = -(x / (rect.width / 2)) * maxTilt; // Horizontal tilt
-
-//     infobox.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-// });
-
-// infobox.addEventListener('mouseleave', () => {
-//   infobox.style.transform = 'rotateX(0) rotateY(0)'; // Reset tilt
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
   const infobox = document.querySelector('.info-card');
 
@@ -51,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const bubble = document.getElementById('bubble');
   const aboutLink = document.getElementById('about-link');
   const creditsLink = document.getElementById('credits-link');
+  const codeLink = document.getElementById('code-link');
+  const contactLink = document.getElementById('contact-link');
 
   const showBubble = (event, content) => {
       bubble.innerHTML = content; 
@@ -70,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   aboutLink.addEventListener('click', (event) => {
       event.preventDefault();
-      showBubble(event, 'This website is designed for<br>gathering and analyzing<br>OSINT data of<br>organizations worldwide');
+      showBubble(event, 'About: <br>This website is designed for<br>gathering and analyzing<br>OSINT data of<br>organizations worldwide');
   });
 
   creditsLink.addEventListener('click', (event) => {
@@ -78,8 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
       showBubble(event, 'Credits: <br>Mazin Ahmed<br>Mohammad Tayebi<br>Yuwen Jia<br>Zhuocheng Xiong<br>Ziyi Zhou<br>Names are listed in alphabetical order.');
   });
 
+  codeLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    showBubble(event, 'Github: <br>https://github.com/MapReduce01/OSINT-website');
+  });
+
+  contactLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    showBubble(event, 'Contacts: <br>Yuwen Jia: xxx@xxx.com<br>Zhuocheng Xiong: xxx@xxx.com<br>Ziyi Zhou: wjessezhou@gmail.com');
+  });
+
   document.addEventListener('click', (event) => {
-      if (!bubble.contains(event.target) && event.target !== aboutLink && event.target !== creditsLink) {
+      if (!bubble.contains(event.target) && event.target !== aboutLink && event.target !== creditsLink && event.target !== contactLink && event.target !== codeLink) {
           hideBubble();
       }
   });

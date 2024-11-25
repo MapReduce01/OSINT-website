@@ -5,7 +5,7 @@
   background-color: rgba(0, 0, 0, 0.2);
   border: 0.5px solid #7B8990;
   border-radius: 15px;
-  max-width: 300px;
+  max-width: 500px;
   opacity: 0;
   transform: scale(0) translateY(-20px); /* Start small and above the original position */
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -70,9 +70,10 @@
 
 .icon-container:hover + .hover-bar,
 .hover-bar:hover {
-  visibility: visible; /* Show the bar when hovered */
+  visibility: visible; 
   opacity: 1;
 }
+
 
 .hover-bar {
   visibility: hidden;
@@ -161,7 +162,9 @@ body {
   transform-origin: center; /* Pivot from the center */
   transition: transform 0.1s linear;
   transform-style: preserve-3d;
+  z-index: 1; 
 }
+
 
 /* Front side of the glass */
 .info-card::before {
@@ -175,6 +178,7 @@ body {
   border-radius: 10px;
   transform: translateZ(5px); /* Front face thickness */
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2); /* Glow effect */
+  pointer-events: none; /* Ensure text interaction */
 }
 
 /* Back side of the glass */
@@ -189,6 +193,7 @@ body {
   border-radius: 10px;
   transform: translateZ(-5px); /* Back face thickness */
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+  pointer-events: none; /* Ensure text interaction */
 }
 
 @keyframes flipHorizontal {
