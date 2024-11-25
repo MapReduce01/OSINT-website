@@ -1,3 +1,51 @@
+const screenWidth = window.innerWidth;
+const targetWidth = 2560;
+const scale = screenWidth / targetWidth;
+let isTogglefieldListening = true;
+
+if (scale < 1) {
+  document.body.style.zoom = scale;
+
+  // Adjust font size and padding for inputs and buttons
+  const elements = document.querySelectorAll('button, input, select, textarea');
+  elements.forEach(el => {
+    el.style.fontSize = `${parseFloat(window.getComputedStyle(el).fontSize) * scale}px`;
+    el.style.padding = `${parseFloat(window.getComputedStyle(el).padding) * scale}px`;
+  });
+}
+
+function isPageScrollable() {
+  return document.body.scrollHeight > window.innerHeight;
+}
+
+function handleNonScrollablePage() {
+  isTogglefieldListening = true;
+  const resultContainer = document.querySelector('.result-container');
+  const infoCard = document.querySelector('.info-card-container');
+  resultContainer.style.width = '70%';
+  infoCard.style.right = '12%';
+
+}
+
+function monitorScrollability() {
+  setInterval(() => {
+      if (!isPageScrollable()) {
+          handleNonScrollablePage();
+      }
+  }, 1000); 
+}
+
+// Start monitoring
+monitorScrollability();
+
+
+function adjustPageElements() {
+  const resultContainer = document.querySelector('.result-container');
+  const infoCard = document.querySelector('.info-card-container');
+  resultContainer.style.width = '100%';
+  infoCard.style.right = '8%';
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const infobox = document.querySelector('.info-card');
@@ -38,8 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const showBubble = (event, content) => {
       bubble.innerHTML = content; 
       const rect = event.target.getBoundingClientRect();
-      bubble.style.top = `${rect.bottom + window.scrollY + 30}px`;
-      bubble.style.left = `${rect.left + window.scrollX + 80}px`;
+      // bubble.style.top = `${rect.bottom + window.scrollY + 30}px`;
+      // bubble.style.left = `${rect.left + window.scrollX + 80}px`;
+      const bubbleTopPercentage = ((rect.bottom + window.scrollY + 30) / window.innerHeight) * 100;
+      bubble.style.top = `${bubbleTopPercentage}%`;
+      const bubbleLeftPercentage = ((rect.left + window.scrollX + 80) / window.innerWidth) * 100;
+      bubble.style.left = `${bubbleLeftPercentage}%`;
       bubble.classList.add('visible');
       bubble.classList.remove('hidden');
   };
@@ -9307,6 +9359,12 @@ function displayResults(results) {
 // }
 
 function toggleField(elementOrTitle) {
+  if (isTogglefieldListening) {
+    isTogglefieldListening = false; 
+    adjustPageElements(); 
+  } else {
+    console.log('toggleField() is no longer listening.');
+  }
   let element;
 
   if (typeof elementOrTitle === "string") {

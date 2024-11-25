@@ -132,10 +132,11 @@ body {
 .info-card-container {
   width: 350px;
   position: fixed;
-  right: 80px;
+  right: 12%;
   top: 8%;
   height: 80%;
   perspective: 1000px;
+  transition: right 0.3s ease;
 }
 
 .info-card {
@@ -146,7 +147,6 @@ body {
   border-left: 1px solid #ccc;
   padding: 20px;
   position: fixed;
-  right: 80px;
   top: 10%;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
@@ -157,7 +157,7 @@ body {
   display: none;
   scrollbar-width: none; /* Hide scrollbar in Firefox */
   -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
-  animation: flyInFromRight 2s ease-in-out, flipHorizontal 1s ease-in-out 2.5s; 
+  animation: flyInFromRight 1.5s ease-in-out, flipHorizontal 1s ease-in-out 1.5s; 
   /* animation-fill-mode: forwards; */
   transform-origin: center; /* Pivot from the center */
   transition: transform 0.1s linear;
@@ -341,8 +341,9 @@ h1.sticky {
 
 #searchInput {
   width: 60%;
+  height: 20px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 20px;
   color: black;
   border: 1px solid #7B8990;
   border-radius: 30px;
@@ -351,7 +352,9 @@ h1.sticky {
 }
 
 #searchInput::placeholder {
-  color: #7B8990; 
+  /* color: #7B8990;  */
+  color: rgba(123, 137, 144, 0.5);
+  font-size: 16px;
 }
 
 #searchInput:focus {
@@ -387,7 +390,9 @@ h1.sticky {
 }
 
 .result-container {
-  width: 100%;
+  position: relative;
+  width: 70%;
+  max-width: 100%;
   margin: 20px auto;
   background-color: rgba(255, 255, 255, 0.3);
   padding: 15px;
@@ -401,7 +406,9 @@ h1.sticky {
   opacity: 0; 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); 
+  transition: width 0.3s ease; 
 }
+
 
 @keyframes drop-z-axis {
   0% {
@@ -482,6 +489,7 @@ h1.sticky {
   font-size: 1em;
   color: #333;
   margin-bottom: 4px;
+  align-items: center;
 }
 
 /* Content styling for each field */

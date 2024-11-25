@@ -1,0 +1,1 @@
+2024-11-25 13:53:54,840 - INFO - Connected to MongoDB and initialized collection.
