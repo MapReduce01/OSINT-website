@@ -3,6 +3,36 @@ const targetWidth = 2560;
 const scale = screenWidth / targetWidth;
 let isTogglefieldListening = true;
 
+const iconContainer1 = document.querySelector('.icon-container');
+const hoverbar1 = document.querySelector('.hover-bar');
+const bubble1 = document.querySelector('#bubble');
+const h11 = document.querySelector('h1');
+
+iconContainer1.addEventListener('mouseover', () => {
+  h11.style.filter = 'blur(5px)';
+  h11.style.opacity = '0.7';
+});
+iconContainer1.addEventListener('mouseout', () => {
+  h11.style.filter = 'none';
+  h11.style.opacity = '1';
+});
+hoverbar1.addEventListener('mouseover', () => {
+  h11.style.filter = 'blur(5px)';
+  h11.style.opacity = '0.7';
+});
+hoverbar1.addEventListener('mouseout', () => {
+  h11.style.filter = 'none';
+  h11.style.opacity = '1';
+});
+bubble1.addEventListener('mouseover', () => {
+  h11.style.filter = 'blur(5px)';
+  h11.style.opacity = '0.7';
+});
+bubble1.addEventListener('mouseout', () => {
+  h11.style.filter = 'none';
+  h11.style.opacity = '1';
+});
+
 if (scale < 1) {
   document.body.style.zoom = scale;
 
