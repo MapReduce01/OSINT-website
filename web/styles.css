@@ -355,7 +355,7 @@ h1.sticky {
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
-  z-index: 1000;
+  z-index: 1;
 }
 
 .box-container.sticky {
@@ -379,9 +379,15 @@ h1.sticky {
   transition: transform 0.2s ease;
 }
 
+
 .box:hover {
-  background-color: rgba(255, 255, 255, 0.5);
   transform: scale(1.25) !important;
+}
+
+.box:active {
+  z-index: 0 !important;
+  transform: translateY(4px) !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
 }
 
 
@@ -512,6 +518,19 @@ h1.sticky {
   margin-bottom: 16px;
 }
 
+.fieldbox-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 boxes per row */
+  gap: 20px; /* Space between boxes */
+  transition: all 0.3s ease; /* Smooth transitions */
+  
+}
+
+/* Vertical Layout */
+.fieldbox-container.vertical-layout {
+  display: block; /* Stack boxes vertically */
+}
+
 /* Each individual field box */
 .field-box {
   display: flex;
@@ -524,15 +543,139 @@ h1.sticky {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   animation: drop-z-axis 2s ease-out forwards;
   animation-delay: 1s; 
-  transform-origin: center center; 
+  /* transform-origin: center center;  */
   opacity: 0; 
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); 
+  aspect-ratio: 7 / 8; 
+  /* transform-origin: top left; */
+  transition: all 0.5s ease-out;
 }
 
-.field-box:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+
+.field-box:nth-child(1) {
+  background-color: rgba(222, 78, 47, 0.1);
+}
+.field-box:nth-child(1):hover {
+  background-color: rgba(222, 78, 47, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
   border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box:nth-child(2) {
+  background-color: rgba(235, 86, 15, 0.1);
+}
+.field-box:nth-child(2):hover {
+  background-color: rgba(235, 86, 15, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box:nth-child(3) {
+  background-color: rgba(235, 187, 15, 0.1);
+}
+.field-box:nth-child(3):hover {
+  background-color: rgba(235, 187, 15, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+.field-box:nth-child(4) {
+  background-color: rgba(168, 235, 15, 0.1);
+}
+.field-box:nth-child(4):hover {
+  background-color: rgba(168, 235, 15, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box:nth-child(5) {
+  background-color: rgba(18, 180, 185, 0.1);
+}
+.field-box:nth-child(5):hover {
+  background-color: rgba(18, 180, 185, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box:nth-child(6) {
+  background-color: rgba(10, 163, 236, 0.1);
+}
+.field-box:nth-child(6):hover {
+  background-color: rgba(10, 163, 236, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box:nth-child(7) {
+  background-color: rgba(10, 64, 236, 0.1);
+}
+.field-box:nth-child(7):hover {
+  background-color: rgba(10, 64, 236, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box:nth-child(8) {
+  background-color: rgba(74, 10, 236, 0.1);
+}
+.field-box:nth-child(8):hover {
+  background-color: rgba(74, 10, 236, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+}
+
+.field-box.expanded {
+  grid-column: 1 / -1; /* Make it span all columns */
+  width: 100%; /* Ensure full width */
+  height: auto; /* Allow content to expand */
+  z-index: 10;
+}
+
+.field-box.hidden {
+  display: none; /* Hide other boxes */
+}
+
+/* .field-box:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px); 
+  border: 1px solid #7B8990;
+  transform: scale(1.5) !important;
+} */
+
+
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 /* Title styling for each field */
@@ -541,7 +684,10 @@ h1.sticky {
   font-size: 1em;
   color: #333;
   margin-bottom: 4px;
-  align-items: center;
+
+  /* position: absolute;
+  left: 50%;
+  transform: translateX(-50%); */
 }
 
 /* Content styling for each field */

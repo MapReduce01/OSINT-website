@@ -44,12 +44,12 @@ if (scale < 1) {
   });
 }
 
-function isPageScrollable() {
-  return document.body.scrollHeight > window.innerHeight;
-}
+// function isPageScrollable() {
+//   return document.body.scrollHeight > window.innerHeight;
+// }
 
 function handleNonScrollablePage() {
-  isTogglefieldListening = true;
+  // isTogglefieldListening = true;
   const resultContainer = document.querySelector('.result-container');
   const infoCard = document.querySelector('.info-card-container');
   resultContainer.style.width = '70%';
@@ -57,16 +57,16 @@ function handleNonScrollablePage() {
 
 }
 
-function monitorScrollability() {
-  setInterval(() => {
-      if (!isPageScrollable()) {
-          handleNonScrollablePage();
-      }
-  }, 1000); 
-}
+// function monitorScrollability() {
+//   setInterval(() => {
+//       if (!isPageScrollable()) {
+//           handleNonScrollablePage();
+//       }
+//   }, 1000); 
+// }
 
-// Start monitoring
-monitorScrollability();
+// // Start monitoring
+// monitorScrollability();
 
 
 function adjustPageElements() {
@@ -93,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Apply the tilt effect
       infobox.style.transform = `rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
-      console.log(`tiltX: ${tiltX}, tiltY: ${tiltY}`);
   });
 
   infobox.addEventListener('mouseleave', () => {
@@ -185,15 +184,28 @@ document.addEventListener("scroll", () => {
 
 document.querySelectorAll('.box').forEach(box => {
   box.onclick = () => {
-    box.style.pointerEvents = 'none'; 
-    box.style.transform = 'scale(0.8)'; 
-    setTimeout(() => {
-      box.style.transform = 'scale(1)'; 
-      box.style.pointerEvents = ''; 
-    }, 50);
-    toggleField(box.textContent)
+    togglescroll(box.textContent);
   };
 });
+
+function togglescroll(elementOrTitle) {
+  let element;
+  if (typeof elementOrTitle === "string") {
+    element = Array.from(document.querySelectorAll(".field-title")).find(el =>
+      el.textContent.trim().includes(elementOrTitle)
+    );
+    if (!element) {
+      console.error(`Element with title "${elementOrTitle}" not found.`);
+      return;
+    }
+  } else {
+    element = elementOrTitle;
+  }
+  element.scrollIntoView({
+    behavior: "smooth", 
+    block: "center" 
+  });
+}
 
 
 
@@ -310,7 +322,6 @@ function handleSearch() {
     }
 
     setTimeout(() => {
-      console.log("2 seconds later...");
       loadInfobox(searchInput, infoboxElementId);
       infobox.style.display = "block";
     }, 2000);
@@ -350,7 +361,7 @@ function handleSearch() {
 	})
 	.then(response => response.json())
 	.then(data => {
-	    console.log("Response from FastAPI:", data);
+	    // console.log("Response from FastAPI:", data);
 	})
 	.catch(error => {
 	    console.error("Error:", error);
@@ -9305,7 +9316,7 @@ function handleSearch2() {
 }
   
 function displayResults(results) {
-  console.log(results[0].description)
+  // console.log(results[0].description)
   const resultsContainer = document.getElementById('results');
   resultsContainer.innerHTML = ''; // Clear previous results
 
@@ -9314,57 +9325,60 @@ function displayResults(results) {
     resultContainer.className = 'result-container';
     resultContainer.innerHTML = `
       <h2 class="org-title">Organization: ${result.org_name || 'Organization'}</h2>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Description
+      <div class="fieldbox-container">
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> Description
+          </div>
+          <div class="field-content" style="display: none;">${displayFormattedOverview(result.description.Description)}</div>
         </div>
-        <div class="field-content" style="display: none;">${displayFormattedOverview(result.description.Description)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Insight
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> Insight
+          </div>
+          <div class="field-content" style="display: none;">${displayFormattedOverview(result.insight.Insight)}</div>
         </div>
-        <div class="field-content" style="display: none;">${displayFormattedOverview(result.insight.Insight)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Account
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> Account
+          </div>
+          <div class="field-content" style="display: none;">${formatAccountDataAsTable(result.account)}</div>
         </div>
-        <div class="field-content" style="display: none;">${formatAccountDataAsTable(result.account)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Censys
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> Censys
+          </div>
+          <div class="field-content" style="display: none;">${displayDataList(result.censys)}</div>
         </div>
-        <div class="field-content" style="display: none;">${displayDataList(result.censys)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Email
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> Email
+          </div>
+          <div class="field-content" style="display: none;">${formatEmailDataAsTable(result.email)}</div>
         </div>
-        <div class="field-content" style="display: none;">${formatEmailDataAsTable(result.email)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> Email Breaches
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> Email Breaches
+          </div>
+          <div class="field-content" style="display: none;">${formatBreachDataAsTable(result.email_breaches)}</div>
         </div>
-        <div class="field-content" style="display: none;">${formatBreachDataAsTable(result.email_breaches)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> GitHub
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> GitHub
+          </div>
+          <div class="field-content" style="display: none;">${formatGithubDataAsTable(result.github)}</div>
         </div>
-        <div class="field-content" style="display: none;">${formatGithubDataAsTable(result.github)}</div>
-      </div>
-      <div class="field-box">
-        <div class="field-title" onclick="toggleField(this)">
-          <span class="arrow">&#9660;</span> IP Safe List
+        <div class="field-box" onclick="outsideToggle(this)">
+          <div class="field-title">
+            <span class="arrow">&#9660;</span> IP Safe List
+          </div>
+          <div class="field-content" style="display: none;">${formatIpDataAsTable(result.ip)}</div>
         </div>
-        <div class="field-content" style="display: none;">${formatIpDataAsTable(result.ip)}</div>
       </div>
     `;
     resultsContainer.appendChild(resultContainer);
   });
+
 
   const fieldBoxes = document.querySelectorAll('.field-box');
   fieldBoxes.forEach((box, index) => {
@@ -9388,13 +9402,81 @@ function displayResults(results) {
 //   }
 // }
 
-function toggleField(elementOrTitle) {
-  if (isTogglefieldListening) {
-    isTogglefieldListening = false; 
-    adjustPageElements(); 
-  } else {
-    console.log('toggleField() is no longer listening.');
+// function outsideToggle(element) {
+//   const fieldTitle = element.querySelector('.field-title');
+//   if (fieldTitle) {
+//     toggleField(fieldTitle);   
+//   } else {
+//     console.error('No .field-title element found.');
+//     return null;
+//   }
+// }
+
+function outsideToggle(element) {
+  // Check if the element has already been clicked
+  if (element.classList.contains('clicked')) {
+    return; // Prevent further actions if already clicked
   }
+
+  const fieldTitle = element.querySelector('.field-title');
+  if (fieldTitle) {
+    toggleField(fieldTitle);   
+  } else {
+    console.error('No .field-title element found.');
+    return null;
+  }
+  // Mark the element as clicked
+  element.classList.add('clicked');
+
+  // Optionally, disable future clicks visually
+  element.style.pointerEvents = 'none'; // Prevent further clicks
+  element.style.opacity = '0.5'; // Optional visual feedback
+}
+
+function checkSpannedAndAdjustHeight() {
+  const spanElements = document.querySelectorAll('.arrow');
+
+  // Check if any span is spanned
+  const anySpanned = Array.from(spanElements).some(
+    span => span.textContent.trim() === '▲'
+  );
+
+  // If any span is spanned, adjust the height of the unspanned ones
+  if (anySpanned) {
+    spanElements.forEach(span => {
+      const fieldTitle = span.parentElement; // Parent: .field-title
+      const fieldBox = fieldTitle.parentElement; // Grandparent: .field-box
+
+      if (span.textContent.trim() !== '▲') {
+        fieldBox.style.height = '20px'; 
+        fieldBox.style.width = '98.5%';
+      } else {
+        fieldBox.style.height = ''; // Reset height for spanned ones (optional)
+      }
+    });
+  }
+}
+
+
+function toggleField(elementOrTitle) {
+  const fieldContainer = document.querySelector('.fieldbox-container');
+  
+  // Check if already in vertical layout
+  if (fieldContainer.classList.contains('vertical-layout')) {
+    // Revert to default grid layout
+    console.log("pass");
+  } else {
+    // Apply vertical layout
+    fieldContainer.classList.add('vertical-layout');
+  }
+
+  // if (isTogglefieldListening) {
+  //   isTogglefieldListening = false; 
+  //   adjustPageElements(); 
+  // } else {
+  //   console.log('toggleField() is no longer listening.');
+  // }
+ 
   let element;
 
   if (typeof elementOrTitle === "string") {
@@ -9421,11 +9503,26 @@ function toggleField(elementOrTitle) {
     arrow.innerHTML = "&#9660;"; 
   }
 
+  checkSpannedAndAdjustHeight();
+
+  let spanElements = document.querySelectorAll('.arrow');
+  const allNotSpanned = Array.from(spanElements).every(span => span.textContent.trim() !== '▲');
+
+
+  if (allNotSpanned) {
+    fieldContainer.classList.remove('vertical-layout')
+    handleNonScrollablePage();
+  } 
+  else{
+    adjustPageElements();
+  }
 
   element.scrollIntoView({
     behavior: "smooth", 
     block: "start" 
   });
+
+  
 }
 
 function displayDataList(dataList) {
