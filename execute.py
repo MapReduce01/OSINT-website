@@ -61,7 +61,7 @@ async def updateOrg(Org: OrgItem):
 
 
 @app.get("/listOrgInfo", tags=["get"])
-async def listOrgInfo(org_name: str = Query(example="Simon Fraser University"))->OrgItem:
+async def listOrgInfo(org_name: str = Query(example="Amazon"))->OrgItem:
     uni_id = org_name.upper().replace(" ","")
     found_doc = MongoDBHandler.find_one(query={"uni_id": uni_id})
     return found_doc
@@ -89,7 +89,7 @@ async def removeOrgFromDB(
 async def receive_value(data: jsvalue):
     js_value = data.value
     subprocess.Popen(["python", "info_gathering.py", str(js_value)])
-    print(f"Called 'other_script.py' with value: {js_value}")
+    print(f"Called 'info_gathering.py' with value: {js_value}")
     print("==============================")
     return
 

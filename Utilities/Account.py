@@ -140,8 +140,8 @@ def account_finder(user_input):
 # test pls comment out when use
 # start_time = time.time()
 
-# company_name = "Simon Fraser University"
-# account_finder(company_name)
+#company_name = "Simon Fraser University"
+#account_finder(company_name)
 # end_time = time.time()
 # elapsed_time = end_time - start_time
 # print(f"Time taken: {elapsed_time:.2f} seconds")

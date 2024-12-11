@@ -36,6 +36,10 @@ def gptAPI(query,category):
 
     #save_string_to_txt(file_path2,gpt_result)
     return result_json
+    
+def wiki_org_name(inputname):
+    gpt_result = openai_query(inputname)
+    return str(gpt_result)
 
 # des_query = "give me an overview of " + "Simon Fraser University"
 # print(gptAPI(des_query,"Description"))

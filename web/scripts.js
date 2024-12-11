@@ -219,8 +219,27 @@ function handleSearch() {
       return;
     }
 
+    // function fetchPageTitle(query) {
+    //   return fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`)
+    //     .then((response) => {
+    //       if (!response.ok) {
+    //         throw new Error("Network response was not ok " + response.statusText);
+    //       }
+    //       return response.json();
+    //     })
+    //     .then((data) => {
+    //       if (data.query.search.length > 0) {
+    //         return data.query.search[0].title; 
+    //       } else {
+    //         throw new Error("No results found");
+    //       }
+    //     });
+    // }
+
     function fetchPageTitle(query) {
-      return fetch(`https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`)
+      return fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(query)}&format=json&origin=*`
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok " + response.statusText);
@@ -229,7 +248,17 @@ function handleSearch() {
         })
         .then((data) => {
           if (data.query.search.length > 0) {
-            return data.query.search[0].title; 
+            // Keywords for prioritization
+            const priorityKeywords = ["company", "corporation", "inc.", "incorporated"];
+            // Try to find a result containing any of the priority keywords
+            const prioritizedResult = data.query.search.find((item) =>
+              priorityKeywords.some((keyword) => item.title.toLowerCase().includes(keyword))
+            );
+            if (prioritizedResult) {
+              return prioritizedResult.title;
+            }
+            // Fallback to the first result if no prioritized result is found
+            return data.query.search[0].title;
           } else {
             throw new Error("No results found");
           }
@@ -273,7 +302,7 @@ function handleSearch() {
               infoboxElement.innerHTML = infoboxHtml.outerHTML;
             });
           } else {
-            infoboxElement.innerHTML = "<p>Infobox not found.</p>";
+            infoboxElement.innerHTML = "<p>Wiki info not found.</p>";
           }
         })
         .catch((error) => {
@@ -9775,7 +9804,7 @@ function formatEmailDataAsTable(data) {
   if (!Array.isArray(data)) return "No valid data available";
 
   // 构建表格
-  let tableHTML = "<table class='data-table'><thead><tr><th>Email</th><th>Full Name</th></tr></thead><tbody>";
+  let tableHTML = "<table class='data-table'><thead><tr><th>Email</th><th>Possible nick name</th></tr></thead><tbody>";
 
   data.forEach(item => {
     tableHTML += `

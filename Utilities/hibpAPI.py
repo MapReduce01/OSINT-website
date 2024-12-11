@@ -86,7 +86,7 @@ def email_seeker(elist):
 
     hibp_data = {}
 
-    for x in lines_with_at:
+    for x in lines_with_at[:10]:
         result = check_hibp(x)
         if isinstance(result, list):
             logprint(f"Breaches for {x}:")

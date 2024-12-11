@@ -55,6 +55,7 @@ def email_finder(domain_list_filtered):
 
     #logprint("The result has been saved to " + 'email.json')
     # email_list = email_extract(str(file_path),1)
+    logprint(email_json_list)
     return email_json_list
 
 # def email_extract (file, mode = 0):
@@ -96,7 +97,7 @@ def email_finder(domain_list_filtered):
 
 #test pls comment out when use
 
-#domain_list_filtered = ["sfu.ca","amazon.com"]
+#domain_list_filtered = ["sfu.ca"]
 #email_finder(domain_list_filtered)
 
 # print(email_extract('email.json',1))
