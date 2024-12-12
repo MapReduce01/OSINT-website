@@ -116,18 +116,20 @@ try:
         logprint("No value received!")
         
     process_step = "step0"
-    wiki_name_query = "what is the company(or organization) "+js_value+"\'s name in wikipedia page? Only return me the name, no more other words."
-    wiki_name = wiki_org_name(wiki_name_query)
     params = {
     "org_name": js_value
     }
 
-    res = requests.get("http://127.0.0.1:5000/listOrgInfo", params)
+    res = requests.get("http://0.0.0.0:5000/listOrgInfo", params)
     print(res)
     if "200" in str(res):
         logprint(f"Data already existed in DB. Aborted Inserting.")  
     else:
+        logprint("LLM gathering detailed info...")
+        wiki_name_query = "what is the company(or organization) "+js_value+"\'s name in wikipedia page? Only return me the name, no more other words."
+        wiki_name = wiki_org_name(wiki_name_query)
         user_input, des_answer, insight_answer = get_user_input(js_value)
+        logprint("LLM info searching done.")
 
         with ThreadPoolExecutor() as executor:
             # future_gleif = executor.submit(gleifAPI, user_input)
@@ -189,16 +191,17 @@ try:
         
         process_step = "step3"
         
-        res2 = requests.get("http://127.0.0.1:5000/listOrgInfo", params)
+        res2 = requests.get("http://0.0.0.0:5000/listOrgInfo", params)
         logprint("Start inserting into DB")
         if "200" in str(res2):
             logprint(f"Data already existed in DB. Aborted Inserting.") 
         else:
-            response = requests.post("http://127.0.0.1:5000/addNewOrg", json=data_to_save)      
+            response = requests.post("http://0.0.0.0:5000/addNewOrg", json=data_to_save)      
         process_step = "step4"
         logprint(user_input.title() + " done.")
+        logprint("===================================================================================================")
 
 except Exception as e:
-    print(traceback.format_exc())
+    logprint(traceback.format_exc())
     logprint(js_value.title() + " " +  process_step + " Failed.")
     pass

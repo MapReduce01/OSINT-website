@@ -24,6 +24,7 @@ def clean_dict(d):
 def censys_finder(user_input):
     API_ID = "f8013bed-c783-4320-97be-e0d390cbea7d"
     API_SECRET = "6djq5lM85rMUneVhOp4SBFGnd46Laa4T"
+    logprint("Censys Searching Started")
 
     censys_hosts = CensysHosts(api_id=API_ID, api_secret=API_SECRET)
     query = user_input
@@ -50,6 +51,7 @@ def censys_finder(user_input):
 
     #with open(str(file_path), "w") as json_file:
         #json_file.write(cnesys_json)
+    logprint("Censys Searching Done")
 
     return data
 

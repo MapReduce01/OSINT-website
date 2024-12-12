@@ -358,7 +358,7 @@ function handleSearch() {
     // Create the request payload
     // const sInput = { query: searchInput };
   
-    let getURL = 'http://127.0.0.1:5000/listOrgInfo?org_name='+searchInput
+    let getURL = 'http://0.0.0.0:5000/listOrgInfo?org_name='+searchInput
     
     fetch(getURL, { 
       method: 'GET',
@@ -381,7 +381,7 @@ function handleSearch() {
 	}, 100);
         console.error('There was a problem with the fetch operation:', error);
         
-	fetch("http://127.0.0.1:5000/receive-value", {
+	fetch("http://0.0.0.0:5000/receive-value", {
 	    method: "POST",
 	    headers: {
 		"Content-Type": "application/json"
