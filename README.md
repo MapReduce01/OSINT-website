@@ -12,9 +12,10 @@ Third the IntelliScout offers extensive coverage for different kinds of informat
 ![image](https://github.com/user-attachments/assets/9f327524-5efe-4cfc-aee0-c5c52d4c3df2)
 
 Installation:
+
 <pip install -r requirements.txt>, and put spiderfoot folder from https://github.com/smicallef/spiderfoot in the project root directory. ps:API keys need to be configured first.
 
 Execution:
 
-<python execute.py> to bring up the FastAPI       
+<python "execute.py"> to bring up the FastAPI       
 <\web\index.html> is the index page.
