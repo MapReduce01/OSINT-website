@@ -15,5 +15,6 @@ Installation:
 <pip install -r requirements.txt>, and put spiderfoot folder from https://github.com/smicallef/spiderfoot in the project root directory. ps:API keys need to be configured first.
 
 Execution:
+
 <python execute.py> to bring up the FastAPI       
 <\web\index.html> is the index page.
