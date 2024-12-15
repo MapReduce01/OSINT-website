@@ -15,8 +15,10 @@ Installation:
 
 Modify .env.template to match your Mongodb database and openAI API key, and rename it as .env beforehand.
 
-<pip install -r requirements.txt> to install the requireed packages, and put spiderfoot folder from https://github.com/smicallef/spiderfoot in this project root directory. ps:API keys need to be configured first.
+<pip install -r requirements.txt> to install the requireed packages, and put spiderfoot folder from https://github.com/smicallef/spiderfoot in this project root directory. 
 ![image](https://github.com/user-attachments/assets/c6445bff-4c06-45bc-9290-6f3b7c072e85)
+ps:API keys need to be configured first.
+spiderfoot APIs being used: censys, github, shodan; please refer to the documentation from https://github.com/smicallef/spiderfoot to configure these APIs.
 
 Leaked email INFO should be put under this project root directory as well, and can be downloaded using: mega:///#!wwcyzJia!nkoPKV4o9WQVeVIQWgz3BSZDXGPXleXJowkcG6e7JTQ
 ![image](https://github.com/user-attachments/assets/45fb5fac-5b84-4358-a2e6-6d8342873410)
