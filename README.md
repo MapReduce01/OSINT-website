@@ -13,11 +13,17 @@ Third the IntelliScout offers extensive coverage for different kinds of informat
 
 Installation:
 
-<pip install -r requirements.txt>, and put spiderfoot folder from https://github.com/smicallef/spiderfoot in the project root directory. ps:API keys need to be configured first.
+Modify .env.template to match your Mongodb database and openAI API key, and rename it as .env beforehand.
+
+<pip install -r requirements.txt> to install the requireed packages, and put spiderfoot folder from https://github.com/smicallef/spiderfoot in this project root directory. ps:API keys need to be configured first.
+![image](https://github.com/user-attachments/assets/c6445bff-4c06-45bc-9290-6f3b7c072e85)
+
+Leaked email INFO should be put under this project root directory as well, and can be downloaded using: magnet:?xt=urn:btih:07e8619ccd43aba5208ab8f66204ebf6c4c58838&dn=LinkedIn.rar​
+![image](https://github.com/user-attachments/assets/45fb5fac-5b84-4358-a2e6-6d8342873410)
 
 
 
 Execution:
 
-<python "execute.py"> to bring up the FastAPI       
-<\web\index.html> is the index page.
+<python "execute.py"> to bring up FastAPI       
+<\web\index.html> is the frontend index page.
