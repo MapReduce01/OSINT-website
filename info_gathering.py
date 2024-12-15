@@ -134,7 +134,7 @@ try:
         with ThreadPoolExecutor() as executor:
             # future_gleif = executor.submit(gleifAPI, user_input)
             future_account = executor.submit(account_finder, user_input)
-            #future_censys = executor.submit(censys_finder, user_input)
+            future_censys = executor.submit(censys_finder, user_input)
             future_Ip = executor.submit(get_safe_Ip_merged, wiki_name)
 
         domain_list_filtered, ip_addresses_filtered, ip_safe_list = future_Ip.result()
@@ -147,7 +147,7 @@ try:
             future_email = executor.submit(new_email_finder, main_domain_list)
             future_github = executor.submit(github_finder, main_domain_list)
                 
-        #hibp_result = email_seeker(future_email.result())
+        hibp_result = email_seeker(future_email.result())
         process_step = "step2"
         
         juni_id = js_value.upper().replace(" ","")
