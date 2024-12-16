@@ -30,7 +30,7 @@ However, In recent years, the rapid development of large language models (LLMs),
 2. **Database Check:** IntelliScout checks its existing database for the requested organization.
 3. **Dynamic Search:** If no data is found, the tool activates our search engine to collect data.
 4. **Data Display:** Collected data is stored in the database and displayed to the user via the GUI.
-![image](https://github.com/MapReduce01/OSINT-website/issues/6#issue-2741023982)
+![image](https://github.com/user-attachments/assets/7922bc99-9f7d-49af-90eb-4c3ab9f23682)
 
 
 ## Technologies Used
