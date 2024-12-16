@@ -1,17 +1,57 @@
-# OSINT-website
-IntelliScout
+# IntelliScout
+
+## Overview
 
 Our project focuses on using LLM to help our Open Source Intelligence (OSINT) to collect valuable information about organizations in a structured manner from legal and public sources
 Traditional OSINT tools  often rely on complex decision-making algorithms, mainly used by cybersecurity experts and data analists. 
 However, In recent years, the rapid development of large language models (LLMs), like the GPT series, can change OSINT tools。 With the power of LLMs, these tools can become more user-friendly. LLMs' advanced understanding allow us to turn traditional web crawlers into a security intelligence, enabling every user to access.
 
 
-First, the IntelliScout use LLM to analyze and filter the infos.
-Second, IntelliScout Designed with a user-friendly and intuitive GUI, our tool simplifies complex processes, making it accessible to everyday users.
-Third the IntelliScout offers extensive coverage for different kinds of information, besides that,  you can find nearly 1000 orgs without waiting, in our database now.
+## Core Features
+
+### Advanced Data Analysis and Filtering
+
+- Leverages LLMs to analyze and filter information effectively, turning raw data into actionable intelligence.
+- Context-aware searches: For example, distinguishing between "Apple Inc." and the fruit "Apple."
+
+### Intuitive User Interface
+
+- A user-friendly and intuitive GUI makes the tool accessible to non-experts.
+- Simplifies complex OSINT workflows for seamless use.
+
+### Extensive Coverage
+
+- Comprehensive database with nearly 1,000 organizations pre-indexed for instant access.
+- Supports a wide range of information types, ensuring thorough data collection.
+
+## Workflow
+
+1. **User Input:** Users enter their query, typically an organization name.
+2. **Database Check:** IntelliScout checks its existing database for the requested organization.
+3. **Dynamic Search:** If no data is found, the tool activates our search engine to collect data.
+4. **Data Display:** Collected data is stored in the database and displayed to the user via the GUI.
+
+
+## Technologies Used
+
+### Data Collection Tools
+
+- **Web Crawler:** Extracts domain names from Wikipedia.
+- **Subfinder and Socket API:** Efficiently retrieves sub-domains and IP addresses.
+- **AbuseIPDB & Botvrij:** Cross-check IP safety using database check.
+- **Censys API:** Provides in-depth technical data, including operating systems, locations, and services.
+- **GitHubFinder:** Identifies GitHub accounts to track developer activities.
+- **Email Extraction:** Locates organizational email accounts through leaked information.
+
+### Backend and Infrastructure
+
+- **Programming Language:** Python and JavaScript.
+- **Database:** MongoDB.
+- **Cloud Hosting:** Alibaba Cloud.
+
 ![image](https://github.com/user-attachments/assets/9f327524-5efe-4cfc-aee0-c5c52d4c3df2)
 
-Installation:
+## Installation:
 
 Modify .env.template to match your Mongodb database and openAI API key, and rename it as .env beforehand.
 
@@ -27,7 +67,7 @@ Leaked email INFO should be put under this project root directory as well, and c
 
 
 
-Execution:
+**Execution:**
 
 <python "execute.py"> to bring up FastAPI       
 <\web\index.html> is the frontend index page.
