@@ -30,6 +30,7 @@ However, In recent years, the rapid development of large language models (LLMs),
 2. **Database Check:** IntelliScout checks its existing database for the requested organization.
 3. **Dynamic Search:** If no data is found, the tool activates our search engine to collect data.
 4. **Data Display:** Collected data is stored in the database and displayed to the user via the GUI.
+![image](https://github.com/MapReduce01/OSINT-website/issues/6#issue-2741023982)
 
 
 ## Technologies Used
@@ -50,6 +51,23 @@ However, In recent years, the rapid development of large language models (LLMs),
 - **Cloud Hosting:** Alibaba Cloud.
 
 ![image](https://github.com/user-attachments/assets/9f327524-5efe-4cfc-aee0-c5c52d4c3df2)
+
+## Use Cases
+
+### Security Audits
+
+- Quickly identify network risks by analyzing server types, configurations, TLS settings, open ports, and operating system versions.
+- Cross-reference with CVE databases to highlight vulnerabilities, such as outdated software and insecure protocols.
+
+### Social Engineering Simulations
+
+- Gather employee emails and social media data to craft phishing simulations.
+- Test employee defenses and identify gaps in security.
+
+### Small Business and Individual Security Monitoring
+
+- Affordable and easy-to-use tool for monitoring security risks.
+- Strengthens overall security posture with minimal effort.
 
 ## Installation:
 
