@@ -73,9 +73,8 @@ However, In recent years, the rapid development of large language models (LLMs),
 1. Search for "Simon Fraser University"
 ![image](https://github.com/user-attachments/assets/3426a5e4-e681-4111-b6fa-f07f664fe43f)
 2. Get Info we want
-![image](https://github.com/user-attachments/assets/754f1e94-91e8-4084-85ef-690678e45a7d)
-
 ![image](https://github.com/user-attachments/assets/92b36cad-6f0a-492c-a1a6-06367cd10c96)
+![image](https://github.com/user-attachments/assets/39d286d2-161a-44d9-bfd5-879243890f2f)
 
 
 ## Installation:
@@ -98,3 +97,9 @@ Leaked email INFO should be put under this project root directory as well, and c
 
 <python "execute.py"> to bring up FastAPI       
 <\web\index.html> is the frontend index page.
+
+
+## Contributer
+**MapReduce01**：Jesse Zhou
+**BeardBear02**: Zeph Xiong
+**宇宙之无敌金刚铁拳王**: Jiayu Wen
