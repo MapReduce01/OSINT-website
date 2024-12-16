@@ -76,6 +76,13 @@ However, In recent years, the rapid development of large language models (LLMs),
 ![image](https://github.com/user-attachments/assets/92b36cad-6f0a-492c-a1a6-06367cd10c96)
 ![image](https://github.com/user-attachments/assets/39d286d2-161a-44d9-bfd5-879243890f2f)
 
+## Structure
+### web
+This is the frontend layer, responsible for the user interface and interactions.
+### Utilities
+This is your API layer, specifically designed to fetch and process data.
+### DB_Util
+This is the database utility layer, responsible for managing data storage and queries.
 
 ## Installation:
 
