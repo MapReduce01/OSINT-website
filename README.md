@@ -99,7 +99,7 @@ Leaked email INFO should be put under this project root directory as well, and c
 <\web\index.html> is the frontend index page.
 
 
-## Contributer
+## Contributor
 **MapReduce01**：Jesse Zhou  
 **BeardBear02**: Zeph Xiong  
 **yuwenjiasfu**: Yuwen Jia
