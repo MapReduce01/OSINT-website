@@ -69,6 +69,13 @@ However, In recent years, the rapid development of large language models (LLMs),
 - Affordable and easy-to-use tool for monitoring security risks.
 - Strengthens overall security posture with minimal effort.
 
+## Demo
+1. Search for "Simon Fraser University"
+![image](https://github.com/user-attachments/assets/3426a5e4-e681-4111-b6fa-f07f664fe43f)
+2. Get Info we want
+![image](https://github.com/user-attachments/assets/92b36cad-6f0a-492c-a1a6-06367cd10c96)
+
+
 ## Installation:
 
 Modify .env.template to match your Mongodb database and openAI API key, and rename it as .env beforehand.
