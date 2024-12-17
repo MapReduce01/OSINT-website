@@ -73,8 +73,8 @@ However, In recent years, the rapid development of large language models (LLMs),
 1. Search for "Simon Fraser University"
 ![image](https://github.com/user-attachments/assets/3426a5e4-e681-4111-b6fa-f07f664fe43f)
 2. Get Info we want
-![image](https://github.com/user-attachments/assets/92b36cad-6f0a-492c-a1a6-06367cd10c96)
-![image](https://github.com/user-attachments/assets/39d286d2-161a-44d9-bfd5-879243890f2f)
+![image](https://github.com/user-attachments/assets/0db6955b-8d15-4f4d-a389-d9861c23f70f)
+![image](https://github.com/user-attachments/assets/eb5457c0-2f00-41e7-bd71-210aa7461205)
 
 ## Structure
 ### web
