@@ -2,7 +2,7 @@
 
 ## Overview
 
-http://47.101.46.148:80
+Website: http://47.101.46.148
 
 Our project focuses on using LLM to help our Open Source Intelligence (OSINT) to collect valuable information about organizations in a structured manner from legal and public sources
 Traditional OSINT tools  often rely on complex decision-making algorithms, mainly used by cybersecurity experts and data analists. 
