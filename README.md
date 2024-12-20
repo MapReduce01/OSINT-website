@@ -2,6 +2,8 @@
 
 ## Overview
 
+http://47.101.46.148:80
+
 Our project focuses on using LLM to help our Open Source Intelligence (OSINT) to collect valuable information about organizations in a structured manner from legal and public sources
 Traditional OSINT tools  often rely on complex decision-making algorithms, mainly used by cybersecurity experts and data analists. 
 However, In recent years, the rapid development of large language models (LLMs), like the GPT series, can change OSINT tools。 With the power of LLMs, these tools can become more user-friendly. LLMs' advanced understanding allow us to turn traditional web crawlers into a security intelligence, enabling every user to access.
